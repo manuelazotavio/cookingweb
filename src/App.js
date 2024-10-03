@@ -8,17 +8,13 @@ import Splash from "./screens/Splash";
 import Conta from "./screens/Conta";
 import EditarUser from "./screens/EditarUser";
 import Home from "./screens/Home";
+import '@fontsource/poppins'; 
+import '@fontsource/poppins/600.css';
+import '@fontsource/poppins/800.css';
 import Login from "./screens/Login";
 import { FiHome, FiPlusSquare, FiUser } from "react-icons/fi";
 
-const ReceitaNavigator = () => {
-  return (
-    <Routes>
-      <Route path="/home" element={<Home />} />
-      <Route path="/receita" element={<Receita />} />
-    </Routes>
-  );
-};
+
 
 const MainNavigator = () => {
   return (
@@ -52,11 +48,10 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Splash />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/cadastrar" element={<Cadastrar />} />
+        <Route path="/cadastrar" element={<Cadastrar />} />   
+        <Route path="/home" element={<Home />} /> {/* Rota padrão para Home */}
         <Route path="/editar-user" element={<EditarUser />} />
         <Route path="/editar-receita" element={<EditarReceita />} />
-        <Route path="/home" element={<Home />} /> {/* Rota padrão para Home */}
-        <Route path="/receita" element={<ReceitaNavigator />} />
         <Route path="/criar-receita" element={<CriarReceita />} />
         <Route path="/conta" element={<Conta />} />
         <Route path="/main" element={<MainNavigator />} />

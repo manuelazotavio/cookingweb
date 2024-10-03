@@ -45,8 +45,8 @@ const Login = () => {
   };
 
   return (
-    <div className="login-container">
-      <h1>Login</h1>
+    <div className="loginContainer">
+      <h1 className="titulo">Login</h1>
       <input
         type="email"
         placeholder="Email"
@@ -59,12 +59,12 @@ const Login = () => {
         value={txtPass}
         onChange={(e) => setTxtPass(e.target.value)}
       />
-      <Button onClick={handleLogin} title="Login" />
+      <Button onClick={handleLogin} title="Entrar" />
       <CadastrarBtn onClick={handleCadastrar} title="Cadastrar" />
-      {/* <Modal isOpen={modalVisible} onRequestClose={() => setModalVisible(false)}>
+      <Modal isOpen={modalVisible} onRequestClose={() => setModalVisible(false)}>
         <h2>{modalMessage}</h2>
         <button onClick={() => setModalVisible(false)}>Fechar</button>
-      </Modal> */}
+      </Modal>
     </div>
   );
 };

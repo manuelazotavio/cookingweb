@@ -9,6 +9,7 @@
     text-align: center; /* Alinhamento do texto */
     font-family: 'Poppins', sans-serif; /* Fonte utilizada */
     cursor: pointer; /* Mudar o cursor ao passar o mouse */
+    font-weight: 600;
   }
   
   .custom-button:hover {
