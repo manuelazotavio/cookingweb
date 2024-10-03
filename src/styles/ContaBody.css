@@ -1,0 +1,23 @@
+.title-add {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+  }
+  
+  .usuarios-h1 {
+    margin-bottom: 20px;
+    color: #fff;
+  }
+  
+  .list-user {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    margin-bottom: 20px;
+    max-height: 90vh; /* Ajuste conforme necessário */
+  }
+  
+  .flat-list-user {
+    align-self: center;
+  }
+  

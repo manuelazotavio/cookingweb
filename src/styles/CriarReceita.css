@@ -1,0 +1,62 @@
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .titulo {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .input, .inputDesc, .inputPasso {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+  
+  .inputDesc {
+    height: 100px;
+  }
+  
+  .inputPasso {
+    height: 60px;
+  }
+  
+  .adicionarBtn {
+    padding: 10px;
+    background-color: #FF421D;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-bottom: 15px;
+  }
+  
+  .passoContainer {
+    display: flex;
+    align-items: flex-start;
+  }
+  
+  .passoNumero {
+    font-weight: bold;
+    margin-right: 10px;
+  }
+  
+  .button {
+    padding: 10px;
+    background-color: #FF421D;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  

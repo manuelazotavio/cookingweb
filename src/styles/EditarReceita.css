@@ -1,0 +1,45 @@
+.container {
+    background-color: white;
+    padding: 20px;
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+  }
+  
+  .input, .inputPasso {
+    height: 40px;
+    width: 100%;
+    background-color: #ededed;
+    margin-bottom: 18px;
+    padding: 10px;
+    border-radius: 10px;
+  }
+  
+  .inputDesc {
+    height: 90px;
+    width: 100%;
+    background-color: #ededed;
+    margin-bottom: 18px;
+    padding: 10px;
+    border-radius: 10px;
+  }
+  
+  .passoContainer {
+    display: flex;
+    align-items: center;
+  }
+  
+  .passoNumero {
+    width: 30px;
+    margin-right: 10px;
+    font-weight: bold;
+  }
+  
+  .buttonGroup {
+    display: flex;
+    justify-content: space-between;
+  }
+  

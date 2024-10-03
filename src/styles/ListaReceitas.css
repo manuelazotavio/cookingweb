@@ -1,0 +1,10 @@
+.list-receita {
+    max-width: 100%;
+    overflow-x: auto; /* Permite rolagem horizontal */
+    display: flex; /* Usar flexbox para layout horizontal */
+  }
+  
+  .flat-list-receita {
+    display: flex; /* Alinhando os itens em linha */
+  }
+  
