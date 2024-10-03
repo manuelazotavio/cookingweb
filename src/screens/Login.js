@@ -28,67 +28,42 @@ const Login = () => {
         localStorage.setItem("userLogged", JSON.stringify({ ...data.user, token: data.token })); // Usando localStorage
         localStorage.setItem("username", data.user.name);
         localStorage.setItem("userId", data.user.id);
-        
-        navigate("/Main");
+        navigate("/home"); // Redireciona para a página inicial após o login
       } else {
-        const data = await response.json();
-        if (response.status === 401) {
-          setModalMessage("Usuário não encontrado.");
-          setModalVisible(true);
-        }
-        if (response.status === 400) {
-          let errorMessage = '';
-          for (let field in data.fields) {
-            errorMessage += data.fields[field].messages[0] + ' ';
-          }
-          setModalMessage(errorMessage.trim());
-          setModalVisible(true);
-        }
+        const errorData = await response.json();
+        setModalMessage(errorData.message);
+        setModalVisible(true);
       }
     } catch (error) {
-      console.log(error);
+      setModalMessage("Erro ao fazer login. Tente novamente.");
+      setModalVisible(true);
     }
   };
 
+  const handleCadastrar = () => {
+    navigate("/cadastrar"); // Redireciona para a página de cadastro
+  };
+
   return (
-    <div className="loginContainer">
-      <h1 className="titulo">Entrar</h1>
-
+    <div className="login-container">
+      <h1>Login</h1>
       <input
-        className="input"
-        placeholder="Email..."
-        onChange={(e) => setTxtEmail(e.target.value)}
+        type="email"
+        placeholder="Email"
         value={txtEmail}
+        onChange={(e) => setTxtEmail(e.target.value)}
       />
       <input
-        className="input"
-        placeholder="Senha..."
-        onChange={(e) => setTxtPass(e.target.value)}
-        value={txtPass}
         type="password"
+        placeholder="Senha"
+        value={txtPass}
+        onChange={(e) => setTxtPass(e.target.value)}
       />
-
-      <Button title="Entrar" onClick={handleLogin} />
-      <div className="descricao">
-        <span className="texto">Não possui um cadastro?</span>
-      </div>
-      <CadastrarBtn
-        title="Cadastre-se"
-        onClick={() => navigate("/Cadastrar")}
-      />
-  
-
-      {/* <Modal
-        isOpen={modalVisible}
-        onRequestClose={() => setModalVisible(false)}
-        contentLabel="Login Error"
-      >
-        <div className="modalView">
-          <p className="modalText">{modalMessage}</p>
-          <button onClick={() => setModalVisible(false)} className="buttonClose">
-            Tentar novamente
-          </button>
-        </div>
+      <Button onClick={handleLogin} title="Login" />
+      <CadastrarBtn onClick={handleCadastrar} title="Cadastrar" />
+      {/* <Modal isOpen={modalVisible} onRequestClose={() => setModalVisible(false)}>
+        <h2>{modalMessage}</h2>
+        <button onClick={() => setModalVisible(false)}>Fechar</button>
       </Modal> */}
     </div>
   );
