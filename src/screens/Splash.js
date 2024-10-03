@@ -19,7 +19,7 @@ const Splash = () => {
           delete data.token;
           login(data, token);
           setTimeout(() => {
-            navigate('/main'); // Usando navigate para redirecionar
+            navigate('/home'); // Usando navigate para redirecionar
           }, 2000);
         } else {
           setTimeout(() => {
