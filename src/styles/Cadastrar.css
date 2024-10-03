@@ -3,33 +3,28 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 0 auto;
-    width: 100%;
-    max-width: 400px;
+    align-self: center;
+    width: auto;
     background-color: #ffffff;
     padding: 20px;
+    height: 80vh;
   }
   
   .titulo {
     font-family: 'Poppins', sans-serif;
-    font-size: 24px;
-    font-weight: 900;
+    font-size: 30px;
+    font-weight: 800;
     color: #333;
-    margin-bottom: 20px;
   }
   
-  .form {
-    width: 100%;
-  }
   
-  .input {
-    width: 100%;
+  input {
+    width: 30%;
     height: 40px;
     padding: 10px;
-    margin-bottom: 15px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    font-size: 16px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    border: none;
   }
   
   .button {
@@ -50,44 +45,4 @@
     background-color: #d93b17;
   }
   
-  .modalView {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .modalContent {
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
-    width: 80%;
-    max-width: 300px;
-  }
-  
-  .modalText {
-    margin-bottom: 20px;
-    font-family: 'Poppins', sans-serif;
-    font-size: 18px;
-    font-weight: 600;
-  }
-  
-  .closeButton {
-    background-color: #FF421D;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .closeButton:hover {
-    background-color: #d93b17;
-  }
   

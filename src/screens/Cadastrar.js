@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { useNavigate } from 'react-router-dom';
-import '../styles/Cadastrar.css';
-import Button from '../components/Button'; // Supondo que o botão esteja em um diretório 'components'
+import { useNavigate } from "react-router-dom";
+import "../styles/Cadastrar.css";
+import Button from "../components/Button"; // Supondo que o botão esteja em um diretório 'components'
 
 const Cadastrar = () => {
   const [modalMessage, setModalMessage] = useState("");
@@ -45,40 +45,39 @@ const Cadastrar = () => {
   return (
     <div className="container">
       <h1 className="titulo">Cadastrar</h1>
-      <div className="form">
-        <input
-          className="input"
-          placeholder="Nome..."
-          onChange={(e) => setTxtName(e.target.value)}
-          value={txtName}
-        />
-        <input
-          className="input"
-          placeholder="Email..."
-          onChange={(e) => setTxtEmail(e.target.value)}
-          value={txtEmail}
-        />
-        <input
-          type="password"
-          className="input"
-          placeholder="Senha..."
-          onChange={(e) => setTxtPass(e.target.value)}
-          value={txtPass}
-        />
-        <input
-          className="input"
-          placeholder="Avatar..."
-          onChange={(e) => setTxtAvatar(e.target.value)}
-          value={txtAvatar}
-        />
-        {/* Substituindo o botão padrão pelo componente Button */}
-        <Button title="Cadastrar" onClick={postUser} className="button">
-        </Button>
-        <Button className="button" title="Voltar" onClick={() => navigate("/login")}>
-
-        </Button>
-      </div>
-      {modalVisible && (
+      <input
+        className="input"
+        placeholder="Nome..."
+        onChange={(e) => setTxtName(e.target.value)}
+        value={txtName}
+      />
+      <input
+        className="input"
+        placeholder="Email..."
+        onChange={(e) => setTxtEmail(e.target.value)}
+        value={txtEmail}
+      />
+      <input
+        type="password"
+        className="input"
+        placeholder="Senha..."
+        onChange={(e) => setTxtPass(e.target.value)}
+        value={txtPass}
+      />
+      <input
+        className="input"
+        placeholder="Avatar..."
+        onChange={(e) => setTxtAvatar(e.target.value)}
+        value={txtAvatar}
+      />
+      {/* Substituindo o botão padrão pelo componente Button */}
+      <Button title="Cadastrar" onClick={postUser} className="button"></Button>
+      <Button
+        className="button"
+        title="Voltar"
+        onClick={() => navigate("/login")}
+      ></Button>
+      {/* {modalVisible && (
         <div className="centeredView">
           <div className="modalView">
             <p className="modalText">{modalMessage}</p>
@@ -90,7 +89,7 @@ const Cadastrar = () => {
             </Button>
           </div>
         </div>
-      )}
+      )} */}
     </div>
   );
 };
