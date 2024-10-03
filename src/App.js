@@ -56,12 +56,13 @@ export default function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/splash" element={<Splash />} />
+        <Route path="/" element={<Splash />} />
         <Route path="/login" element={<Login />} />
         <Route path="/cadastrar" element={<Cadastrar />} />
         <Route path="/editar-user" element={<EditarUser />} />
         <Route path="/editar-receita" element={<EditarReceita />} />
-        <Route path="/" element={<Home />} /> {/* Rota padrão para Home */}
+        <Route path="/Home" element={<Home />} /> {/* Rota padrão para Home */}
+
         <Route path="/main" element={<MainNavigator />} />
       </Routes>
     </Router>

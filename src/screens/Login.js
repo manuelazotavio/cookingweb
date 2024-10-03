@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom"; // Para navegação
-import Modal from "react-modal"; // Instale a biblioteca react-modal para modais
+import Modal from "react-modal"; 
 import Button from "../components/Button.js"; // Verifique se está adaptado para React
 import CadastrarBtn from "../components/CadastrarBtn.js"; // Verifique se está adaptado para React
 import "../styles/Login.css";  // Crie um arquivo CSS separado para estilos
@@ -76,8 +76,9 @@ const Login = () => {
         title="Cadastre-se"
         onClick={() => navigate("/Cadastrar")}
       />
+  
 
-      <Modal
+      {/* <Modal
         isOpen={modalVisible}
         onRequestClose={() => setModalVisible(false)}
         contentLabel="Login Error"
@@ -88,7 +89,7 @@ const Login = () => {
             Tentar novamente
           </button>
         </div>
-      </Modal>
+      </Modal> */}
     </div>
   );
 };
