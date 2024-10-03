@@ -77,7 +77,7 @@ const Home = () => {
         <h1 className="titulo">Suas receitas</h1>
         <div style={{ backgroundColor: "white", textAlign: "center" }}>
           <p className="splash">Você ainda não criou nenhuma receita.</p>
-          <AdicionarBtn title={"Criar"} onClick={() => navigate("/CriarReceita")} /> {/* Usando navigate para redirecionar */}
+          <AdicionarBtn title={"Criar"} onClick={() => navigate("/criar-receita")} /> 
         </div>
       </div>
     );

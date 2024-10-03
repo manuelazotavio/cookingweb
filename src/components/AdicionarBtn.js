@@ -2,9 +2,9 @@ import React from 'react';
 import { FaPlus } from 'react-icons/fa'; 
 import '../styles/AdicionarBtn.css';
 
-const AdicionarBtn = ({ title, onPress }) => {
+const AdicionarBtn = ({ title, onClick }) => {
   return (
-    <button className="custom-button" onClick={onPress}>
+    <button className="custom-button" onClick={onClick}>
       <FaPlus className="icon" />
       <span className="text-button">{title}</span>
     </button>

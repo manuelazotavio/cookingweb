@@ -1,15 +1,15 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import CriarReceita from './screens/CriarReceita';
-import Receita from './screens/Receita';
-import Cadastrar from './screens/Cadastrar';
-import EditarReceita from './screens/EditarReceita';
-import Splash from './screens/Splash';
-import Conta from './screens/Conta';
-import EditarUser from './screens/EditarUser';
-import Home from './screens/Home';
-import Login from './screens/Login';
-import { FiHome, FiPlusSquare, FiUser } from 'react-icons/fi';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import CriarReceita from "./screens/CriarReceita";
+import Receita from "./screens/Receita";
+import Cadastrar from "./screens/Cadastrar";
+import EditarReceita from "./screens/EditarReceita";
+import Splash from "./screens/Splash";
+import Conta from "./screens/Conta";
+import EditarUser from "./screens/EditarUser";
+import Home from "./screens/Home";
+import Login from "./screens/Login";
+import { FiHome, FiPlusSquare, FiUser } from "react-icons/fi";
 
 const ReceitaNavigator = () => {
   return (
@@ -42,12 +42,6 @@ const MainNavigator = () => {
           </li>
         </ul>
       </nav>
-
-      <Routes>
-        <Route path="/receita" element={<ReceitaNavigator />} />
-        <Route path="/criar-receita" element={<CriarReceita />} />
-        <Route path="/conta" element={<Conta />} />
-      </Routes>
     </div>
   );
 };
@@ -62,7 +56,9 @@ export default function App() {
         <Route path="/editar-user" element={<EditarUser />} />
         <Route path="/editar-receita" element={<EditarReceita />} />
         <Route path="/home" element={<Home />} /> {/* Rota padrão para Home */}
-
+        <Route path="/receita" element={<ReceitaNavigator />} />
+        <Route path="/criar-receita" element={<CriarReceita />} />
+        <Route path="/conta" element={<Conta />} />
         <Route path="/main" element={<MainNavigator />} />
       </Routes>
     </Router>

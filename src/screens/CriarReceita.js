@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import authFetch from "../helpers/authFetch.js";
 import '../styles/CriarReceita.css';
 
 const CriarReceita = () => {
@@ -12,7 +13,7 @@ const CriarReceita = () => {
 
   const postReceita = async () => {
     try {
-      const result = await fetch("https://backcooking.onrender.com/receita", {
+      const result = await authFetch("https://backcooking.onrender.com/receita", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
