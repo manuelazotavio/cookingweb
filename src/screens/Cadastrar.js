@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import '../styles/Cadastrar.css';
+import Button from '../components/Button'; // Supondo que o botão esteja em um diretório 'components'
 
 const Cadastrar = () => {
   const [modalMessage, setModalMessage] = useState("");
@@ -70,23 +71,23 @@ const Cadastrar = () => {
           onChange={(e) => setTxtAvatar(e.target.value)}
           value={txtAvatar}
         />
-        <button onClick={postUser} className="button">
-          Cadastrar
-        </button>
-        <button className="button" onClick={() => console.log("Voltar para Login")}>
-          Voltar
-        </button>
+        {/* Substituindo o botão padrão pelo componente Button */}
+        <Button title="Cadastrar" onClick={postUser} className="button">
+        </Button>
+        <Button className="button" title="Voltar" onClick={() => navigate("/login")}>
+
+        </Button>
       </div>
       {modalVisible && (
         <div className="centeredView">
           <div className="modalView">
             <p className="modalText">{modalMessage}</p>
-            <button
+            <Button
               className="buttonClose"
               onClick={() => setModalVisible(!modalVisible)}
             >
               Tentar novamente
-            </button>
+            </Button>
           </div>
         </div>
       )}

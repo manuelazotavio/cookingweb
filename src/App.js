@@ -61,7 +61,7 @@ export default function App() {
         <Route path="/cadastrar" element={<Cadastrar />} />
         <Route path="/editar-user" element={<EditarUser />} />
         <Route path="/editar-receita" element={<EditarReceita />} />
-        <Route path="/Home" element={<Home />} /> {/* Rota padrão para Home */}
+        <Route path="/home" element={<Home />} /> {/* Rota padrão para Home */}
 
         <Route path="/main" element={<MainNavigator />} />
       </Routes>
