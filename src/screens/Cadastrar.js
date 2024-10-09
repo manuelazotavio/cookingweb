@@ -43,29 +43,29 @@ const Cadastrar = () => {
   };
 
   return (
-    <div className="container">
+    <div className="cadastrar-container">
       <h1 className="titulo">Cadastrar</h1>
       <input
-        className="input"
+        className="input-cadastrar"
         placeholder="Nome..."
         onChange={(e) => setTxtName(e.target.value)}
         value={txtName}
       />
       <input
-        className="input"
+        className="input-cadastrar"
         placeholder="Email..."
         onChange={(e) => setTxtEmail(e.target.value)}
         value={txtEmail}
       />
       <input
         type="password"
-        className="input"
+        className="input-cadastrar"
         placeholder="Senha..."
         onChange={(e) => setTxtPass(e.target.value)}
         value={txtPass}
       />
       <input
-        className="input"
+        className="input-cadastrar"
         placeholder="Avatar..."
         onChange={(e) => setTxtAvatar(e.target.value)}
         value={txtAvatar}

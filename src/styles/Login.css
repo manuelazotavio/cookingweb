@@ -3,7 +3,7 @@
     width: auto;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Alinha verticalmente ao centro */
+    justify-content: center; 
     align-items: center;
     padding: 20px;
     height: 80vh;
@@ -25,9 +25,18 @@
     align-self: center;
     font-weight: 800;
     margin-top: 40px;
-    margin-bottom: 10px; /* Adiciona espaço abaixo do título */
+    margin-bottom: 10px; 
   }
   
   .descricao {
     padding: 10px 0;
   }
+
+/* Mobile */
+
+@media (max-width: 1120px) {
+  input{
+    width: 65%;
+  }
+}
+
