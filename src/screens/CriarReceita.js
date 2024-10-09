@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import authFetch from "../helpers/authFetch.js";
 import '../styles/CriarReceita.css';
+import AdicionarBtn from "../components/AdicionarBtn.js";
+import Button from "../components/Button.js";
 
 const CriarReceita = () => {
   const [txtName, setTxtName] = useState("");
@@ -61,11 +63,11 @@ const CriarReceita = () => {
   };
 
   return (
-    <div className="container">
+    <div className="container-criar">
       <h1 className="titulo">Crie sua receita!</h1>
       <div className="form">
         <input
-          className="input"
+          className="input-criar"
           type="text"
           placeholder="Título da Receita"
           onChange={(e) => setTxtName(e.target.value)}
@@ -78,20 +80,21 @@ const CriarReceita = () => {
           value={txtDescricao}
         />
         
-        <h2 className="subtitulo">Ingredientes</h2>
+        <h2 className="subtitulo-criar">Ingredientes</h2>
         {ingredientes.map((ingrediente, index) => (
           <input
             key={index}
-            className="input"
+            className="input-criar"
             type="text"
             placeholder="250g de açúcar"
             onChange={(e) => handleIngredienteChange(e.target.value, index)}
             value={ingrediente}
           />
         ))}
-        <button className="adicionarBtn" onClick={addIngrediente}>Adicionar Ingrediente</button>
 
-        <h2 className="subtitulo">Passo a passo</h2>
+        <AdicionarBtn title={"Adicionar Ingrediente"} onClick={addIngrediente} />
+
+        <h2 className="subtitulo-criar">Passo a passo</h2>
         {passos.map((passo, index) => (
           <div key={index} className="passoContainer">
             <span className="passoNumero">{index + 1}.</span>
@@ -103,11 +106,12 @@ const CriarReceita = () => {
             />
           </div>
         ))}
-        <button className="adicionarBtn" onClick={addPasso}>Adicionar Passo</button>
+  
+        <AdicionarBtn title={"Adicionar Passo"} onClick={addPasso} />
 
         <label>Porções</label>
         <input
-          className="input"
+          className="input-criar"
           type="text"
           placeholder="2 pessoas"
           onChange={(e) => setTxtPorcao(e.target.value)}
@@ -116,7 +120,7 @@ const CriarReceita = () => {
         
         <label>Tempo de preparo</label>
         <input
-          className="input"
+          className="input-criar"
           type="text"
           placeholder="1h e 30min"
           onChange={(e) => setTxtTempo(e.target.value)}
@@ -125,14 +129,15 @@ const CriarReceita = () => {
 
         <label>Avaliação</label>
         <input
-          className="input"
+          className="input-criar"
           type="text"
           placeholder="4.5"
           onChange={(e) => setTxtAvaliacao(e.target.value)}
           value={txtAvaliacao}
         />
 
-        <button className="button" onClick={postReceita}>Publicar</button>
+  
+        <Button title={"Publicar"} onClick={postReceita}/>
       </div>
     </div>
   );

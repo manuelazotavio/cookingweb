@@ -88,7 +88,7 @@ const Home = () => {
       <h1 className="titulo">Suas receitas</h1>
       <div style={{ backgroundColor: "white" }}>
         <ListaReceitas receitas={receitas} />
-        <h2 className="tituloFav">Receitas favoritas</h2>
+        <h1 className="tituloFav">Receitas favoritas</h1>
         <ListaReceitas receitas={receitasFavoritas} />
       </div>
     </div>

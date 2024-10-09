@@ -1,45 +1,51 @@
-.container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-  }
+.container-criar {
+  background-color: #fff;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center;
+  padding: 20px;
   
+}
   .titulo {
     font-size: 2rem;
     font-weight: bold;
     margin-bottom: 20px;
   }
   
+  .subtitulo-criar{
+    font-family:'Poppins';
+    font-weight: 600;
+  }
+ 
+
   .form {
     display: flex;
     flex-direction: column;
+    font-weight: 600;
+    font-family: 'Poppins';
   }
   
-  .input, .inputDesc, .inputPasso {
+  .input-criar, .inputDesc, .inputPasso {
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
-    border: 1px solid #ccc;
+    border: none;
     border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
   }
   
   .inputDesc {
     height: 100px;
+    font-family: 'Poppins', sans-serif;
   }
   
   .inputPasso {
     height: 60px;
+    font-family: 'Poppins', sans-serif;
   }
   
-  .adicionarBtn {
-    padding: 10px;
-    background-color: #FF421D;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    margin-bottom: 15px;
-  }
   
   .passoContainer {
     display: flex;
@@ -47,8 +53,9 @@
   }
   
   .passoNumero {
-    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
     margin-right: 10px;
+    font-weight: 600;
   }
   
   .button {
