@@ -53,6 +53,8 @@ export default function App() {
         <Route path="/editar-user" element={<EditarUser />} />
         <Route path="/editar-receita" element={<EditarReceita />} />
         <Route path="/criar-receita" element={<CriarReceita />} />
+        
+        <Route path="/receita" element={<Receita />} />
         <Route path="/conta" element={<Conta />} />
         <Route path="/main" element={<MainNavigator />} />
       </Routes>
