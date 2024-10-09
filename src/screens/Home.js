@@ -74,23 +74,23 @@ const Home = () => {
   if (receitas.length === 0) {
     return (
       <div className="containerSplash">
-        <h1 className="titulo">Suas receitas</h1>
-        <div style={{ backgroundColor: "white", textAlign: "center" }}>
+        <h1 className="titulo-home">Suas receitas</h1>
+       
           <p className="splash">Você ainda não criou nenhuma receita.</p>
           <AdicionarBtn title={"Criar"} onClick={() => navigate("/criar-receita")} /> 
-        </div>
+      
       </div>
     );
   }
 
   return (
-    <div className="container">
-      <h1 className="titulo">Suas receitas</h1>
-      <div style={{ backgroundColor: "white" }}>
+    <div className="container-home">
+      <h1 className="titulo-home">Suas receitas</h1>
+   
         <ListaReceitas receitas={receitas} />
         <h1 className="tituloFav">Receitas favoritas</h1>
         <ListaReceitas receitas={receitasFavoritas} />
-      </div>
+     
     </div>
   );
 };

@@ -1,16 +1,14 @@
-.container {
-    flex: 1;
-    justify-content: flex-start;
-    background-color: white;
-    padding: 20px;
+.container-home {
+  background-color: #fff;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center;
+  padding: 20px;
+ 
   }
   
-  .containerLoading {
-    flex: 1;
-    justify-content: center;
-    align-items: center;
-    background-color: #fff082;
-  }
   
   .containerSplash {
     flex: 1;
@@ -19,17 +17,14 @@
     background-color: white;
     padding: 20px;
   }
+
   
-  .splash {
-    font-size: 18px;
-    padding: 20px;
-  }
-  
-  .titulo {
-    font-family: "Poppins", sans-serif;
+  .titulo-home {
+    font-family: 'Poppins';
     font-size: 30px;
     margin-top: 40px;
-    align-self: flex-start;
+    font-weight: 800;
+    align-self: center;
   }
   
   .tituloFav {

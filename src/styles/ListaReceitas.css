@@ -1,10 +1,29 @@
+/* Estilo para o contêiner da lista de receitas */
 .list-receita {
-    max-width: 100%;
-    overflow-x: auto; /* Permite rolagem horizontal */
-    display: flex; /* Usar flexbox para layout horizontal */
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Responsivo */
+  gap: 20px; /* Espaçamento entre os itens */
+  padding: 20px;
+}
+
+/* Estilo para cada item de receita */
+.receita-item {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Media queries para ajustar o número de colunas em diferentes tamanhos de tela */
+@media (min-width: 768px) {
+  .list-receita {
+    grid-template-columns: repeat(2, 1fr); /* 2 colunas em telas médias */
   }
-  
-  .flat-list-receita {
-    display: flex; /* Alinhando os itens em linha */
+}
+
+@media (min-width: 1024px) {
+  .list-receita {
+    grid-template-columns: repeat(3, 1fr); /* 3 colunas em telas grandes */
   }
-  
+}
