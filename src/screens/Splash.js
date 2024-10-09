@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import loading from '../img/loading.gif'
 import useUserLoggedStore from '../stores/useUserLoggedStore.js';
 import "../styles/Splash.css";  // Certifique-se de ter um arquivo CSS para os estilos
 
@@ -35,8 +36,8 @@ const Splash = () => {
   }, []); 
 
   return (
-    <div className="container">
-      <img src={require('../img/loading.gif')} alt="Loading" />
+    <div className="container-splash">
+      <img src={loading} alt="Loading" />
     </div>
   );
 };
