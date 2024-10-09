@@ -3,7 +3,8 @@
     flex-direction: column;
     align-items: center;
     border-radius: 20px;
-    padding: 10px;
+    background-color: #fff;
+    padding: 20px;
     width: 300px;
     cursor: pointer; /* Mudança do cursor para indicar que é clicável */
   }

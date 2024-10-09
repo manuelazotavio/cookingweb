@@ -12,6 +12,7 @@ import authFetch from "../helpers/authFetch";
 import "../styles/Receita.css";
 import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import Swal from 'sweetalert2'
 import receitaFoto from "../img/download.jpg";
 
 const Receita = () => {
@@ -130,6 +131,24 @@ const Receita = () => {
     }
   };
 
+  //Modal deletar receita
+  const showModal = () => {
+    Swal.fire({
+      text: 'Tem certeza que deseja excluir sua receita?',
+      icon: 'warning',
+      confirmButtonText: 'Sim',
+      showCancelButton: true,
+      cancelButtonText: "Voltar",
+      confirmButtonColor: "#ff421d"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        removeReceita();
+        console.log("Receita removida com sucesso.") 
+        navigate("/home")
+      }
+    });
+  };
+
   return (
     <div className="tela-receita-container">
       <div className="content-wrapper">
@@ -155,7 +174,7 @@ const Receita = () => {
           </div>
 
           <div className="icon-container">
-            <a className="icone" onClick={() => setModalVisible(true)}>
+            <a className="icone" onClick={showModal}>
               <FontAwesomeIcon icon={faTrashCan} size={19} />
             </a>
             {isFavorited ? (
