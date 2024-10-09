@@ -10,6 +10,7 @@ const Splash = () => {
   useEffect(() => {
     const checkUserLogged = () => {
       try {
+        console.log("entrei checkUserLogged")
         const dataFound = localStorage.getItem('userLogged');
         console.log('dataFound:', dataFound);
         if (dataFound) {
@@ -31,7 +32,7 @@ const Splash = () => {
       }
     };
     checkUserLogged();
-  }, [login, navigate]); 
+  }, []); 
 
   return (
     <div className="container">

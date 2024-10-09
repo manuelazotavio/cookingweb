@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import authFetch from "../helpers/authFetch.js";
+import { useNavigate } from "react-router-dom"; // Para navegação
 import '../styles/CriarReceita.css';
 import AdicionarBtn from "../components/AdicionarBtn.js";
+import useUserLoggedStore from "../stores/useUserLoggedStore.js";
 import Button from "../components/Button.js";
 
 const CriarReceita = () => {
@@ -13,14 +15,21 @@ const CriarReceita = () => {
   const [ingredientes, setIngredientes] = useState([""]);
   const [passos, setPassos] = useState([""]);
 
+  const userId = useUserLoggedStore(state => state.id);
+
+  const navigate = useNavigate();
+
   const postReceita = async () => {
     try {
+      console.log("meu userID é" + userId)
       const result = await authFetch("https://backcooking.onrender.com/receita", {
+        
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
+          userId,
           name: txtName,
           descricao: txtDescricao,
           porcoes: txtPorcao,
@@ -33,10 +42,10 @@ const CriarReceita = () => {
       const data = await result.json();
       if (data?.success) {
         console.log("Receita publicada!");
-      } else {
-        console.log("Erro ao publicar.");
-      }
+        navigate("/home")
+      } 
     } catch (error) {
+      console.log("estou no catch")
       console.error("Error postReceita: " + error.message);
       alert(error.message);
     }
