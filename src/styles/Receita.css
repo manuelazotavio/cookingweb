@@ -100,7 +100,12 @@ body{
   .instrucoes {
     padding: 5px 0px;
   }
-  
+  .icone:hover{
+
+      transform: scale(1.05);
+      transition: 0.5s;
+      
+  }
   .modal {
     position: fixed;
     top: 50%;

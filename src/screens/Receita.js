@@ -183,7 +183,7 @@ const Receita = () => {
               </a>
             ) : (
               <a className="icone" onClick={favReceita}>
-                <FontAwesomeIcon icon={faHeart} size={19} color="#000" />{" "}
+                <FontAwesomeIcon icon={faHeart} size={19} color="#8a8a8a" />{" "}
               </a>
             )}
             <a

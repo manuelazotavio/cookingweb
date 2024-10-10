@@ -13,6 +13,7 @@ import '@fontsource/poppins/600.css';
 import '@fontsource/poppins/800.css';
 import Login from "./screens/Login";
 import { FiHome, FiPlusSquare, FiUser } from "react-icons/fi";
+import Header from "./components/Header";
 
 
 
@@ -45,6 +46,7 @@ const MainNavigator = () => {
 export default function App() {
   return (
     <Router>
+      <Header />
       <Routes>
         <Route path="/" element={<Splash />} />
         <Route path="/login" element={<Login />} />
