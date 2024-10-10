@@ -1,4 +1,4 @@
-/* Header.css */
+Header.css
 
 .header {
     display: flex;
@@ -20,8 +20,18 @@
     color: inherit;
   }
   
+  .menu-toggle {
+    display: none;
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
   .nav {
     display: flex;
+    justify-content: center;
+    align-items: center;
   }
   
   .nav-list {
@@ -47,13 +57,30 @@
   
   /* Responsividade */
   @media (max-width: 768px) {
-    .nav-list {
+    .menu-toggle {
+      display: block;
+    }
+  
+    .nav {
+      display: none;
       flex-direction: column;
       align-items: center;
+      width: 100%;
+    }
+  
+    .nav.open {
+      display: flex;
+    }
+  
+    .nav-list {
+      flex-direction: column;
+      width: 100%;
     }
   
     .nav-item {
       margin-left: 0;
       margin-bottom: 10px;
+      width: 100%;
+      text-align: center;
     }
   }

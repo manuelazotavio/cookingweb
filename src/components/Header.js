@@ -1,14 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/Header.css';
 
 const Header = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
     <header className="header">
       <div className="logo">
         <Link to="/">CookingWeb</Link>
       </div>
-      <nav className="nav">
+      <button className="menu-toggle" onClick={toggleMenu}>
+        ☰
+      </button>
+      <nav className={`nav ${isMenuOpen ? 'open' : ''}`}>
         <ul className="nav-list">
           <li className="nav-item">
             <Link to="/home">Home</Link>

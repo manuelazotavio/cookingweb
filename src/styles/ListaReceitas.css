@@ -4,16 +4,10 @@
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Responsivo */
   gap: 20px; /* Espaçamento entre os itens */
   padding: 20px;
+  justify-content: center; /* Centraliza os itens horizontalmente */
 }
 
-/* Estilo para cada item de receita */
-.receita-item {
-  background-color: #f9f9f9;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  text-align: center;
-}
+
 
 /* Media queries para ajustar o número de colunas em diferentes tamanhos de tela */
 @media (min-width: 768px) {
@@ -26,4 +20,16 @@
   .list-receita {
     grid-template-columns: repeat(3, 1fr); /* 3 colunas em telas grandes */
   }
+}
+
+@media (max-width: 422px) {
+  .list-receita {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    align-items: center; /* Centraliza os itens verticalmente */
+    padding: 10px; /* Ajusta o padding para telas menores */
+  }
+
+  
 }

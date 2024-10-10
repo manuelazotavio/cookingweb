@@ -1,5 +1,4 @@
 .container-home {
- 
   width: auto;
   display: flex;
   flex-direction: column;
@@ -34,3 +33,17 @@
     align-self: center;
   }
   
+@media (max-width: 420px) {
+  .container-home{
+    width: 100%;
+    
+  }
+}
+  
+
+@media (max-width: 300px) {
+  .container-home{
+    width: 100%;
+   
+  }
+}

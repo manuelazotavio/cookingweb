@@ -8,6 +8,15 @@
     width: 300px;
     cursor: pointer; /* Mudança do cursor para indicar que é clicável */
   }
+
+  @media (max-width: 420px) {
+    .card{
+      width: 100%; /* Garante que os itens ocupem toda a largura disponível */
+    max-width: 250px; /* Define uma largura máxima para os itens */
+    margin-bottom: 20px; 
+    }
+    
+  }
   
   .foto-img {
     width: 100%;
