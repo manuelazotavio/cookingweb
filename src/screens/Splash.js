@@ -37,7 +37,7 @@ const Splash = () => {
 
   return (
     <div className="container-splash">
-      <img src={loading} alt="Loading" />
+      <img src={loading} alt="Loadingggg" />
     </div>
   );
 };

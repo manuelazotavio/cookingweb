@@ -4,6 +4,7 @@ import ListaReceitas from "../components/ListaReceitas.js";
 import AdicionarBtn from "../components/AdicionarBtn.js"; 
 import authFetch from "../helpers/authFetch.js";
 import "../styles/Home.css"; 
+import loading from '../img/download.jpg'
 
 const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -66,9 +67,9 @@ const Home = () => {
 
   if (isLoading) {
     return (
-      <div className="containerLoading">
-        <img src={require("../img/loading.gif").default} alt="Loading..." />
-      </div>
+      
+        <img src={loading} alt="Loading....." />
+      
     );
   }
 
@@ -86,7 +87,7 @@ const Home = () => {
     <div className="container-home">
       <h1 className="titulo-home">Suas receitas</h1>
       <ListaReceitas receitas={receitas} />
-      <h1 className="tituloFav">Receitas favoritas</h1>
+      <h1 id="receitasFav" className="tituloFav">Receitas favoritas</h1>
       <ListaReceitas receitas={receitasFavoritas} />
     </div>
   );
