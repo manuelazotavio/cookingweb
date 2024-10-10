@@ -72,11 +72,11 @@ const EditarReceita = () => {
   };
 
   return (
-    <div className="container">
-      <h1>Edite sua receita!</h1>
+    <div className="container-editar-receita">
+      <h1 className="titulo-edit-receita">Edite sua receita!</h1>
       <form className="form">
         <input
-          className="input"
+          className="input-criar"
           placeholder="Título da Receita"
           onChange={(e) => setTxtName(e.target.value)}
           value={txtName}
@@ -88,11 +88,11 @@ const EditarReceita = () => {
           value={txtDescricao}
         />
 
-        <h2>Ingredientes</h2>
+        <h2 className="subtitulo-editar">Ingredientes</h2>
         {ingredientes.map((ingrediente, index) => (
           <input
             key={index}
-            className="input"
+            className="input-criar"
             placeholder="250g de açúcar"
             onChange={(e) => handleIngredienteChange(e.target.value, index)}
             value={ingrediente}
@@ -100,7 +100,7 @@ const EditarReceita = () => {
         ))}
         <AdicionarBtn title="Ingrediente" onClick={addIngrediente} />
 
-        <h2>Passo a passo</h2>
+        <h2 className="subtitulo-editar">Passo a passo</h2>
         {passos.map((passo, index) => (
           <div key={index} className="passoContainer">
             <span className="passoNumero">{index + 1}.</span>
@@ -116,14 +116,14 @@ const EditarReceita = () => {
 
         <label>Porções</label>
         <input
-          className="input"
+          className="input-criar"
           placeholder="2 pessoas"
           onChange={(e) => setTxtPorcao(e.target.value)}
           value={txtPorcao}
         />
         <label>Tempo de preparo</label>
         <input
-          className="input"
+          className="input-criar"
           placeholder="1h e 30min"
           onChange={(e) => setTxtTempo(e.target.value)}
           value={txtTempo}
@@ -131,13 +131,13 @@ const EditarReceita = () => {
 
         <label>Avaliação</label>
         <input
-          className="input"
+          className="input-criar"
           placeholder="4.5"
           onChange={(e) => setTxtAvaliacao(e.target.value)}
           value={txtAvaliacao}
         />
 
-        <div className="buttonGroup">
+        <div className="buttonGroupEditar">
           <Button title="Cancelar" onClick={() => navigate(-1)} /> {/* Usando navigate para voltar */}
           <Button title="Salvar" onClick={editReceita} />
         </div>

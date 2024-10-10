@@ -1,45 +1,69 @@
-.container {
-    background-color: white;
-    padding: 20px;
+.container-editar-receita {
+  
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center;
+  padding: 20px;
+  
+}
+  .titulo-edit-receita {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    font-family: 'Poppins';
+    font-weight: 800;
   }
   
+  .subtitulo-editar{
+    font-family:'Poppins';
+    font-weight: 600;
+  }
+ 
+
   .form {
     display: flex;
     flex-direction: column;
-    padding: 15px;
+    font-weight: 600;
+    font-family: 'Poppins';
   }
   
-  .input, .inputPasso {
-    height: 40px;
+  .input-criar, .inputDesc, .inputPasso {
     width: 100%;
-    background-color: #ededed;
-    margin-bottom: 18px;
     padding: 10px;
-    border-radius: 10px;
+    margin-bottom: 15px;
+    border: none;
+    background-color: #fff;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
   }
   
   .inputDesc {
-    height: 90px;
-    width: 100%;
-    background-color: #ededed;
-    margin-bottom: 18px;
-    padding: 10px;
-    border-radius: 10px;
+    height: 100px;
+    font-family: 'Poppins', sans-serif;
   }
+  
+  .inputPasso {
+    height: 60px;
+    font-family: 'Poppins', sans-serif;
+  }
+  
   
   .passoContainer {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
   }
   
   .passoNumero {
-    width: 30px;
+    font-family: 'Poppins', sans-serif;
     margin-right: 10px;
-    font-weight: bold;
+    font-weight: 600;
   }
-  
-  .buttonGroup {
+  .buttonGroupEditar{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
   }
+
   

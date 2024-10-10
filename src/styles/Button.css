@@ -1,17 +1,18 @@
-.custom-button {
+.button-original {
     background-color: #ff421d; 
     border: none; 
     border-radius: 20px; 
     padding: 8px 5px;
     width: 120px;
-    margin: 8px auto; 
+    margin: 8px 10px; 
     color: #fff; 
     text-align: center; 
     font-family: 'Poppins', sans-serif; 
     cursor: pointer; 
+    font-weight: 600;
   }
   
   .custom-button:hover {
-    opacity: 0.8; 
+    opacity: 1; 
   }
   
