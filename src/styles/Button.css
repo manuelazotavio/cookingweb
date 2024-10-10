@@ -12,7 +12,9 @@
     font-weight: 600;
   }
   
-  .custom-button:hover {
-    opacity: 1; 
+.button-original:hover {
+  background-color: #ee745c; 
+  transform: scale(1.05);
+  transition: 0.5s;
   }
   

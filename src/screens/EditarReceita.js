@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom'; // Importando useNavigate
 const EditarReceita = () => {
   const navigate = useNavigate(); // Usando useNavigate
   const location = useLocation();
-  const { receita } = location.state; 
+  const { receita } = location.state || {};
 
   const [txtName, setTxtName] = useState(receita.name);
   const [txtDescricao, setTxtDescricao] = useState(receita.descricao);
