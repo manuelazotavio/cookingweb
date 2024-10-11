@@ -1,12 +1,12 @@
 .loginContainer {
   
-    width: auto;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center; 
     align-items: center;
     padding: 20px;
-    height: 80vh;
+    height: 70vh;
   }
   
   input {

@@ -10,7 +10,9 @@ const EditarReceita = () => {
   const navigate = useNavigate(); // Usando useNavigate
   const location = useLocation();
   const { receita } = location.state || {};
-
+ 
+  
+  console.log(receita.id)
   const [txtName, setTxtName] = useState(receita.name);
   const [txtDescricao, setTxtDescricao] = useState(receita.descricao);
   const [txtPorcao, setTxtPorcao] = useState(receita.porcoes);
@@ -39,10 +41,11 @@ const EditarReceita = () => {
     setPassos(newPassos);
   };
 
-  const editReceita = async () => {
+  const editReceita = async ({receita}) => {
     try {
+      console.log("entrei editreceita")
       const result = await authFetch(
-        `https://backcooking.onrender.com/receita/${receita.id}`,
+        "https://backcooking.onrender.com/receita/" + receita.id,
         {
           method: "PUT",
           headers: {
@@ -60,8 +63,9 @@ const EditarReceita = () => {
         }
       );
       const data = await result.json();
+      console.log(data)
       if (data?.success) {
-        navigate(-1); // Usando navigate para voltar à página anterior
+        console.log("sucesso") // Usando navigate para voltar à página anterior
       } else {
         alert(data.error);
       }
@@ -74,7 +78,7 @@ const EditarReceita = () => {
   return (
     <div className="container-editar-receita">
       <h1 className="titulo-edit-receita">Edite sua receita!</h1>
-      <form className="form">
+      <form className="form-criar-receita">
         <input
           className="input-criar"
           placeholder="Título da Receita"
@@ -137,10 +141,10 @@ const EditarReceita = () => {
           value={txtAvaliacao}
         />
 
-        <div className="buttonGroupEditar">
-          <Button title="Cancelar" onClick={() => navigate(-1)} /> {/* Usando navigate para voltar */}
+        
+          <Button title="Cancelar" onClick={() => navigate("/receita", {state: {receita}}) } /> {/* Usando navigate para voltar */}
           <Button title="Salvar" onClick={editReceita} />
-        </div>
+        
       </form>
     </div>
   );

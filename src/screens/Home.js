@@ -11,7 +11,7 @@ const Home = () => {
   const [receitas, setReceitas] = useState([]);
   const [receitasFavoritas, setReceitasFavoritas] = useState([]);
   const [favoritas, setFavoritas] = useState([]);
-  
+
   const navigate = useNavigate();
 
   useEffect(() => {

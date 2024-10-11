@@ -4,13 +4,13 @@ body{
 }
 
 .tela-receita-container {
-  width: auto;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 20px;
   justify-content: center;
-  margin-top: 60px;
+ 
   }
   
   .foto-img {

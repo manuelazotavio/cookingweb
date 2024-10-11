@@ -92,7 +92,7 @@ const EditarUser = () => {
       <div className="container-editar-user">
         <div className="centered-container">
           <h1 className="titulo-editar-user">Editar</h1>
-          <div className="form">
+          <div className="form-user">
             <input
               className="input"
               placeholder="Nome..."

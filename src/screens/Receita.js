@@ -23,6 +23,8 @@ const Receita = () => {
   const { receita } = location.state || {};
   const { userId } = location.state || {};
 
+  console.log(receita.id)
+
   console.log(userId);
 
   const getFavoritoById = async () => {
@@ -189,7 +191,7 @@ const Receita = () => {
             <a
               className="icone"
               onClick={() =>
-                navigate("/editar-receita", { state: { receita } })
+                navigate("/editar-receita", { state: { receita, userId } })
               }
             >
               <FontAwesomeIcon icon={faPencil} size={19} />

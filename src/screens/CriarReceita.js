@@ -7,6 +7,7 @@ import useUserLoggedStore from "../stores/useUserLoggedStore.js";
 import Button from "../components/Button.js";
 
 const CriarReceita = () => {
+  
   const [txtName, setTxtName] = useState("");
   const [txtDescricao, setTxtDescricao] = useState("");
   const [txtPorcao, setTxtPorcao] = useState("");
@@ -72,9 +73,10 @@ const CriarReceita = () => {
   };
 
   return (
-    <div className="container-criar">
-      <h1 className="titulo">Crie sua receita!</h1>
-      <div className="form">
+    <div className="container-editar-receita">
+      
+      <h1 className="titulo-criar">Crie sua receita!</h1>
+      <div className="form-criar-receita">
         <input
           className="input-criar"
           type="text"
@@ -147,8 +149,9 @@ const CriarReceita = () => {
 
   
         <Button title={"Publicar"} onClick={postReceita}/>
+        </div>
       </div>
-    </div>
+  
   );
 };
 
