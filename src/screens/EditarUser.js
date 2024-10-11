@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom'; // Importando useNavigate
 const EditarUser = () => {
   const navigate = useNavigate(); // Usando useNavigate
   const location = useLocation();
-  const { userLogado } = location.state; // Obtendo dados do usuário
+  const { userLogado } = location.state || {}; 
 
   const [txtName, setTxtName] = useState(userLogado.name);
   const [txtEmail, setTxtEmail] = useState(userLogado.email);
@@ -85,9 +85,10 @@ const EditarUser = () => {
   };
 
   return (
-    <div style={{ backgroundColor: "#fff", width: "100%", flex: 1 }}>
-      <div className="container">
-        <h1 className="titulo">Editar</h1>
+<>
+      <div className="container-editar-user">
+      <div className="centered-container">
+        <h1 className="titulo-editar-user">Editar</h1>
         <div className="form">
           <input
             className="input"
@@ -108,13 +109,15 @@ const EditarUser = () => {
             value={txtAvatar}
           />
         </div>
-      </div>
-      <div className="buttonGroup">
+        </div>
+        
         <Button title="Cancelar" onClick={() => navigate("/conta")} />
         <Button title="Salvar" onClick={editUser} />
         <Button title="Apagar conta" onClick={removeUser} />
       </div>
-    </div>
+      
+      
+   </>
   );
 };
 

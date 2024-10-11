@@ -39,7 +39,7 @@ const Conta = () => {
           <p className="name"><b className="labelConta">E-mail:</b> {userLogado?.email}</p>
         </div>
 
-        <Button style={{ alignSelf: "center" }} title="Editar" onClick={() => navigate("/editar-perfil")} />
+        <Button style={{ alignSelf: "center" }} title="Editar" onClick={() => navigate("/editar-user", { state: { userLogado } } )} />
         <Button style={{ alignSelf: "center" }} title="Sair" onClick={handleLogout} />
       
     </div>
