@@ -12,7 +12,7 @@ const EditarReceita = () => {
   const { receita } = location.state || {};
  
   
-  console.log(receita.id)
+  console.log(receita)
   const [txtName, setTxtName] = useState(receita.name);
   const [txtDescricao, setTxtDescricao] = useState(receita.descricao);
   const [txtPorcao, setTxtPorcao] = useState(receita.porcoes);
@@ -41,9 +41,9 @@ const EditarReceita = () => {
     setPassos(newPassos);
   };
 
-  const editReceita = async ({receita}) => {
+  const editReceita = async () => {
     try {
-      console.log("entrei editreceita")
+      //const result = await authFetch('https://backend-api-express-1sem2024-rbd1.onrender.com/user/'+user.id, {
       const result = await authFetch(
         "https://backcooking.onrender.com/receita/" + receita.id,
         {
@@ -56,22 +56,26 @@ const EditarReceita = () => {
             descricao: txtDescricao,
             porcoes: txtPorcao,
             tempo: txtTempo,
-            avaliacao: txtAvaliacao,
-            ingredientes: ingredientes.filter((ingrediente) => ingrediente !== "").join(";"),
+            avaliacao: Number(txtAvaliacao),
+            ingredientes: ingredientes
+              .filter((ingrediente) => ingrediente !== "")
+              .join(";"),
             instrucao: passos.filter((passo) => passo !== "").join(";"),
           }),
-        }
+        },
+        navigate("/home")
       );
+      console.log("receita")
       const data = await result.json();
-      console.log(data)
+      console.log(data);
       if (data?.success) {
-        console.log("sucesso") // Usando navigate para voltar à página anterior
-      } else {
-        alert(data.error);
-      }
+        console.log("deu certo")
+        
+      } 
     } catch (error) {
       console.log("Error edit " + error.message);
       alert(error.message);
+      navigate("/home")
     }
   };
 
