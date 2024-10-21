@@ -17,6 +17,21 @@
     margin-left: 24px;
   }
 
+
+  .container-splash img {
+    width: 100px; /* Ajuste o tamanho conforme necessário */
+    height: auto;
+    animation: bounce 3s infinite;
+  }
+
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px); /* Ajuste a altura do movimento conforme necessário */
+    }
+  }
   .containerSplash p{
     margin: 10px;
   }

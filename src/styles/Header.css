@@ -87,6 +87,8 @@
 
   .nav-list.visible {
     display: flex;
+    border: #dddddd 1px solid;
+    border-radius: 10px;
   }
 
   .burger-bar.clicked:nth-child(1) {

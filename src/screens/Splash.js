@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import loading from '../img/loading.gif'
 import useUserLoggedStore from '../stores/useUserLoggedStore.js';
 import "../styles/Splash.css";  // Certifique-se de ter um arquivo CSS para os estilos
+import loading from '../img/logo.png'
 
 const Splash = () => {
   const navigate = useNavigate(); // Usando useNavigate
@@ -25,7 +25,8 @@ const Splash = () => {
           }, 2000);
         } else {
           setTimeout(() => {
-            navigate('/login'); // Usando navigate para redirecionar
+            // Usando navigate para redirecionar
+            navigate("/login")
           }, 2000);
         }
       } catch (error) {
@@ -33,11 +34,12 @@ const Splash = () => {
       }
     };
     checkUserLogged();
-  }, []); 
+  }, [navigate]); 
 
   return (
     <div className="container-splash">
-      <img src={loading} alt="Loadingggg" />
+      <img src={loading}/>
+      <p>Carregando...</p>
     </div>
   );
 };

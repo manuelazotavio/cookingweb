@@ -4,7 +4,7 @@ import ListaReceitas from "../components/ListaReceitas.js";
 import AdicionarBtn from "../components/AdicionarBtn.js"; 
 import authFetch from "../helpers/authFetch.js";
 import "../styles/Home.css"; 
-import loading from '../img/download.jpg'
+import loading from '../img/logo.png'
 
 const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -68,7 +68,10 @@ const Home = () => {
   if (isLoading) {
     return (
       
-        <img src={loading} alt="Loading....." />
+      <div className="container-splash">
+      <img src={loading}/>
+      <p>Carregando...</p>
+    </div>
       
     );
   }
