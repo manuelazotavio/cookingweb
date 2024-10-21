@@ -38,13 +38,6 @@
     color: inherit;
   }
   
-  .menu-toggle {
-    display: none;
-    font-size: 24px;
-    background: none;
-    border: none;
-    cursor: pointer;
-  }
   
   .nav {
     display: flex;
@@ -79,9 +72,60 @@
   /* Responsividade */
   @media (max-width: 768px) {
     .menu-toggle {
-      display: block;
+      display: flex;
     }
+  .burger-menu{
+    height: 65px;
+    width: 4em;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    cursor: pointer;
+    background-color: #ffffff;
+  }
+
+  .burger-bar{
+    width: 4em;
+    height: 0.5em;
+    background-color: aqua;
+    border-radius: 0.5em;;
+  }
+
+  .menu{
+    width: 50%;
+    height: 100vh;
+    background-color: rgb(73, 83, 83);
+    position: absolute;
+    top: 0;
+    z-index: -1;
+  }
+
+  .hidden{
+    display: none;
+  }
+
+  .visible{
+    display: inherit;
+  }
+
+.burger-bar.clicked:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.burger-bar.clicked:nth-child(2) {
+    opacity: 0;
+}
+
+.burger-bar.clicked:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
   
+  .burger-bar.unclicked {
+    transform: rotate(0) translate(0);
+    opacity: 1;
+  }
+
     .nav {
       display: none;
       flex-direction: column;

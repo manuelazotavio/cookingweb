@@ -4,12 +4,22 @@ import '../styles/Header.css';
 import logo from '../img/logo.png'
 
 const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+ 
+  const [burger_class, setBurgerClass] = useState("burguer-bar unclicked")
+  const [menu_class, setMenuClass] = useState("menu hidden");
+  const [isMenuClicked, setIsMenuClicked] = useState(false)
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
+  const updateMenu = () => {
+    if(!isMenuClicked) {
+      setBurgerClass("burger-bar clicked")
+      setMenuClass("menu visible")
+    } else {
+      setBurgerClass("burger-bar unclicked")
+      setMenuClass("menu hidden")
+    }
+    setIsMenuClicked(!isMenuClicked)
+  }
+ 
   return (
     <div className="header">
     
@@ -17,11 +27,15 @@ const Header = () => {
         <Link className='tituloHeader'>CookingWeb</Link>
         <img className='logo' src={logo}></img>
       
-      <button className="menu-toggle" onClick={toggleMenu}>
-        ☰
-      </button>
-      <nav className={`nav ${isMenuOpen ? 'open' : ''}`}>
-        <ul className="nav-list">
+     
+      <nav>
+       
+        <ul className="nav-list"> 
+          <div className='burger-menu'  onClick={updateMenu}>
+          <div className={burger_class}></div>
+          <div className={burger_class} ></div>
+          <div className={burger_class}></div>
+        </div>
           <li className="nav-item">
             <Link to="/home">Home</Link>
           </li>
@@ -34,6 +48,7 @@ const Header = () => {
           
         </ul>
       </nav>
+      <div className={menu_class}></div>
     </div>
   );
 };
