@@ -1,41 +1,27 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import '../styles/Header.css';
-import logo from '../img/logo.png'
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import "../styles/Header.css";
+import logo from "../img/logo.png";
 
 const Header = () => {
- 
-  const [burger_class, setBurgerClass] = useState("burguer-bar unclicked")
-  const [menu_class, setMenuClass] = useState("menu hidden");
-  const [isMenuClicked, setIsMenuClicked] = useState(false)
+  const [isMenuClicked, setIsMenuClicked] = useState(false);
 
   const updateMenu = () => {
-    if(!isMenuClicked) {
-      setBurgerClass("burger-bar clicked")
-      setMenuClass("menu visible")
-    } else {
-      setBurgerClass("burger-bar unclicked")
-      setMenuClass("menu hidden")
-    }
-    setIsMenuClicked(!isMenuClicked)
-  }
- 
+    setIsMenuClicked(!isMenuClicked);
+  };
+
   return (
     <div className="header">
-    
-       
-        <Link className='tituloHeader'>CookingWeb</Link>
-        <img className='logo' src={logo}></img>
-      
-     
+      <Link to="/" className="tituloHeader">CookingWeb</Link>
+      <img className="logo" src={logo} alt="Logo" />
+
       <nav>
-       
-        <ul className="nav-list"> 
-          <div className='burger-menu'  onClick={updateMenu}>
-          <div className={burger_class}></div>
-          <div className={burger_class} ></div>
-          <div className={burger_class}></div>
+        <div className="burger-menu" onClick={updateMenu}>
+          <div className={`burger-bar ${isMenuClicked ? "clicked" : "unclicked"}`}></div>
+          <div className={`burger-bar ${isMenuClicked ? "clicked" : "unclicked"}`}></div>
+          <div className={`burger-bar ${isMenuClicked ? "clicked" : "unclicked"}`}></div>
         </div>
+        <ul className={`nav-list ${isMenuClicked ? "visible" : "hidden"}`}>
           <li className="nav-item">
             <Link to="/home">Home</Link>
           </li>
@@ -45,10 +31,8 @@ const Header = () => {
           <li className="nav-item">
             <Link to="/conta">Conta</Link>
           </li>
-          
         </ul>
       </nav>
-      <div className={menu_class}></div>
     </div>
   );
 };
