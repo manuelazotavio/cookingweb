@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import authFetch from "../helpers/authFetch.js";
 import { useNavigate } from "react-router-dom"; // Para navegação
-import '../styles/CriarReceita.css';
+import "../styles/CriarReceita.css";
 import AdicionarBtn from "../components/AdicionarBtn.js";
 import useUserLoggedStore from "../stores/useUserLoggedStore.js";
 import Button from "../components/Button.js";
 
 const CriarReceita = () => {
-  
+  const [imagem, setImagem] = useState("");
+
   const [txtName, setTxtName] = useState("");
   const [txtDescricao, setTxtDescricao] = useState("");
   const [txtPorcao, setTxtPorcao] = useState("");
@@ -16,37 +17,49 @@ const CriarReceita = () => {
   const [ingredientes, setIngredientes] = useState([""]);
   const [passos, setPassos] = useState([""]);
 
-  const userId = useUserLoggedStore(state => state.id);
+  const userId = useUserLoggedStore((state) => state.id);
 
   const navigate = useNavigate();
 
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      setImagem(reader.result);
+    };
+    reader.readAsDataURL(file);
+  };
   const postReceita = async () => {
     try {
-      console.log("meu userID é" + userId)
-      const result = await authFetch("https://backcooking.onrender.com/receita", {
-        
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          userId,
-          name: txtName,
-          descricao: txtDescricao,
-          porcoes: txtPorcao,
-          tempo: txtTempo,
-          avaliacao: parseInt(txtAvaliacao),
-          ingredientes: ingredientes.filter(ingrediente => ingrediente !== "").join(";"),
-          instrucao: passos.filter(passo => passo !== "").join(";"),
-        }),
-      });
+      console.log("meu userID é" + userId);
+      const result = await authFetch(
+        "https://backcooking.onrender.com/receita",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            userId,
+            name: txtName,
+            descricao: txtDescricao,
+            porcoes: txtPorcao,
+            tempo: txtTempo,
+            avaliacao: parseInt(txtAvaliacao),
+            ingredientes: ingredientes
+              .filter((ingrediente) => ingrediente !== "")
+              .join(";"),
+            instrucao: passos.filter((passo) => passo !== "").join(";"),
+          }),
+        }
+      );
       const data = await result.json();
       if (data?.success) {
         console.log("Receita publicada!");
-        navigate("/home")
-      } 
+        navigate("/home");
+      }
     } catch (error) {
-      console.log("estou no catch")
+      console.log("estou no catch");
       console.error("Error postReceita: " + error.message);
       alert(error.message);
     }
@@ -74,7 +87,6 @@ const CriarReceita = () => {
 
   return (
     <div className="container-editar-receita">
-      
       <h1 className="titulo-criar">Crie sua receita!</h1>
       <div className="form-criar-receita">
         <input
@@ -90,7 +102,7 @@ const CriarReceita = () => {
           onChange={(e) => setTxtDescricao(e.target.value)}
           value={txtDescricao}
         />
-        
+
         <h2 className="subtitulo-criar">Ingredientes</h2>
         {ingredientes.map((ingrediente, index) => (
           <input
@@ -103,7 +115,10 @@ const CriarReceita = () => {
           />
         ))}
 
-        <AdicionarBtn title={"Adicionar Ingrediente"} onClick={addIngrediente} />
+        <AdicionarBtn
+          title={"Adicionar Ingrediente"}
+          onClick={addIngrediente}
+        />
 
         <h2 className="subtitulo-criar">Passo a passo</h2>
         {passos.map((passo, index) => (
@@ -117,7 +132,7 @@ const CriarReceita = () => {
             />
           </div>
         ))}
-  
+
         <AdicionarBtn title={"Adicionar Passo"} onClick={addPasso} />
 
         <label>Porções</label>
@@ -128,7 +143,7 @@ const CriarReceita = () => {
           onChange={(e) => setTxtPorcao(e.target.value)}
           value={txtPorcao}
         />
-        
+
         <label>Tempo de preparo</label>
         <input
           className="input-criar"
@@ -146,12 +161,28 @@ const CriarReceita = () => {
           onChange={(e) => setTxtAvaliacao(e.target.value)}
           value={txtAvaliacao}
         />
+        <label className="label">Escolha uma imagem para sua receita.</label>
+<div className="custom-file-upload">
+  <input 
+    type="file" 
+    onChange={handleImageChange} 
+    id="file-upload"
+    style={{ display: 'none' }} // Esconde o input original
+  />
+  <label htmlFor="file-upload" className="custom-file-label">
+    Selecionar Imagem
+  </label>
+  {imagem && (
+    <div className="image-preview">
+      <img src={imagem} alt="Prévia da receita" className="preview-img" />
+      <span className="file-name">Imagem selecionada</span>
+    </div>
+  )}
+</div>
 
-  
-        <Button title={"Publicar"} onClick={postReceita}/>
-        </div>
+        <Button title={"Publicar"} onClick={postReceita} />
       </div>
-  
+    </div>
   );
 };
 
