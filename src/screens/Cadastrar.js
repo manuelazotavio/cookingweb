@@ -10,17 +10,10 @@ const Cadastrar = () => {
   const [txtPass, setTxtPass] = useState("");
   const navigate = useNavigate();
 
-  const handleImageChange = (e) => {
-    const file = e.target.files[0];
-    const reader = new FileReader();
-    reader.onloadend = () => {
-      setAvatar(reader.result);
-    };
-    reader.readAsDataURL(file);
-  };
 
   const postUser = async () => {
     try {
+      console.log(avatar)
       const result = await fetch("https://backcooking.onrender.com/user", {
         method: "POST",
         headers: {
@@ -67,24 +60,25 @@ const Cadastrar = () => {
         value={txtPass}
       />
   
-      <label className="label">Escolha uma imagem para sua receita.</label>
-      <div className="custom-file-upload">
+     <label htmlFor="avatar" className="custom-file-label">Escolha uma imagem para seu perfil.</label>
+    
         <input
           type="file"
-          onChange={handleImageChange}
+          onChange={(e) => setAvatar(e.target.value)}
           id="file-upload"
-          style={{ display: "none" }} // Esconde o input original
+          style={{ display: "none" }} 
+          required
         />
-        <label htmlFor="file-upload" className="custom-file-label">
-          Selecionar Imagem
-        </label>
+            <input type="file" onChange={(e) => setAvatar(e.target.value)}>
+          
+          </input>
         {avatar && (
           <div className="image-preview">
-            <img src={avatar} alt="Prévia da receita" className="preview-img" />
+            <img src={avatar} alt="Prévia do avatar" className="preview-img" />
             <span className="file-name">Imagem selecionada</span>
           </div>
         )}
-      </div>
+    
 
       <Button title="Cadastrar" onClick={postUser} className="button"></Button>
       <Button
@@ -92,19 +86,7 @@ const Cadastrar = () => {
         title="Voltar"
         onClick={() => navigate("/login")}
       ></Button>
-      {/* {modalVisible && (
-        <div className="centeredView">
-          <div className="modalView">
-            <p className="modalText">{modalMessage}</p>
-            <Button
-              className="buttonClose"
-              onClick={() => setModalVisible(!modalVisible)}
-            >
-              Tentar novamente
-            </Button>
-          </div>
-        </div>
-      )} */}
+     
     </div>
   );
 };

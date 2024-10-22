@@ -21,14 +21,7 @@ const CriarReceita = () => {
 
   const navigate = useNavigate();
 
-  const handleImageChange = (e) => {
-    const file = e.target.files[0];
-    const reader = new FileReader();
-    reader.onloadend = () => {
-      setImagem(reader.result);
-    };
-    reader.readAsDataURL(file);
-  };
+ 
   const postReceita = async () => {
     try {
       console.log("meu userID é" + userId);
@@ -162,28 +155,34 @@ const CriarReceita = () => {
           onChange={(e) => setTxtAvaliacao(e.target.value)}
           value={txtAvaliacao}
         />
-        <label className="label">Escolha uma imagem para sua receita.</label>
-<div className="custom-file-upload">
-  <input 
-    type="file" 
-    onChange={handleImageChange} 
-    id="file-upload"
-    style={{ display: 'none' }} // Esconde o input original
-  />
-  <label htmlFor="file-upload" className="custom-file-label">
-    Selecionar Imagem
-  </label>
-  {imagem && (
-    <div className="image-preview">
-      <img src={imagem} alt="Prévia da receita" className="preview-img" />
-      <span className="file-name">Imagem selecionada</span>
-    </div>
-  )}
-</div>
+        <label htmlFor="imagem" className="custom-file-label">Escolha uma imagem para sua receita.</label>
+          <input
+            style={{display: "none"}}
+            type="file"
+            onChange={(e) => setImagem(e.target.value)}
+            id="file-upload"
+            accept="image/*"
+            name="imagem"
+            required
+          />
+          <input type="file" onChange={(e) => setImagem(e.target.value)}>
+          
+          </input>
+          {imagem && (
+            <div className="image-preview">
+              <img
+                src={imagem}
+                alt="Prévia da receita"
+                className="preview-img"
+              />
+              <span className="file-name">Imagem selecionada</span>
+            </div>
+          )}
+        </div>
 
         <Button title={"Publicar"} onClick={postReceita} />
       </div>
-    </div>
+    
   );
 };
 
