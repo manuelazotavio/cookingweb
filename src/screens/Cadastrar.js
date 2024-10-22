@@ -4,13 +4,20 @@ import "../styles/Cadastrar.css";
 import Button from "../components/Button"; // Supondo que o botão esteja em um diretório 'components'
 
 const Cadastrar = () => {
-  const [modalMessage, setModalMessage] = useState("");
-  const [modalVisible, setModalVisible] = useState(false);
+  const [avatar, setAvatar] = useState("");
   const [txtName, setTxtName] = useState("");
   const [txtEmail, setTxtEmail] = useState("");
-  const [txtAvatar, setTxtAvatar] = useState("");
   const [txtPass, setTxtPass] = useState("");
   const navigate = useNavigate();
+
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      setAvatar(reader.result);
+    };
+    reader.readAsDataURL(file);
+  };
 
   const postUser = async () => {
     try {
@@ -23,18 +30,13 @@ const Cadastrar = () => {
           name: txtName,
           email: txtEmail,
           pass: txtPass,
-          avatar: txtAvatar,
+          avatar,
         }),
       });
       const data = await result.json();
       console.log(data);
       if (data?.success) {
         navigate(-1);
-      } else {
-        if (result.status === 400) {
-          setModalMessage("Os campos são inválidos ou vazios.");
-          setModalVisible(true);
-        }
       }
     } catch (error) {
       console.log("Error postUser " + error.message);
@@ -43,7 +45,7 @@ const Cadastrar = () => {
   };
 
   return (
-    <div className="cadastrar-container">
+    <div className="loginContainer">
       <h1 className="titulo">Cadastrar</h1>
       <input
         className="input-cadastrar"
@@ -64,13 +66,26 @@ const Cadastrar = () => {
         onChange={(e) => setTxtPass(e.target.value)}
         value={txtPass}
       />
-      <input
-        className="input-cadastrar"
-        placeholder="Avatar..."
-        onChange={(e) => setTxtAvatar(e.target.value)}
-        value={txtAvatar}
-      />
-      {/* Substituindo o botão padrão pelo componente Button */}
+  
+      <label className="label">Escolha uma imagem para sua receita.</label>
+      <div className="custom-file-upload">
+        <input
+          type="file"
+          onChange={handleImageChange}
+          id="file-upload"
+          style={{ display: "none" }} // Esconde o input original
+        />
+        <label htmlFor="file-upload" className="custom-file-label">
+          Selecionar Imagem
+        </label>
+        {avatar && (
+          <div className="image-preview">
+            <img src={avatar} alt="Prévia da receita" className="preview-img" />
+            <span className="file-name">Imagem selecionada</span>
+          </div>
+        )}
+      </div>
+
       <Button title="Cadastrar" onClick={postUser} className="button"></Button>
       <Button
         className="button"

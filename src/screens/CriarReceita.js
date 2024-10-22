@@ -45,6 +45,7 @@ const CriarReceita = () => {
             descricao: txtDescricao,
             porcoes: txtPorcao,
             tempo: txtTempo,
+            imagem: imagem,
             avaliacao: parseInt(txtAvaliacao),
             ingredientes: ingredientes
               .filter((ingrediente) => ingrediente !== "")

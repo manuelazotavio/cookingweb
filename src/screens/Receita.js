@@ -154,7 +154,7 @@ const Receita = () => {
   return (
     <div className="tela-receita-container">
       <div className="content-wrapper">
-        <img src={receitaFoto} alt={receita.name} className="imagem-receita" />
+        <img src={receita.imagem} alt={receita.name} className="imagem-receita" />
         <div>
           <div className="card-tela-receita">
             <h2 className="titulo-receita-tela">{receita.name}</h2>

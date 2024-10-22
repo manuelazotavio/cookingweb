@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom"; // Para navegação
+import { useNavigate } from "react-router-dom";
 import Modal from "react-modal";
-import Button from "../components/Button.js"; // Verifique se está adaptado para React
-import CadastrarBtn from "../components/CadastrarBtn.js"; // Verifique se está adaptado para React
-import "../styles/Login.css"; // Crie um arquivo CSS separado para estilos
+import Swal from "sweetalert2";
+import Button from "../components/Button.js";
+import CadastrarBtn from "../components/CadastrarBtn.js";
+import "../styles/Login.css";
 
 const Login = () => {
   const [modalMessage, setModalMessage] = useState("");
@@ -37,8 +38,15 @@ const Login = () => {
         navigate("/home"); // Redireciona para a página inicial após o login
       } else {
         const errorData = await response.json();
-        setModalMessage(errorData.message);
-        setModalVisible(true);
+        console.log(errorData)
+
+        Swal.fire({
+          text: errorData.error,
+          icon: "error",
+          confirmButtonText: "Voltar",
+          confirmButtonColor: "#ff421d",
+    
+        });
       }
     } catch (error) {
       setModalMessage("Erro ao fazer login. Tente novamente.");

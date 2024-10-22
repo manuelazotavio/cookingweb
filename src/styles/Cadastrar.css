@@ -46,15 +46,11 @@
   
   /* Mobile */
 
-@media (max-width: 1120px) {
-  .input-cadastrar{
-    width: 300px;
-  }
-}
 
-@media (max-width: 320px) {
+
+@media (max-width: 728px) {
   .input-cadastrar{
-    width: 100%;
+    width: 75%;
   }
 }
   
