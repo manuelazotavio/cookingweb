@@ -13,6 +13,7 @@ const Conta = () => {
       const userString = localStorage.getItem("userLogged");
       const user = JSON.parse(userString);
       setUserLogado(user);
+      console.log(user)
     };
 
     fetchUser();
@@ -33,7 +34,7 @@ const Conta = () => {
       
         <div className="centered-container">
           <h1 className="titulo-conta">Sua conta</h1>
-
+          <img src={userLogado?.avatar}></img>
           <img className="profile-image" src={userLogado?.avatar} alt="Avatar" />
           <p className="name"><b className="labelConta">Nome de usuário:</b> {userLogado?.name}</p>
           <p className="name"><b className="labelConta">E-mail:</b> {userLogado?.email}</p>
