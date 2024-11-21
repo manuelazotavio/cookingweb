@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import Button from "../components/Button.js"; 
 import '../styles/Conta.css';
-import avatarFoto from '../img/user.png'
 
 const Conta = () => {
   const [userLogado, setUserLogado] = useState(null);
@@ -34,8 +33,7 @@ const Conta = () => {
       
         <div className="centered-container">
           <h1 className="titulo-conta">Sua conta</h1>
-          <img src={userLogado?.avatar}></img>
-          <img className="profile-image" src={userLogado?.avatar} alt="Avatar" />
+          <img className="profile-image-conta" src={userLogado?.avatar} alt="Avatar" />
           <p className="name"><b className="labelConta">Nome de usuário:</b> {userLogado?.name}</p>
           <p className="name"><b className="labelConta">E-mail:</b> {userLogado?.email}</p>
         </div>
