@@ -23,7 +23,7 @@ const Receita = () => {
   const { receita } = location.state || {};
   const { userId } = location.state || {};
 
-  console.log(receita.id)
+  console.log("a receita é" + receita.imagem)
 
   console.log(userId);
 
@@ -154,7 +154,7 @@ const Receita = () => {
   return (
     <div className="tela-receita-container">
       <div className="content-wrapper">
-        <img src={receita.imagem} alt={receita.name} className="imagem-receita" />
+        <img src={`/opt/render/project/src${receita.imagem}`} alt={receita.name} className="imagem-receita" />
         <div>
           <div className="card-tela-receita">
             <h2 className="titulo-receita-tela">{receita.name}</h2>

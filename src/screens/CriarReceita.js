@@ -20,40 +20,9 @@ const CriarReceita = () => {
   const handleImagemChange = (event) => {
     const file = event.target.files[0];
     setImagem(file);
-    // const imgname = event.target.files[0].name;
-    // const reader = new FileReader();
-    // reader.readAsDataURL(file);
-    // reader.onloadend = () => {
-    //   const img = new Image();
-    //   img.src = reader.result;
-    //   img.onload = () => {
-    //     const canvas = document.createElement("canvas");
-    //     const maxSize = Math.max(img.width, img.height);
-    //     canvas.width = maxSize;
-    //     canvas.height = maxSize;
-    //     const ctx = canvas.getContext("2d");
-    //     ctx.drawImage(
-    //       img,
-    //       (maxSize - img.width) / 2,
-    //       (maxSize - img.height) / 2
-    //     );
-    //     canvas.toBlob(
-    //       (blob) => {
-    //         const file = new File([blob], imgname, {
-    //           type: "image",
-    //           lastModified: Date.now()
-    //         });
-    //         console.log(file)
-    //         setImagem(file)
-    //       },
-    //       "image/jpeg",
-    //       0.8
-    //     );
-    //   };
   };
 
   const userId = useUserLoggedStore((state) => state.id);
-
   const navigate = useNavigate();
 
   const postReceita = async () => {
@@ -66,7 +35,8 @@ const CriarReceita = () => {
       formData.append("descricao", txtDescricao);
       formData.append("porcoes", txtPorcao);
       formData.append("tempo", txtTempo);
-      formData.append("avaliacao", parseInt(txtAvaliacao));
+      formData.append("avaliacao",txtAvaliacao);
+      formData.append("imagem", imagem);
       formData.append(
         "ingredientes",
         ingredientes.filter((ingrediente) => ingrediente !== "").join(";")
@@ -81,18 +51,18 @@ const CriarReceita = () => {
         console.log(pair[0] + ": " + pair[1]);
       }
 
-      console.log("Imagem", imagem)
+
 
       const result = await authFetch(
         "https://backcooking.onrender.com/receita",
         {
           method: "POST",
           body: formData, // Envia o FormData diretamente
-    
+          
         }
       );
 
-      const text = await result.text();
+      const text = await result.text()
       console.log("Status: ", result.status);
       console.log("Resposta do servidor: ", text);
 
@@ -141,11 +111,13 @@ const CriarReceita = () => {
         <input
           className="input-criar"
           type="text"
+        
           placeholder="Título da Receita"
           onChange={(e) => setTxtName(e.target.value)}
           value={txtName}
         />
         <textarea
+         
           className="inputDesc"
           placeholder="Compartilhe um pouco mais sobre o seu prato. O que você gosta nele?"
           onChange={(e) => setTxtDescricao(e.target.value)}
@@ -158,6 +130,7 @@ const CriarReceita = () => {
             key={index}
             className="input-criar"
             type="text"
+     
             placeholder="250g de açúcar"
             onChange={(e) => handleIngredienteChange(e.target.value, index)}
             value={ingrediente}
@@ -174,6 +147,7 @@ const CriarReceita = () => {
           <div key={index} className="passoContainer">
             <span className="passoNumero">{index + 1}.</span>
             <textarea
+        
               className="inputPasso"
               placeholder="Misture a massa até se tornar homogênea."
               onChange={(e) => handlePassoChange(e.target.value, index)}
@@ -188,6 +162,7 @@ const CriarReceita = () => {
         <input
           className="input-criar"
           type="text"
+  
           placeholder="2 pessoas"
           onChange={(e) => setTxtPorcao(e.target.value)}
           value={txtPorcao}
@@ -197,6 +172,7 @@ const CriarReceita = () => {
         <input
           className="input-criar"
           type="text"
+         
           placeholder="1h e 30min"
           onChange={(e) => setTxtTempo(e.target.value)}
           value={txtTempo}
@@ -206,6 +182,7 @@ const CriarReceita = () => {
         <input
           className="input-criar"
           type="text"
+         
           placeholder="4.5"
           onChange={(e) => setTxtAvaliacao(e.target.value)}
           value={txtAvaliacao}
@@ -214,7 +191,6 @@ const CriarReceita = () => {
         <input
           id="file-upload"
           accept="image/*"
-          name="imagem"
           required
           type="file"
           onChange={handleImagemChange}
