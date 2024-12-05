@@ -12,7 +12,7 @@ import authFetch from "../helpers/authFetch";
 import "../styles/Receita.css";
 import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import Swal from 'sweetalert2'
+import Swal from "sweetalert2";
 import receitaFoto from "../img/download.jpg";
 
 const Receita = () => {
@@ -23,9 +23,11 @@ const Receita = () => {
   const { receita } = location.state || {};
   const { userId } = location.state || {};
 
-  console.log("a receita é" + receita.imagem)
+  console.log("a receita é" + receita.imagem);
 
   console.log(userId);
+
+  const logo = "https://cfmnpntlrukzfdcndlwm.supabase.co/storage/v1/object/public/images/uploads/download%20(3).jpg"
 
   const getFavoritoById = async () => {
     try {
@@ -136,17 +138,17 @@ const Receita = () => {
   //Modal deletar receita
   const showModal = () => {
     Swal.fire({
-      text: 'Tem certeza que deseja excluir sua receita?',
-      icon: 'warning',
-      confirmButtonText: 'Sim',
+      text: "Tem certeza que deseja excluir sua receita?",
+      icon: "warning",
+      confirmButtonText: "Sim",
       showCancelButton: true,
       cancelButtonText: "Voltar",
-      confirmButtonColor: "#ff421d"
+      confirmButtonColor: "#ff421d",
     }).then((result) => {
       if (result.isConfirmed) {
         removeReceita();
-        console.log("Receita removida com sucesso.") 
-        navigate("/home")
+        console.log("Receita removida com sucesso.");
+        navigate("/home");
       }
     });
   };
@@ -154,7 +156,11 @@ const Receita = () => {
   return (
     <div className="tela-receita-container">
       <div className="content-wrapper">
-        <img src={receita.imagem} alt={receita.name} className="imagem-receita" />
+        <img
+          src={logo}
+          alt={receita.name}
+          className="imagem-receita"
+        />
         <div>
           <div className="card-tela-receita">
             <h2 className="titulo-receita-tela">{receita.name}</h2>
@@ -200,21 +206,21 @@ const Receita = () => {
         </div>
       </div>
       <div className="card-info">
-      <h3 className="subtitulo-receita">Ingredientes</h3>
-      <div className="ingredientes">
-        {receita.ingredientes.split(";").map((ingrediente, index) => (
-          <p key={index}>{ingrediente}</p>
-        ))}
-      </div>
-      <h3 className="subtitulo-receita">Passo a Passo</h3>
-      <div className="instrucoes">
-        {receita.instrucao.split(";").map((step, index) => (
-          <p key={index}>
-            <strong>{`${index + 1}. `}</strong>
-            {step}
-          </p>
-        ))}
-      </div>
+        <h3 className="subtitulo-receita">Ingredientes</h3>
+        <div className="ingredientes">
+          {receita.ingredientes.split(";").map((ingrediente, index) => (
+            <p key={index}>{ingrediente}</p>
+          ))}
+        </div>
+        <h3 className="subtitulo-receita">Passo a Passo</h3>
+        <div className="instrucoes">
+          {receita.instrucao.split(";").map((step, index) => (
+            <p key={index}>
+              <strong>{`${index + 1}. `}</strong>
+              {step}
+            </p>
+          ))}
+        </div>
       </div>
       {modalVisible && (
         <div className="modal">
