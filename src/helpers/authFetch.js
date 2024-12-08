@@ -1,8 +1,16 @@
 import useUserLoggedStore from "../stores/useUserLoggedStore.js";
+import { useNavigate } from 'react-router-dom';
 
-const authFetch = async (url, options) => {
+const authFetch = async (url, options, navigate) => {
     console.log('Rodou authFetch...');
     const token = useUserLoggedStore.getState().token;
+   
+
+    if (!token) {
+        console.log("token não encontrado");
+        navigate('/login'); 
+        return;
+    }
 
     console.log(token);
 
@@ -42,6 +50,7 @@ const authFetch = async (url, options) => {
                 });
                 // Remove user from localStorage
                 localStorage.removeItem('userLogged');
+                navigate('/login'); // Redireciona para a tela de login
                 return resRefreshToken;
             }
             const dataRefreshToken = await resRefreshToken.json();
@@ -53,7 +62,20 @@ const authFetch = async (url, options) => {
             console.log('Token atualizado no localStorage!');
 
             console.log('Rodando recursividade do authFetch!');
-            return await authFetch(url, options);
+            return await authFetch(url, options, navigate);
+        } else if (response.status === 401) {
+            console.log('Erro 401: Não autorizado');
+            useUserLoggedStore.setState({ 
+                id: null,
+                nome: '',
+                email: '',
+                avatar: '',
+                token: '',
+                isLogged: false,
+            });
+            // Remove user from localStorage
+            localStorage.removeItem('userLogged');
+            navigate('/login'); // Redireciona para a tela de login
         }
     }
 

@@ -63,14 +63,14 @@ const EditarReceita = () => {
             instrucao: passos.filter((passo) => passo !== "").join(";"),
           }),
         },
-        navigate("/home")
+        navigate
       );
       console.log("receita")
       const data = await result.json();
       console.log(data);
       if (data?.success) {
         console.log("deu certo")
-        
+        navigate("/home")
       } 
     } catch (error) {
       console.log("Error edit " + error.message);

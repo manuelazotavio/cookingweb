@@ -28,7 +28,8 @@ const EditarUser = () => {
             email: txtEmail,
             avatar: txtAvatar,
           }),
-        }
+        },
+        navigate
       );
 
       if (!result.ok) {
@@ -62,7 +63,8 @@ const EditarUser = () => {
           headers: {
             "Content-Type": "application/json",
           },
-        }
+        },
+        navigate
       );
 
       if (!result.ok) {

@@ -21,7 +21,9 @@ const Home = () => {
           headers: {
             "Content-Type": "application/json",
           },
-        });
+        },
+      navigate
+    );
         const data = await result.json();
         if (data.receita) {
           setReceitas(data.receita);
@@ -37,13 +39,15 @@ const Home = () => {
           headers: {
             "Content-Type": "application/json",
           },
-        });
+        },
+      navigate
+    );
         const data = await result.json();
         if (data.favorito) {
           setFavoritas(data.favorito);
           const promises = data.favorito.map(async (favorita) => {
             try {
-              const result = await authFetch(`https://backcooking.onrender.com/receita/${favorita.receitaId}`);
+              const result = await authFetch(`https://backcooking.onrender.com/receita/${favorita.receitaId}`, {}, navigate);
               const receitaData = await result.json();
               return receitaData.receita;
             } catch (error) {

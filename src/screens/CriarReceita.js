@@ -55,11 +55,13 @@ const CriarReceita = () => {
 
       const result = await authFetch(
         "https://backcooking.onrender.com/receita",
+        
         {
           method: "POST",
           body: formData, // Envia o FormData diretamente
           
-        }
+        },
+        navigate
       );
 
       const text = await result.text()

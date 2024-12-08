@@ -26,14 +26,11 @@ const Receita = () => {
   console.log("a receita é" + receita.imagem);
 
   console.log(userId);
-
-  const logo = "https://cfmnpntlrukzfdcndlwm.supabase.co/storage/v1/object/public/images/uploads/download%20(3).jpg"
-
   const getFavoritoById = async () => {
     try {
       const response = await authFetch(
         `https://backcooking.onrender.com/favorito/${userId}/${receita.id}`
-      );
+      , {}, navigate);
       const data = await response.json();
       if (data.error) {
         console.log(data.error);
@@ -58,7 +55,8 @@ const Receita = () => {
           headers: {
             "Content-Type": "application/json",
           },
-        }
+        },
+        navigate
       );
       if (!result.ok) {
         throw new Error(`HTTP error! status: ${result.status}`);
@@ -88,7 +86,7 @@ const Receita = () => {
             userId: Number(userId),
             receitaId: receita.id,
           }),
-        }
+        }, navigate
       );
       if (!result.ok) {
         throw new Error(`HTTP error! status: ${result.status}`);
@@ -118,7 +116,8 @@ const Receita = () => {
             userId: Number(userId),
             receitaId: receita.id,
           }),
-        }
+        }, 
+        navigate
       );
       if (!result.ok) {
         throw new Error(`HTTP error! status: ${result.status}`);
@@ -157,7 +156,7 @@ const Receita = () => {
     <div className="tela-receita-container">
       <div className="content-wrapper">
         <img
-          src={logo}
+          src={receita.imagem}
           alt={receita.name}
           className="imagem-receita"
         />
