@@ -15,7 +15,7 @@ const CardReceita = ({ receita }) => {
       onClick={() => navigate("/receita", { state: { receita, userId } })}
     >
       <img
-        src="https://fakeimg.pl/600x400"
+        src={receita.imagem}
         alt={receita.name}
         className="foto-img"
       />
