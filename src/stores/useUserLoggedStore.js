@@ -3,14 +3,7 @@ import { create } from 'zustand';
 const useUserLoggedStore = create((set) => {
   const loadUser = () => {
     const user = JSON.parse(localStorage.getItem('userLogged'));
-    return user || {
-      id: null,
-      nome: '',
-      email: '',
-      avatar: '',
-      token: '',
-      isLogged: false,
-    };
+    return user;
   };
 
   const initialState = loadUser();
@@ -20,7 +13,8 @@ const useUserLoggedStore = create((set) => {
     
     login: (user, token) => {
       const loggedUser = { ...user, token, isLogged: true };
-      set(() => loggedUser);
+      console.log(loggedUser + "oiiii")
+      set(() => ({ ...loggedUser }));
       localStorage.setItem('userLogged', JSON.stringify(loggedUser)); // Armazena no localStorage
     },
     
@@ -33,7 +27,8 @@ const useUserLoggedStore = create((set) => {
         token: '',
         isLogged: false,
       }));
-      localStorage.removeItem('userLogged'); // Remove do localStorage
+      localStorage.removeItem('userLogged');
+       // Remove do localStorage
     },
   };
 });

@@ -13,7 +13,7 @@ const Home = () => {
   const [favoritas, setFavoritas] = useState([]);
 
   const navigate = useNavigate();
-
+ 
   useEffect(() => {
     const fetchReceitas = async () => {
       try {

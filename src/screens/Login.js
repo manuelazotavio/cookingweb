@@ -28,6 +28,7 @@ const Login = () => {
       );
 
       if (response.ok) {
+      
         const data = await response.json();
         localStorage.setItem(
           "userLogged",
@@ -35,7 +36,10 @@ const Login = () => {
         ); // Usando localStorage
         localStorage.setItem("username", data.user.name);
         localStorage.setItem("userId", data.user.id);
-        navigate("/home"); // Redireciona para a página inicial após o login
+       
+        navigate("/home"); 
+         window.location.reload();
+        // Redireciona para a página inicial após o login
       } else {
         const errorData = await response.json();
         console.log(errorData)

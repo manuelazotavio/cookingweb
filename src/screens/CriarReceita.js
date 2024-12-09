@@ -24,6 +24,7 @@ const CriarReceita = () => {
 
   const userId = useUserLoggedStore((state) => state.id);
   const navigate = useNavigate();
+  console.log(userId)
 
   const postReceita = async () => {
     try {

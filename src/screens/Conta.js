@@ -15,7 +15,10 @@ const Conta = () => {
       console.log(user)
     };
 
+
+
     fetchUser();
+    
   }, []);
 
   const handleLogout = () => {
