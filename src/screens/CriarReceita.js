@@ -24,7 +24,7 @@ const CriarReceita = () => {
 
   const userId = useUserLoggedStore((state) => state.id);
   const navigate = useNavigate();
-  console.log(userId)
+  console.log(userId);
 
   const postReceita = async () => {
     try {
@@ -36,13 +36,13 @@ const CriarReceita = () => {
       formData.append("descricao", txtDescricao);
       formData.append("porcoes", txtPorcao);
       formData.append("tempo", txtTempo);
-      formData.append("avaliacao",txtAvaliacao);
+      formData.append("avaliacao", txtAvaliacao);
       formData.append("imagem", imagem);
       formData.append(
         "ingredientes",
         ingredientes.filter((ingrediente) => ingrediente !== "").join(";")
       );
-  
+
       formData.append(
         "instrucao",
         passos.filter((passo) => passo !== "").join(";")
@@ -52,20 +52,17 @@ const CriarReceita = () => {
         console.log(pair[0] + ": " + pair[1]);
       }
 
-
-
       const result = await authFetch(
         "https://backcooking.onrender.com/receita",
-        
+
         {
           method: "POST",
           body: formData, // Envia o FormData diretamente
-          
         },
         navigate
       );
 
-      const text = await result.text()
+      const text = await result.text();
       console.log("Status: ", result.status);
       console.log("Resposta do servidor: ", text);
 
@@ -114,13 +111,11 @@ const CriarReceita = () => {
         <input
           className="input-criar"
           type="text"
-        
           placeholder="Título da Receita"
           onChange={(e) => setTxtName(e.target.value)}
           value={txtName}
         />
         <textarea
-         
           className="inputDesc"
           placeholder="Compartilhe um pouco mais sobre o seu prato. O que você gosta nele?"
           onChange={(e) => setTxtDescricao(e.target.value)}
@@ -133,7 +128,6 @@ const CriarReceita = () => {
             key={index}
             className="input-criar"
             type="text"
-     
             placeholder="250g de açúcar"
             onChange={(e) => handleIngredienteChange(e.target.value, index)}
             value={ingrediente}
@@ -150,7 +144,6 @@ const CriarReceita = () => {
           <div key={index} className="passoContainer">
             <span className="passoNumero">{index + 1}.</span>
             <textarea
-        
               className="inputPasso"
               placeholder="Misture a massa até se tornar homogênea."
               onChange={(e) => handlePassoChange(e.target.value, index)}
@@ -165,7 +158,6 @@ const CriarReceita = () => {
         <input
           className="input-criar"
           type="text"
-  
           placeholder="2 pessoas"
           onChange={(e) => setTxtPorcao(e.target.value)}
           value={txtPorcao}
@@ -175,7 +167,6 @@ const CriarReceita = () => {
         <input
           className="input-criar"
           type="text"
-         
           placeholder="1h e 30min"
           onChange={(e) => setTxtTempo(e.target.value)}
           value={txtTempo}
@@ -185,24 +176,31 @@ const CriarReceita = () => {
         <input
           className="input-criar"
           type="text"
-         
           placeholder="4.5"
           onChange={(e) => setTxtAvaliacao(e.target.value)}
           value={txtAvaliacao}
         />
-
-        <input
-          id="file-upload"
-          accept="image/*"
-          required
-          type="file"
-          onChange={handleImagemChange}
-        ></input>
-        {imagem ? (
-          <img src={URL.createObjectURL(imagem)} alt="imagem" />
-        ) : (
-          <p>Imagem não selecionada</p>
-        )}
+        <div className="input-file-wrapper">
+          <input
+            id="file-upload"
+            accept="image/*"
+            required
+            type="file"
+            className="input-file"
+            onChange={handleImagemChange}
+          ></input>
+          {imagem ? (
+            <img
+              className="img-preview"
+              src={URL.createObjectURL(imagem)}
+              alt="Imagem da receita"
+            />
+          ) : (
+            <label htmlFor="file" className="input-file-label">
+              Escolha uma foto para sua receita!
+            </label>
+          )}
+        </div>
       </form>
 
       <Button title={"Publicar"} onClick={postReceita} />

@@ -10,6 +10,7 @@ const EditarReceita = () => {
   const navigate = useNavigate(); // Usando useNavigate
   const location = useLocation();
   const { receita } = location.state || {};
+  const [imagem, setImagem] = useState(receita.imagem);
  
   
   console.log(receita)
@@ -23,6 +24,11 @@ const EditarReceita = () => {
 
   const addIngrediente = () => {
     setIngredientes([...ingredientes, ""]);
+  };
+
+  const handleImagemChange = (event) => {
+    const file = event.target.files[0];
+    setImagem(file);
   };
 
   const addPasso = () => {
@@ -144,7 +150,19 @@ const EditarReceita = () => {
           onChange={(e) => setTxtAvaliacao(e.target.value)}
           value={txtAvaliacao}
         />
-
+        <div className="input-file-wrapper-edit">
+        <input
+          id="file-upload"
+          accept="image/*"
+          required
+          className="input-file-receita"
+          type="file"
+          onChange={handleImagemChange}
+        ></input>
+        <img className="img-preview-receita" src={imagem} alt="Imagem" />
+        
+        </div>
+        <p style={{textAlign: "center"}}>Clique na imagem para alterá-la.</p>
         
           <Button title="Cancelar" onClick={() => navigate("/receita", {state: {receita}}) } /> {/* Usando navigate para voltar */}
           <Button title="Salvar" onClick={editReceita} />
