@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "../styles/Header.css";
-import logo from "../img/logo.png";
+import marca from '../img/marca.png'
 
 const Header = () => {
   const [isMenuClicked, setIsMenuClicked] = useState(false);
@@ -12,8 +12,8 @@ const Header = () => {
 
   return (
     <div className="header">
-      <Link to="/" className="tituloHeader">CookingWeb</Link>
-      <img className="logo" src={logo} alt="Logo" />
+
+      <img to="/home" className="marca" src={marca} alt="Logo" />
 
       <nav>
         <div className="burger-menu" onClick={updateMenu}>

@@ -23,6 +23,11 @@
   margin-bottom: 10px;
 }
 
+.marca{
+  width: 100px;
+  height: 100px;
+}
+
 .nav-list {
   display: flex;
   list-style: none;
