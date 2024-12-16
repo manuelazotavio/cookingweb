@@ -29,7 +29,8 @@ const isLogged = isAuth();
   const handleLogout = () => {
     try {
       localStorage.removeItem("userLogged");
-      navigate("/login"); // Navega para a página de login após logout
+      navigate("/login");
+      window.location.reload(); // Navega para a página de login após logout
     } catch (error) {
       console.log(error);
       alert("Erro ao fazer logout!");

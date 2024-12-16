@@ -4,6 +4,7 @@ import CriarReceita from "./screens/CriarReceita";
 import Receita from "./screens/Receita";
 import Cadastrar from "./screens/Cadastrar";
 import EditarReceita from "./screens/EditarReceita";
+import LandingPage from './screens/LandingPage'
 import Splash from "./screens/Splash";
 import Conta from "./screens/Conta";
 import EditarUser from "./screens/EditarUser";
@@ -55,6 +56,8 @@ export default function App() {
         <Route path="/editar-user" element={<EditarUser />} />
         <Route path="/editar-receita" element={<EditarReceita />} />
         <Route path="/criar-receita" element={<CriarReceita />} />
+        
+        <Route path="/landing-page" element={<LandingPage />} />
         
         <Route path="/receita" element={<Receita />} />
         <Route path="/conta" element={<Conta />} />
