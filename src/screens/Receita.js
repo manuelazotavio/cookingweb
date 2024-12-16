@@ -7,8 +7,10 @@ import {
   faTrashCan,
   faUser,
   faClock,
+
 } from "@fortawesome/free-solid-svg-icons";
 import authFetch from "../helpers/authFetch";
+import isAuth from "../helpers/authOkay";
 import "../styles/Receita.css";
 import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
@@ -19,6 +21,10 @@ const Receita = () => {
   const [modalVisible, setModalVisible] = useState(false);
   const [isFavorited, setIsFavorited] = useState(false);
   const navigate = useNavigate();
+  const isLogged = isAuth();
+  if(isLogged === false) {
+   navigate('/login')
+  }
   const location = useLocation();
   const { receita } = location.state || {};
   const { userId } = location.state || {};

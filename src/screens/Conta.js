@@ -2,11 +2,12 @@ import { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import Button from "../components/Button.js"; 
 import '../styles/Conta.css';
+import isAuth from "../helpers/authOkay.js";
 
 const Conta = () => {
   const [userLogado, setUserLogado] = useState(null);
   const navigate = useNavigate(); // Hook para navegação
-
+  
   useEffect(() => {
     const fetchUser = () => {
       const userString = localStorage.getItem("userLogged");
@@ -14,6 +15,10 @@ const Conta = () => {
       setUserLogado(user);
       console.log(user)
     };
+const isLogged = isAuth();
+  if(isLogged === false) {
+   navigate('/login')
+  }
 
 
 

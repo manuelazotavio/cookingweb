@@ -81,7 +81,7 @@ const Cadastrar = () => {
         {avatar ? (
           <img className="img-preview" src={URL.createObjectURL(avatar)} alt="Avatar" />
         ) :  <label htmlFor="file" className="input-file-label">
-            Escolher arquivo
+            Escolha um avatar para seu perfil.
           </label>}
         </div>
       </form>

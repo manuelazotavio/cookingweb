@@ -5,8 +5,11 @@ import AdicionarBtn from "../components/AdicionarBtn.js";
 import authFetch from "../helpers/authFetch.js";
 import "../styles/Home.css"; 
 import loading from '../img/logo.png'
+import isAuth from "../helpers/authOkay.js";
 
 const Home = () => {
+
+  
   const [isLoading, setIsLoading] = useState(true);
   const [receitas, setReceitas] = useState([]);
   const [receitasFavoritas, setReceitasFavoritas] = useState([]);
@@ -15,6 +18,12 @@ const Home = () => {
   const navigate = useNavigate();
  
   useEffect(() => {
+  
+   const isLogged = isAuth();
+   if(isLogged === false) {
+    navigate('/login')
+   }
+
     const fetchReceitas = async () => {
       try {
         const result = await authFetch("https://backcooking.onrender.com/receita", {
@@ -82,6 +91,7 @@ const Home = () => {
 
   if (receitas.length === 0) {
     return (
+      
       <div className="containerSplash">
         <h1 className="titulo-home">Suas receitas</h1>
         <p className="splash">Você ainda não criou nenhuma receita.</p>

@@ -1,14 +1,23 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import Button from "../components/Button.js";
 import authFetch from "../helpers/authFetch";
+import isAuth from "../helpers/authOkay.js";
 import "../styles/EditarUser.css";
 import { useNavigate } from "react-router-dom"; // Importando useNavigate
 
 const EditarUser = () => {
-  const navigate = useNavigate(); // Usando useNavigate
+  const navigate = useNavigate();
+   
+    const isLogged = isAuth();
+  if(isLogged === false) {
+   navigate('/login')
+  }
+  // Usando useNavigate
   const location = useLocation();
   const { userLogado } = location.state || {};
+
+ 
 
   const [txtName, setTxtName] = useState(userLogado.name);
   const [txtEmail, setTxtEmail] = useState(userLogado.email);
@@ -81,7 +90,7 @@ const EditarUser = () => {
       const data = await result.json();
       if (data?.success) {
         localStorage.removeItem("userLogged"); // Remove o usuário do localStorage
-        navigate("/splash"); // Usando navigate para redirecionar
+        navigate("/conta"); // Usando navigate para redirecionar
       } else {
         alert(data.error);
       }

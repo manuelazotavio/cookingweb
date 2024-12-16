@@ -4,6 +4,7 @@ import authFetch from "../helpers/authFetch.js";
 import Button from "../components/Button.js";
 import AdicionarBtn from "../components/AdicionarBtn.js";
 import "../styles/EditarReceita.css"; 
+import isAuth from "../helpers/authOkay.js";
 import { useNavigate } from 'react-router-dom'; // Importando useNavigate
 
 const EditarReceita = () => {
@@ -11,7 +12,10 @@ const EditarReceita = () => {
   const location = useLocation();
   const { receita } = location.state || {};
   const [imagem, setImagem] = useState(receita.imagem);
- 
+  const isLogged = isAuth();
+   if(isLogged === false) {
+    navigate('/login')
+   }
   
   console.log(receita)
   const [txtName, setTxtName] = useState(receita.name);

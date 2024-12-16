@@ -5,8 +5,18 @@ import "../styles/CriarReceita.css";
 import AdicionarBtn from "../components/AdicionarBtn.js";
 import useUserLoggedStore from "../stores/useUserLoggedStore.js";
 import Button from "../components/Button.js";
+import isAuth from "../helpers/authOkay.js";
+import { useEffect } from "react";
 
 const CriarReceita = () => {
+  const navigate = useNavigate();
+ useEffect(() => {
+  const isLogged = isAuth();
+  if (isLogged === false) {
+    navigate("/login");
+  }
+ }, [])
+
   const [imagem, setImagem] = useState("");
 
   const [txtName, setTxtName] = useState("");
@@ -23,7 +33,7 @@ const CriarReceita = () => {
   };
 
   const userId = useUserLoggedStore((state) => state.id);
-  const navigate = useNavigate();
+
   console.log(userId);
 
   const postReceita = async () => {
