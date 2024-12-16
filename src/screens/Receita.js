@@ -29,9 +29,7 @@ const Receita = () => {
   const { receita } = location.state || {};
   const { userId } = location.state || {};
 
-  console.log("a receita é" + receita.imagem);
-
-  console.log(userId);
+ 
   const getFavoritoById = async () => {
     try {
       const response = await authFetch(

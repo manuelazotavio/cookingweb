@@ -17,7 +17,7 @@ const EditarReceita = () => {
     navigate('/login')
    }
   
-  console.log(receita)
+
   const [txtName, setTxtName] = useState(receita.name);
   const [txtDescricao, setTxtDescricao] = useState(receita.descricao);
   const [txtPorcao, setTxtPorcao] = useState(receita.porcoes);
@@ -75,11 +75,11 @@ const EditarReceita = () => {
         },
         navigate
       );
-      console.log("receita")
+    
       const data = await result.json();
-      console.log(data);
+    
       if (data?.success) {
-        console.log("deu certo")
+       
         navigate("/home")
       } 
     } catch (error) {

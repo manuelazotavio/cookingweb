@@ -34,8 +34,6 @@ const CriarReceita = () => {
 
   const userId = useUserLoggedStore((state) => state.id);
 
-  console.log(userId);
-
   const postReceita = async () => {
     try {
       const form = document.querySelector("#form-cadastrar");
@@ -58,9 +56,7 @@ const CriarReceita = () => {
         passos.filter((passo) => passo !== "").join(";")
       );
 
-      for (let pair of formData.entries()) {
-        console.log(pair[0] + ": " + pair[1]);
-      }
+  
 
       const result = await authFetch(
         "https://backcooking.onrender.com/receita",

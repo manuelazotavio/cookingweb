@@ -13,7 +13,7 @@ const Conta = () => {
       const userString = localStorage.getItem("userLogged");
       const user = JSON.parse(userString);
       setUserLogado(user);
-      console.log(user)
+      
     };
 const isLogged = isAuth();
   if(isLogged === false) {

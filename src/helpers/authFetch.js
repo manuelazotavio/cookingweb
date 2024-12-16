@@ -3,8 +3,6 @@ import useUserLoggedStore from "../stores/useUserLoggedStore.js";
 const authFetch = async (url, options) => {
     console.log('Rodou authFetch...');
     const token = useUserLoggedStore.getState().token;
-
-    console.log(token)
     const allOptions = {
         ...options,
         headers: {

@@ -35,9 +35,7 @@ const EditarUser = () => {
       formData.append("name", txtName);
       formData.append("email", txtEmail);
       formData.append("avatar", avatar);
-      for (let pair of formData.entries()) {
-        console.log(pair[0] + ": " + pair[1]);
-      }
+     
       const result = await authFetch(`https://backcooking.onrender.com/user/${userLogado.id}`,  {
         method: "PUT",
         body: formData,

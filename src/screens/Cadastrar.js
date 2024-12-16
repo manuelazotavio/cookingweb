@@ -23,9 +23,7 @@ const Cadastrar = () => {
       formData.append("email", txtEmail);
       formData.append("pass", txtPass);
       formData.append("avatar", avatar);
-      for (let pair of formData.entries()) {
-        console.log(pair[0] + ": " + pair[1]);
-      }
+    
       const result = await fetch("https://backcooking.onrender.com/user",  {
         method: "POST",
         body: formData,

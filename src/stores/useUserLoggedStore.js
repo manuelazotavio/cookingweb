@@ -13,7 +13,7 @@ const useUserLoggedStore = create((set) => {
     
     login: (user, token) => {
       const loggedUser = { ...user, token, isLogged: true };
-      console.log(loggedUser + "oiiii")
+     
       set(() => ({ ...loggedUser }));
       localStorage.setItem('userLogged', JSON.stringify(loggedUser)); // Armazena no localStorage
     },

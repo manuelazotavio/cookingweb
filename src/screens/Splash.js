@@ -11,12 +11,12 @@ const Splash = () => {
   useEffect(() => {
     const checkUserLogged = () => {
       try {
-        console.log("entrei checkUserLogged")
+ 
         const dataFound = localStorage.getItem('userLogged');
-        console.log('dataFound:', dataFound);
+    
         if (dataFound) {
           const data = JSON.parse(dataFound);
-          console.log('data:', data);
+   
           const { token } = data;
           delete data.token;
           login(data, token);
