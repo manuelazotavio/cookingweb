@@ -30,7 +30,7 @@ const Header = () => {
             className={`burger-bar ${isMenuClicked ? "clicked" : "unclicked"}`}
           ></div>
         </div>
-        <ul className={`nav-list ${isMenuClicked ? "visible" : "hidden"}`}>
+        <ul className={`nav-list ${isMenuClicked ? "visible" : "hidden"} ${isLogged ? "logado" : "deslogado"}`}>
           <li className="nav-item">
             <Link to="/home">Home</Link>
           </li>
@@ -43,8 +43,22 @@ const Header = () => {
 
         
         </ul>
+
+        <ul className={`nav-list-3 ${isMenuClicked ? "visible" : "hidden"} ${isLogged ? "logado" : "deslogado"}`}>
+          <li className="nav-item">
+            <Link to="/home">Sobre</Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/criar-receita">Receitas</Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/conta">Avaliações</Link>
+          </li>
+
         
-        <ul className={`nav-list-2${isLogged ? "-hidden" : ""}`}>
+        </ul>
+        
+        <ul className={`nav-list-2 ${isMenuClicked ? "visible" : "hidden"} ${isLogged ? "logado" : "deslogado"}`}>
             <li className="nav-item-2">
             <Link to="/login">Login</Link>
           </li>
