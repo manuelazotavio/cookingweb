@@ -17,7 +17,6 @@
     border-radius: 10px;
     margin: 5vh;
     padding: 30px;
-    height: 50vh;
     color: rgb(250, 250, 250);
     align-items: center;
     justify-content: flex-start;
@@ -79,6 +78,8 @@
     color: #424242;
   }
 
+
+
   
   body{
     background-color: white;
@@ -90,6 +91,16 @@
         .imagemContainer{
             background-size: 100%;
         }
+        
+    }
+
+    @media (max-width: 450px) {
+      .botoes {
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+    }
     }
 
     @media (min-width: 900px) {
@@ -98,6 +109,10 @@
         }
         .subtitulo-sobre{
             width: 500px;
+        }
+        .botoes{
+          gap: 80px;
+          display: flex;
         }
     }
 

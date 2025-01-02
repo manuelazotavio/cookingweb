@@ -40,6 +40,7 @@
     border: none;
     border-radius: 8px;
     font-family: 'Poppins', sans-serif;
+    background-color: #555;
   }
   
   .inputDesc {
@@ -147,4 +148,5 @@
       width: 70%
     }
   }
+
   
