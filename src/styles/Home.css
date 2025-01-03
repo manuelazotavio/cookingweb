@@ -5,13 +5,11 @@
   justify-content: center; 
   align-items: center;
   padding: 20px;
+  background-color: rgb(238, 238, 238);;
  
   }
 
-  body{
-    background-color: rgb(238, 238, 238);
-  }
-  
+ 
   .containerSplash {
     display: flex;
     justify-content: center;
