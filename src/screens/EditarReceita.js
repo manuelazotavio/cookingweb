@@ -197,7 +197,7 @@ const EditarReceita = () => {
           <input
             id="file-upload"
             accept="image/*"
-            required
+          
             type="file"
             className="input-file-editar-receita"
             onChange={handleImagemChange}

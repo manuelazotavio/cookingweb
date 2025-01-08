@@ -133,7 +133,7 @@ const EditarUser = () => {
         <input
           id="file-upload"
           accept="image/*"
-          required
+      
           className="input-file-edit"
           type="file"
           onChange={handleAvatarChange}
