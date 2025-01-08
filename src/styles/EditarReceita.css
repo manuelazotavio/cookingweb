@@ -27,6 +27,29 @@
     font-family:'Poppins';
     font-weight: 600;
   }
+
+  .input-file-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center; /* Centraliza a imagem dentro do container */
+  }
+  
+  .img-preview {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    border-radius: 20px;
+  }
+  
+  .pencil {
+   
+    background-color: white;
+    border-radius: 50%;
+    padding: 8px;
+    cursor: pointer;
+  }
+  
  
 
   .form-edit-receita {
@@ -39,7 +62,7 @@
   align-items: center;
   }
 
-  .input-file-receita{
+  .input-file-editar-receita{
     width: 100%;
     padding: 10px;
     height: 100%;
@@ -53,12 +76,7 @@
     left: 0;
   }
 
-  .img-preview-receita {
-    width: 50%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 20px;
-  }
+ 
   
   .input-criar, .inputDesc, .inputPasso {
     width: 100%;

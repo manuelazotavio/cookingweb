@@ -2,6 +2,16 @@ import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import Button from "../components/Button.js";
 import authFetch from "../helpers/authFetch";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faStar,
+  faHeart,
+  faPencil,
+  faTrashCan,
+  faUser,
+  faClock,
+
+} from "@fortawesome/free-solid-svg-icons";
 import isAuth from "../helpers/authOkay.js";
 import "../styles/EditarUser.css";
 import { useNavigate } from "react-router-dom"; // Importando useNavigate
@@ -129,9 +139,9 @@ const EditarUser = () => {
           onChange={handleAvatarChange}
         ></input>
         <img className="img-preview" src={avatar} alt="Avatar" />
-        
+            <FontAwesomeIcon className="pencil" icon={faPencil} size={22} />
         </div>
-        <p>Clique na imagem para alterá-la.</p>
+     
       </form>
 
       

@@ -4,6 +4,16 @@ import authFetch from "../helpers/authFetch.js";
 import Button from "../components/Button.js";
 import AdicionarBtn from "../components/AdicionarBtn.js";
 import "../styles/EditarReceita.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faStar,
+  faHeart,
+  faPencil,
+  faTrashCan,
+  faUser,
+  faClock,
+
+} from "@fortawesome/free-solid-svg-icons";
 import isAuth from "../helpers/authOkay.js";
 import { useNavigate } from "react-router-dom"; // Importando useNavigate
 
@@ -12,6 +22,7 @@ const EditarReceita = () => {
   const location = useLocation();
   const { receita } = location.state || {};
   const [imagem, setImagem] = useState(receita.imagem);
+  const [imagemPreview, setImagemPreview] = useState(receita.imagem);
   const isLogged = isAuth();
   if (isLogged === false) {
     navigate("/login");
@@ -34,6 +45,8 @@ const EditarReceita = () => {
   const handleImagemChange = (event) => {
     const file = event.target.files[0];
     setImagem(file);
+    setImagemPreview(URL.createObjectURL(file));
+
   };
 
   const addPasso = () => {
@@ -186,10 +199,13 @@ const EditarReceita = () => {
             accept="image/*"
             required
             type="file"
-            className="input-file"
+            className="input-file-editar-receita"
             onChange={handleImagemChange}
           ></input>
-         
+
+        <img className="img-preview" src={imagemPreview} alt="Avatar" />
+        <FontAwesomeIcon className="pencil" icon={faPencil} size={22} />
+        
         </div>
       </form>
       <Button

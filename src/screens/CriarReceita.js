@@ -3,6 +3,16 @@ import authFetch from "../helpers/authFetch.js";
 import { useNavigate } from "react-router-dom"; // Para navegação
 import "../styles/CriarReceita.css";
 import AdicionarBtn from "../components/AdicionarBtn.js";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faStar,
+  faHeart,
+  faPencil,
+  faTrashCan,
+  faUser,
+  faClock,
+
+} from "@fortawesome/free-solid-svg-icons";
 import useUserLoggedStore from "../stores/useUserLoggedStore.js";
 import Button from "../components/Button.js";
 import isAuth from "../helpers/authOkay.js";
@@ -201,6 +211,9 @@ const CriarReceita = () => {
               src={URL.createObjectURL(imagem)}
               alt="Imagem da receita"
             />
+          
+        
+            
           ) : (
             <label htmlFor="file" className="input-file-label">
               Escolha uma foto para sua receita!
