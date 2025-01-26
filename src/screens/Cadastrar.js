@@ -1,9 +1,20 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/Cadastrar.css";
-import Button from "../components/Button"; // Supondo que o botão esteja em um diretório 'components'
+import loading from "../img/loading.gif";
+import Button from "../components/Button";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faStar,
+  faHeart,
+  faPencil,
+  faTrashCan,
+  faUser,
+  faClock,
+} from "@fortawesome/free-solid-svg-icons";
 
 const Cadastrar = () => {
+  const [isLoading, setIsLoading] = useState(false);
   const [avatar, setAvatar] = useState("");
   const [txtName, setTxtName] = useState("");
   const [txtEmail, setTxtEmail] = useState("");
@@ -17,14 +28,15 @@ const Cadastrar = () => {
 
   const postUser = async () => {
     try {
+      setIsLoading(true);
       const form = document.querySelector("#form-cadastrar-user");
       const formData = new FormData(form);
       formData.append("name", txtName);
       formData.append("email", txtEmail);
       formData.append("pass", txtPass);
       formData.append("avatar", avatar);
-    
-      const result = await fetch("https://backcooking.onrender.com/user",  {
+
+      const result = await fetch("https://backcooking.onrender.com/user", {
         method: "POST",
         body: formData,
       });
@@ -36,6 +48,8 @@ const Cadastrar = () => {
     } catch (error) {
       console.log("Error postUser " + error.message);
       alert(error.message);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -66,35 +80,50 @@ const Cadastrar = () => {
           placeholder="Senha..."
           onChange={(e) => setTxtPass(e.target.value)}
           value={txtPass}
-        /><div className="input-file-wrapper">
-        <input
-          id="file-upload"
-          accept="image/*"
-          required
-          className="input-file"
-          type="file"
-          onChange={handleAvatarChange}
-        ></input>
-       
-        {avatar ? (
-          <img className="img-preview" src={URL.createObjectURL(avatar)} alt="Avatar" />
-        ) :  <label htmlFor="file" className="input-file-label">
-            Escolha um avatar para seu perfil.
-          </label>}
+        />
+        <div className="input-file-wrapper">
+          <input
+            id="file-upload"
+            accept="image/*"
+            required
+            className="input-file"
+            type="file"
+            onChange={handleAvatarChange}
+          ></input>
+
+          {avatar ? (
+            <>
+              <img
+                className="img-preview"
+                src={URL.createObjectURL(avatar)}
+                alt="Avatar"
+              />
+              <FontAwesomeIcon className="pencil" icon={faPencil} size={22} />
+            </>
+          ) : (
+            <label htmlFor="file" className="input-file-label">
+              Escolha um avatar para seu perfil.
+            </label>
+          )}
         </div>
       </form>
 
-      
-          
-          
-        
-
-      <Button title="Cadastrar" onClick={postUser} className="button"></Button>
-      <Button
-        className="button"
-        title="Voltar"
-        onClick={() => navigate("/login")}
-      ></Button>
+      {isLoading ? (
+        <img src={loading} />
+      ) : (
+        <>
+          <Button
+            title="Cadastrar"
+            onClick={postUser}
+            className="button"
+          ></Button>
+          <Button
+            className="button"
+            title="Voltar"
+            onClick={() => navigate("/login")}
+          ></Button>
+        </>
+      )}
     </div>
   );
 };

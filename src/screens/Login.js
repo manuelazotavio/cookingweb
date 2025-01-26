@@ -4,9 +4,11 @@ import Modal from "react-modal";
 import Swal from "sweetalert2";
 import Button from "../components/Button.js";
 import CadastrarBtn from "../components/CadastrarBtn.js";
+import loading from '../img/loading.gif'
 import "../styles/Login.css";
 
 const Login = () => {
+  const [isLoading, setIsLoading] = useState(false);
   const [modalMessage, setModalMessage] = useState("");
   const [modalVisible, setModalVisible] = useState(false);
   const [txtEmail, setTxtEmail] = useState("");
@@ -16,6 +18,7 @@ const Login = () => {
 
   const handleLogin = async () => {
     try {
+      setIsLoading(true)
       const response = await fetch(
         "https://backcooking.onrender.com/auth/login",
         {
@@ -55,12 +58,11 @@ const Login = () => {
     } catch (error) {
       setModalMessage("Erro ao fazer login. Tente novamente.");
       setModalVisible(true);
+    } finally {
+      setIsLoading(false)
     }
   };
 
-  const handleCadastrar = () => {
-    navigate("/cadastrar"); // Redireciona para a página de cadastro
-  };
 
   return (
     <div className="loginContainer">
@@ -77,15 +79,21 @@ const Login = () => {
         value={txtPass}
         onChange={(e) => setTxtPass(e.target.value)}
       />
+       {isLoading ? (
+          <img src={loading} />
+        ) : (
+          <>
       <Button onClick={handleLogin} title="Entrar" />
-      <CadastrarBtn onClick={handleCadastrar} title="Cadastrar" />
+      <CadastrarBtn onClick={() => navigate("/Cadastrar")} title="Cadastrar" />
+       
       <Modal
         isOpen={modalVisible}
         onRequestClose={() => setModalVisible(false)}
       >
         <h2>{modalMessage}</h2>
         <button onClick={() => setModalVisible(false)}>Fechar</button>
-      </Modal>
+      </Modal> 
+      </>)}
     </div>
   );
 };
