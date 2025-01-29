@@ -118,13 +118,13 @@ const EditarUser = () => {
         encType="multipart/form-data"
       >
         <input
-          className="input-cadastrar"
+          className="input-editar-user"
           placeholder="Nome..."
           onChange={(e) => setTxtName(e.target.value)}
           value={txtName}
         />
         <input
-          className="input-cadastrar"
+          className="input-editar-user"
           placeholder="Email..."
           onChange={(e) => setTxtEmail(e.target.value)}
           value={txtEmail}

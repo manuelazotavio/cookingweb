@@ -30,6 +30,7 @@
     justify-content: flex-start;
     width: 100%;
     padding: 10px 0;
+    gap: 20px
   }
   
   .titulo-receita {
@@ -42,16 +43,20 @@
     max-width: 100%;
     overflow-wrap: break-word; 
   }
-  
+
+
   .info-item {
     display: flex;
     align-items: center;
-    margin-right: 10px;
+    justify-content: center
   }
   
-  .avaliacao, .tempo, .porcoes{
+  .avaliacao-card, .tempo-card, .porcoes-card{
     font-family: 'Poppins';
     font-weight: 600;
     font-size: 13px;
+   
     margin-left: 5px;
   }
+
+ 

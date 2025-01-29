@@ -6,6 +6,10 @@
 
 .input{
     border: none;
+    font-size: 13px;
+    font-family: 'Poppins';
+    font-weight: 600;
+    background-color: #ffffff;
 }
 
 .esqueciContainer{

@@ -2,12 +2,14 @@ import React, { useEffect, useState, useCallback } from "react";
 import Modal from "react-modal";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
+import loading from "../img/loading.gif";
 import "../styles/EsqueciSenha.css";
 import Button from "../components/Button";
 
 const EsqueciSenha = () => {
   const [txtEmail, setTxtEmail] = useState("");
-
+  const [modalMessage, setModalMessage] = useState("");
+  const [modalVisible, setModalVisible] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
@@ -23,15 +25,30 @@ const EsqueciSenha = () => {
           body: JSON.stringify({ email }), // Envia como JSON
         }
       );
-
-      const data = await response.json();
       if (response.ok) {
-        alert("Verifique seu e-mail");
+        
+        
+                Swal.fire({
+                  text: "E-mail enviado com sucesso.",
+                  icon: "success",
+                  confirmButtonText: "Ok",
+                  confirmButtonColor: "#ff421d",
+                });
       } else {
-        alert(data.error);
+  
+         const errorData = await response.json();
+                console.log(errorData);
+        
+                Swal.fire({
+                  text: errorData.error,
+                  icon: "error",
+                  confirmButtonText: "Voltar",
+                  confirmButtonColor: "#ff421d",
+                });
       }
     } catch (error) {
-      alert("Erro ao enviar e-mail.");
+      setModalMessage("Erro ao fazer login. Tente novamente.");
+      setModalVisible(true);
     } finally {
       setIsLoading(false);
     }
@@ -50,11 +67,21 @@ const EsqueciSenha = () => {
       <p className="esqueci-senha-p">
         Um e-mail será enviado para sua caixa de entrada. Verifique os spams.
       </p>
-
-      <>
-        <Button title="Enviar" onClick={handleEnviarEmail} />
-        <Button title="Voltar" onClick={() => navigate("/login")} />
-      </>
+      {isLoading ? (
+        <img src={loading} />
+      ) : (
+        <>
+          <Button title="Enviar" onClick={handleEnviarEmail} />
+          <Button title="Voltar" onClick={() => navigate("/login")} />
+        </>
+      )}
+      <Modal
+        isOpen={modalVisible}
+        onRequestClose={() => setModalVisible(false)}
+      >
+        <h2>{modalMessage}</h2>
+        <button onClick={() => setModalVisible(false)}>Fechar</button>
+      </Modal>
     </div>
   );
 };

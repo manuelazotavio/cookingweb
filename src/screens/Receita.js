@@ -15,7 +15,7 @@ import "../styles/Receita.css";
 import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-import receitaFoto from "../img/download.jpg";
+
 
 const Receita = () => {
   const [modalVisible, setModalVisible] = useState(false);
@@ -167,7 +167,7 @@ const Receita = () => {
         <div>
           <div className="card-tela-receita">
             <h2 className="titulo-receita-tela">{receita.name}</h2>
-            <div className="info-container">
+            <div className="info-container-receita">
               <p className="p-receita">
                 <FontAwesomeIcon icon={faClock} size="19" color="#FF421D" />
                 <span className="tempo">{receita.tempo}</span>

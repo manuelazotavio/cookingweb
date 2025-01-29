@@ -23,15 +23,15 @@ const CardReceita = ({ receita }) => {
       <div className="info-container">
         <div className="info-item">
           <FontAwesomeIcon icon={faClock} size="19" color="#FF421D" />
-          <span className="tempo">{receita.tempo}</span>
+          <span className="tempo-card">{receita.tempo}</span>
         </div>
         <div className="info-item">
           <FontAwesomeIcon icon={faStar} color="#F7D342" size="23" />
-          <span className="avaliacao">{receita.avaliacao}</span>
+          <span className="avaliacao-card">{receita.avaliacao}</span>
         </div>
         <div className="info-item">
           <FontAwesomeIcon icon={faUser} color="#9EA69E" size="19" />
-          <span className="porcoes">{receita.porcoes}</span>
+          <span className="porcoes-card">{receita.porcoes}</span>
         </div>
       </div>
     </div>

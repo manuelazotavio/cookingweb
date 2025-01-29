@@ -7,6 +7,8 @@
   padding: 20px;
   }
 
+  
+
  
   .containerSplash {
     display: flex;
@@ -41,7 +43,7 @@
     font-family: 'Poppins';
     font-size: 30px;
     margin-top: 40px;
-    font-weight: 800;
+    font-weight: 900;
     align-self: center;
   }
 
@@ -53,7 +55,7 @@
   .tituloFav {
     font-family: "Poppins", sans-serif;
     font-size: 30px;
-    font-weight: 800;
+    font-weight: 900;
     margin-top: 10px;
     align-self: center;
   }

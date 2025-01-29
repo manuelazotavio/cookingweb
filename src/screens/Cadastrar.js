@@ -12,6 +12,7 @@ import {
   faUser,
   faClock,
 } from "@fortawesome/free-solid-svg-icons";
+import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
 const Cadastrar = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -19,11 +20,16 @@ const Cadastrar = () => {
   const [txtName, setTxtName] = useState("");
   const [txtEmail, setTxtEmail] = useState("");
   const [txtPass, setTxtPass] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
   const handleAvatarChange = (event) => {
     const file = event.target.files[0];
     setAvatar(file);
+  };
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
   };
 
   const postUser = async () => {
@@ -59,7 +65,7 @@ const Cadastrar = () => {
       <form
         method="post"
         id="form-cadastrar-user"
-        className="form-criar-user"
+        className="form-cadastrar"
         encType="multipart/form-data"
       >
         <input
@@ -74,13 +80,21 @@ const Cadastrar = () => {
           onChange={(e) => setTxtEmail(e.target.value)}
           value={txtEmail}
         />
-        <input
-          type="password"
-          className="input-cadastrar"
-          placeholder="Senha..."
-          onChange={(e) => setTxtPass(e.target.value)}
-          value={txtPass}
-        />
+        <div className="password-container-cadastrar">
+          <input
+            className="input-cadastrar" 
+            type={showPassword ? "text" : "password"}
+            placeholder="Senha"
+            value={txtPass}
+            onChange={(e) => setTxtPass(e.target.value)}
+          />
+          <FontAwesomeIcon
+            icon={showPassword ? faEye : faEyeSlash}
+            className="eye-icon"
+            onClick={togglePasswordVisibility}
+            style={{ cursor: "pointer" }}
+          />
+        </div>
         <div className="input-file-wrapper">
           <input
             id="file-upload"

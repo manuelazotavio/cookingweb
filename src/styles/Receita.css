@@ -39,6 +39,7 @@ body{
     padding: 25px;
     border-radius: 15px;
     margin-top: 20px;
+    width: 250px;
   }
 
   .card-info{
@@ -71,10 +72,11 @@ body{
     overflow-wrap: break-word; 
   }
   
-  .info-container {
+  .info-container-receita {
     display: flex;
-    justify-content: center;
-    gap: 20px;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
   }
   
   p{
@@ -133,3 +135,12 @@ body{
     }
     
   }
+
+  .porcoes, .avaliacao, .tempo{
+    font-family: 'Poppins';
+    font-weight: 600;
+    font-size: 13px;
+    margin-left: 5px;
+  }
+
+  
