@@ -85,7 +85,7 @@ const Login = () => {
           <>
       <Button onClick={handleLogin} title="Entrar" />
       <CadastrarBtn onClick={() => navigate("/Cadastrar")} title="Cadastrar" />
-       
+       <a onClick={() => navigate("/esqueci-senha")} className="paragrafo">Esqueceu a senha?</a>
       <Modal
         isOpen={modalVisible}
         onRequestClose={() => setModalVisible(false)}

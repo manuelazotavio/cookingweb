@@ -9,6 +9,7 @@ import Splash from "./screens/Splash";
 import Conta from "./screens/Conta";
 import EditarUser from "./screens/EditarUser";
 import Home from "./screens/Home";
+import EsqueciSenha from './screens/EsqueciSenha.js'
 import '@fontsource/poppins'; 
 import '@fontsource/poppins/600.css';
 import '@fontsource/poppins/800.css';
@@ -56,7 +57,7 @@ export default function App() {
         <Route path="/editar-user" element={<EditarUser />} />
         <Route path="/editar-receita" element={<EditarReceita />} />
         <Route path="/criar-receita" element={<CriarReceita />} />
-        
+        <Route path="/esqueci-senha" element={<EsqueciSenha />} />
         <Route path="/landing-page" element={<LandingPage />} />
         
         <Route path="/receita" element={<Receita />} />

@@ -168,15 +168,15 @@ const Receita = () => {
           <div className="card-tela-receita">
             <h2 className="titulo-receita-tela">{receita.name}</h2>
             <div className="info-container">
-              <p>
+              <p className="p-receita">
                 <FontAwesomeIcon icon={faClock} size="19" color="#FF421D" />
                 <span className="tempo">{receita.tempo}</span>
               </p>
-              <p>
+              <p className="p-receita">
                 <FontAwesomeIcon icon={faStar} color="#F7D342" size="23" />
                 <span className="avaliacao">{receita.avaliacao}</span>
               </p>
-              <p>
+              <p className="p-receita">
                 <FontAwesomeIcon icon={faUser} color="#9EA69E" size="19" />
                 <span className="porcoes">{receita.porcoes}</span>
               </p>
@@ -212,13 +212,13 @@ const Receita = () => {
         <h3 className="subtitulo-receita">Ingredientes</h3>
         <div className="ingredientes">
           {receita.ingredientes.split(";").map((ingrediente, index) => (
-            <p key={index}>{ingrediente}</p>
+            <p className="p-receita" key={index}>{ingrediente}</p>
           ))}
         </div>
         <h3 className="subtitulo-receita">Passo a Passo</h3>
         <div className="instrucoes">
           {receita.instrucao.split(";").map((step, index) => (
-            <p key={index}>
+            <p className="p-receita" key={index}>
               <strong>{`${index + 1}. `}</strong>
               {step}
             </p>
@@ -227,7 +227,7 @@ const Receita = () => {
       </div>
       {modalVisible && (
         <div className="modal">
-          <p>Tem certeza?</p>
+          <p className="p-receita">Tem certeza?</p>
           <button onClick={removeReceita}>Sim, remover receita</button>
           <button onClick={() => setModalVisible(false)}>Cancelar</button>
         </div>

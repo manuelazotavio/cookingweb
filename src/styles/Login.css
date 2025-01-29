@@ -6,7 +6,7 @@
     justify-content: center; 
     align-items: center;
     padding: 20px;
-   
+    height: 60vh;
   }
   
   input {
@@ -17,6 +17,14 @@
     padding: 10px;
     border: none;
     border-radius: 10px;
+  }
+
+  .paragrafo{
+    font-size: 13px;
+    color: rgb(85, 85, 85);
+    font-family: 'Poppins';
+    font-weight: 800;
+    cursor: pointer;
   }
   
   .titulo {

@@ -1,0 +1,19 @@
+.esqueci-senha-p{
+    font-size: 13px;
+    text-align: center;
+    color: rgb(68, 68, 68);
+}
+
+.input{
+    border: none;
+}
+
+.esqueciContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+    width: 100%;
+    padding: 20px;
+}
