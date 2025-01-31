@@ -4,7 +4,8 @@ import CriarReceita from "./screens/CriarReceita";
 import Receita from "./screens/Receita";
 import Cadastrar from "./screens/Cadastrar";
 import EditarReceita from "./screens/EditarReceita";
-import LandingPage from './screens/LandingPage'
+import LandingPage from './screens/LandingPage';
+import ValidToken from './screens/ValidToken';
 import Splash from "./screens/Splash";
 import Conta from "./screens/Conta";
 import EditarUser from "./screens/EditarUser";
@@ -59,6 +60,7 @@ export default function App() {
         <Route path="/criar-receita" element={<CriarReceita />} />
         <Route path="/esqueci-senha" element={<EsqueciSenha />} />
         <Route path="/landing-page" element={<LandingPage />} />
+        <Route path="/valid-token" element={<ValidToken />} />
         
         <Route path="/receita" element={<Receita />} />
         <Route path="/conta" element={<Conta />} />
