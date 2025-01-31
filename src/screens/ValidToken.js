@@ -65,7 +65,7 @@ const ValidToken = () => {
         />
       </div>
       {isLoading ? (
-        <img src={loading}></img>
+        <img alt="Carregando..." src={loading}></img>
       ) : (
         <>
           <CadastrarBtn onClick={handleValidToken} title="Redefinir senha" />
