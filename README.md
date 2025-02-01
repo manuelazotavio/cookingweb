@@ -34,10 +34,10 @@ Os objetivos propostos para a criação das três interfaces do Guarda-Receita f
 O desenvolvimento dos sites utilizando as tecnologias previamente citadas possibilitou a criação de uma plataforma robusta, interativa, segura e responsiva, atendendo aos requisitos de um sistema moderno e eficiente.
 
 # Referências
-— **Supabase**: https://supabase.com/
-— **React**: https://react.dev/
-— **Node.js**: https://nodejs.org/en/docs
-— **Prisma**: https://www.prisma.io/docs
-— **React Native**: https://reactnative.dev/docs/getting-started
-— **GitHub**: https://github.com/
+— **Supabase**: https://supabase.com/  
+— **React**: https://react.dev/  
+— **Node.js**: https://nodejs.org/en/docs  
+— **Prisma**: https://www.prisma.io/docs  
+— **React Native**: https://reactnative.dev/docs/getting-started  
+— **GitHub**: https://github.com/  
 
