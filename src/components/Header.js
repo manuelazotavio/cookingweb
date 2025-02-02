@@ -46,7 +46,7 @@ const Header = () => {
 
         <ul className={`nav-list-3 ${isMenuClicked ? "visible" : "hidden"} ${isLogged ? "logado" : "deslogado"}`}>
           <li className="nav-item">
-            <Link to="/home">Sobre</Link>
+            <Link to="/landing-page#sobre">Sobre</Link>
           </li>
           <li className="nav-item">
             <Link to="/criar-receita">Avaliações</Link>

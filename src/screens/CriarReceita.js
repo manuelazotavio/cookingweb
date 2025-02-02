@@ -200,6 +200,7 @@ const CriarReceita = () => {
           onChange={(e) => setTxtAvaliacao(e.target.value)}
           value={txtAvaliacao}
         />
+        
         <div className="input-file-wrapper">
           <input
             id="file-upload"
@@ -209,6 +210,7 @@ const CriarReceita = () => {
             className="input-file"
             onChange={handleImagemChange}
           ></input>
+          
           {imagem ? (
             <img
               className="img-preview"
@@ -223,13 +225,16 @@ const CriarReceita = () => {
               Escolha uma foto para sua receita!
             </label>
           )}
+          
         </div>
-      </form>
-      {isLoading ? (
-        <img style={{margin: 0}} src={loading} alt="Carregando..." />
+        {isLoading ? (
+       <p>Carregando...</p>
       ) : (
         <Button title={"Publicar"} onClick={postReceita} />
       )}
+      </form>
+    
+        
     </div>
   );
 };
