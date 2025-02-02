@@ -39,7 +39,7 @@ const LandingPage = () => {
           ></Button>
         </div>
       </div>
-      <div className="avaliacoesContainer">
+      <div id="avaliacoes" className="avaliacoesContainer">
         <h1 className="titulo-sobre">Avaliações</h1>
         <div className="avaliacaoCard">
           <img className="profile-image-lp" src={picture} alt="Avatar" />
