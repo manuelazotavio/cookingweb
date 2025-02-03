@@ -60,8 +60,12 @@ const Login = () => {
         });
       }
     } catch (error) {
-      setModalMessage("Erro ao fazer login. Tente novamente.");
-      setModalVisible(true);
+      Swal.fire({
+        text: "Erro ao fazer login, tente novamente.",
+        icon: "error",
+        confirmButtonText: "Voltar",
+        confirmButtonColor: "#ff421d",
+      });
     } finally {
       setIsLoading(false);
     }

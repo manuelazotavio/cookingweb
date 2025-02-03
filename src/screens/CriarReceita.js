@@ -37,6 +37,28 @@ const CriarReceita = () => {
   const [ingredientes, setIngredientes] = useState([""]);
   const [passos, setPassos] = useState([""]);
 
+  const addIngrediente = () => {
+    setIngredientes([...ingredientes, ""]);
+  };
+
+  const addPasso = () => {
+    setPassos([...passos, ""]);
+  };
+
+  const handleIngredienteChange = (text, index) => {
+  
+    const newIngredientes = [...ingredientes];
+    newIngredientes[index] = text;
+    setIngredientes(newIngredientes);
+  };
+
+  const handlePassoChange = (text, index) => {
+    const newPassos = [...passos];
+    newPassos[index] = text;
+    setPassos(newPassos);
+  };
+
+
   const handleImagemChange = (event) => {
     const file = event.target.files[0];
     setImagem(file);
@@ -94,25 +116,6 @@ const CriarReceita = () => {
     }
   };
 
-  const addIngrediente = () => {
-    setIngredientes([...ingredientes, ""]);
-  };
-
-  const addPasso = () => {
-    setPassos([...passos, ""]);
-  };
-
-  const handleIngredienteChange = (text, index) => {
-    const newIngredientes = [...ingredientes];
-    newIngredientes[index] = text;
-    setIngredientes(newIngredientes);
-  };
-
-  const handlePassoChange = (text, index) => {
-    const newPassos = [...passos];
-    newPassos[index] = text;
-    setPassos(newPassos);
-  };
 
   return (
     <div className="container-editar-receita">
@@ -151,6 +154,7 @@ const CriarReceita = () => {
         ))}
 
         <AdicionarBtn
+     
           title={"Adicionar Ingrediente"}
           onClick={addIngrediente}
         />
@@ -170,7 +174,7 @@ const CriarReceita = () => {
 
         <AdicionarBtn title={"Adicionar Passo"} onClick={addPasso} />
 
-        <label>Porções</label>
+        <label className="label-criar-receita">Porções</label>
         <input
           className="input-criar"
           type="text"
@@ -179,7 +183,7 @@ const CriarReceita = () => {
           value={txtPorcao}
         />
 
-        <label>Tempo de preparo</label>
+        <label  className="label-criar-receita">Tempo de preparo</label>
         <input
           className="input-criar"
           type="text"
@@ -188,7 +192,7 @@ const CriarReceita = () => {
           value={txtTempo}
         />
 
-        <label>Avaliação</label>
+        <label  className="label-criar-receita">Avaliação</label>
         <input
           className="input-criar"
           type="text"

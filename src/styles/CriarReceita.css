@@ -20,6 +20,7 @@
   .subtitulo-criar{
     font-family:'Poppins';
     font-weight: 600;
+    align-self: flex-start;
   }
  
 

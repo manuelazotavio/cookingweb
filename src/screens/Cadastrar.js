@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/Cadastrar.css";
 import loading from "../img/loading.gif";
+import Swal from "sweetalert2";
 import Button from "../components/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -50,10 +51,26 @@ const Cadastrar = () => {
       console.log(data);
       if (data?.success) {
         navigate(-1);
+      } else {
+        let errorMessage = "";
+        for (let field in data.fields) {
+          errorMessage += data.fields[field].messages[0] + " ";
+        }
+        Swal.fire({
+          text: errorMessage,
+          icon: "error",
+          confirmButtonText: "Voltar",
+          confirmButtonColor: "#ff421d",
+        });
       }
     } catch (error) {
       console.log("Error postUser " + error.message);
-      alert(error.message);
+      Swal.fire({
+        text: error.message,
+        icon: "error",
+        confirmButtonText: "Voltar",
+        confirmButtonColor: "#ff421d",
+      });
     } finally {
       setIsLoading(false);
     }
@@ -82,7 +99,7 @@ const Cadastrar = () => {
         />
         <div className="password-container-cadastrar">
           <input
-            className="input-cadastrar" 
+            className="input-cadastrar"
             type={showPassword ? "text" : "password"}
             placeholder="Senha"
             value={txtPass}
