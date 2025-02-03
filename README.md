@@ -1,70 +1,65 @@
-# Getting Started with Create React App
+# O que é o Guarda-Receita?
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A solução proposta, Guarda-Receita, é uma aplicação para usuários que desejam armazenar e gerenciar suas receitas culinárias. A aplicação conta com três interfaces principais: um site público (landing page), um site para os usuários e uma versão mobile. O site público tem como objetivo apresentar a plataforma, permitindo que novos usuários se cadastrem e façam login. Já o site e a versão mobile são utilizados para registrar novas receitas, consultar receitas já cadastradas, além de editar e excluir registros existentes.
 
-## Available Scripts
+# Como usar o Guarda-Receita?
 
-In the project directory, you can run:
+## ⚙ Configuração do Ambiente:
 
-### `npm start`
+### Terminal 1 - CookingWeb:
+```bash
+ npm i 
+```
+```bash
+ npm start
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Para a opção abaixo, você precisa instalar o expo no seu celular e escanear o QR code para melhor visualização.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Terminal 2 - Cooking:
+```bash
+ npm i
+```
+```bash
+ npx expo start
+```
 
-### `npm test`
+# Por que usar o Guarda-Receita?
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 1. Praticidade e Acessibilidade
+Com o Guarda-Receita, você pode salvar todas as suas receitas em um só lugar e acessá-las de qualquer dispositivo, seja pelo site ou pelo aplicativo móvel. Não precisa mais se preocupar com cadernos perdidos ou papéis espalhados pela cozinha.
 
-### `npm run build`
+### 2. Cadastro e Busca Simples
+Adicione suas receitas com poucos cliques, incluindo ingredientes, modo de preparo, tempo de cozimento, quantidade de porções e até mesmo uma imagem ilustrativa. Além disso, a ferramenta de busca permite que você encontre rapidamente qualquer receita cadastrada.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 3. Personalização e Favoritos
+Marque suas receitas favoritas para um acesso ainda mais rápido. Você também pode editar ou excluir receitas conforme necessário, garantindo que sua coleção culinária esteja sempre atualizada.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# Tecnologias utilizadas
+— **React** e **JavaScript** para interatividade e dinamismo;  
+— **React Native** e **Expo** para a versão mobile;  
+— **Zod** para validação dos dados internos;   
+— **Node.js** para o ambiente do servidor;  
+— **Git** e **GitHub** para versionamento do código;  
+— **Jest** para testes;  
+— **Zustand** para criação de stores;  
+— **Prisma** para integração do banco de dados e backend.  
+— **Supabase** para o banco de dados e o armazenamento de imagens em stores;  
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Diagrama do Banco de Dados
 
-### `npm run eject`
+![prisma-erd](https://github.com/user-attachments/assets/61227c98-3c47-46f6-9201-008688d5c457)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+# Conclusão  
+Os objetivos propostos para a criação das três interfaces do Guarda-Receita foram atingidos de maneira satisfatória. A empresa de armazenamento de receitas conseguiu uma solução integrada que proporciona aos seus clientes acesso facilitado para todas as funcionalidades propostas.  
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+O desenvolvimento dos sites utilizando as tecnologias previamente citadas possibilitou a criação de uma plataforma robusta, interativa, segura e responsiva, atendendo aos requisitos de um sistema moderno e eficiente.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+# Referências
+— **Supabase**: https://supabase.com/  
+— **React**: https://react.dev/  
+— **Node.js**: https://nodejs.org/en/docs  
+— **Prisma**: https://www.prisma.io/docs  
+— **React Native**: https://reactnative.dev/docs/getting-started  
+— **GitHub**: https://github.com/  
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

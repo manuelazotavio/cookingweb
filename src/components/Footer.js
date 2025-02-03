@@ -12,7 +12,7 @@ const Footer = () => {
       <Link to="/landing-page">
         <img to="/home" className="marca" src={marca} alt="Logo" />
       </Link>
-      <nav className="navbar-footer">
+      <nav id="contato" className="navbar-footer">
         <ul className="nav-list-footer">
           <li className="nav-item">
             <Link to="/home"><strong>Baixe o App</strong></Link>

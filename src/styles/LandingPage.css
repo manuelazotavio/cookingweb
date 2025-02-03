@@ -13,6 +13,15 @@
    
   }
 
+  .celular{
+    width: 500px;
+  }
+
+  .celular:hover{
+    transform: scale(1.05);
+  transition: 0.5s;
+  }
+
   .sobreContainer{
     display: flex;
     flex-direction: column;
@@ -22,7 +31,11 @@
     color: rgb(250, 250, 250);
     align-items: center;
     justify-content: flex-start;
+<<<<<<< HEAD
     background-color: #1a1a1a;
+=======
+    background-color: #141414;
+>>>>>>> 35371ff238f42d581db8fc6234a5c2b27eff6035
   }
 
   .inicial{

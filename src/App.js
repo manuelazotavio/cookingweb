@@ -17,6 +17,7 @@ import '@fontsource/poppins/800.css';
 import Login from "./screens/Login";
 import { FiHome, FiPlusSquare, FiUser } from "react-icons/fi";
 import Header from "./components/Header";
+import Dashboard from "./screens/Dashboard.js";
 
 
 
@@ -58,6 +59,7 @@ export default function App() {
         <Route path="/editar-user" element={<EditarUser />} />
         <Route path="/editar-receita" element={<EditarReceita />} />
         <Route path="/criar-receita" element={<CriarReceita />} />
+        <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/esqueci-senha" element={<EsqueciSenha />} />
         <Route path="/landing-page" element={<LandingPage />} />
         <Route path="/valid-token" element={<ValidToken />} />

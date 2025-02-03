@@ -13,6 +13,10 @@ const Header = () => {
     setIsMenuClicked(!isMenuClicked);
   };
 
+  const scrollToSection = (id) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <div className="header">
       <Link to="/landing-page">
@@ -46,13 +50,13 @@ const Header = () => {
 
         <ul className={`nav-list-3 ${isMenuClicked ? "visible" : "hidden"} ${isLogged ? "logado" : "deslogado"}`}>
           <li className="nav-item">
-            <Link to="/home">Sobre</Link>
+            <Link onClick={() => scrollToSection("sobre")}>Sobre</Link>
           </li>
           <li className="nav-item">
-            <Link to="/criar-receita">Avaliações</Link>
+            <Link onClick={() => scrollToSection("avaliacoes")}>Avaliações</Link>
           </li>
           <li className="nav-item">
-            <Link to="/conta">Contato</Link>
+            <Link onClick={() => scrollToSection("contato")}>Contato</Link>
           </li>
 
         

@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar, faUser, faClock } from "@fortawesome/free-solid-svg-icons";
 import Button from "../components/Button";
 import Footer from "../components/Footer";
+import telaAplicativo from "../img/tela inicial png.png"
 
 const LandingPage = () => {
   const navigate = useNavigate();
@@ -19,47 +20,50 @@ const LandingPage = () => {
           <Button onClick={() => navigate("/login")} title="Comece já"></Button>
         </div>
       </div>
-      <div className="sobreContainer">
+      <div id="sobre" className="sobreContainer">
         <h1 className="titulo-sobre">O que somos?</h1>
         <h5 className="subtitulo-sobre">
           Se você deseja armazenar suas ideias culinárias com segurança, o
           Guarda-Receita é o local perfeito. Cadastre-se já e desfrute do sabor
           da organização e praticidade.
         </h5>
+        <h1 className="titulo-sobre">Na palma da sua mão</h1>
+        <h5 style={{margin: 0, fontWeight: 400}}>Versão mobile em breve!</h5>
+        <img className="celular" src={telaAplicativo}></img>
 
         <div className="botoes">
-          <Button title="Aplicativo"></Button>
+
           <Button
             onClick={() => navigate("/cadastrar")}
             title="Versão web"
           ></Button>
         </div>
       </div>
-      <div className="avaliacoesContainer">
+      <div id="avaliacoes" className="avaliacoesContainer">
         <h1 className="titulo-sobre">Avaliações</h1>
         <div className="avaliacaoCard">
           <img className="profile-image-lp" src={picture} alt="Avatar" />
           <div>
 
-          <h5 className="subtitulo-sobre">
-          O site é super intuitivo para cadastrar receitas! Tudo é direto ao ponto: só preenchi os campos, coloquei minha foto e pronto, minha receita estava online. É perfeito para quem não quer perder tempo com burocracia.
-          </h5>
+            <h5 className="subtitulo-sobre">
+              O site é super intuitivo para cadastrar receitas! Tudo é direto ao ponto: só preenchi os campos, coloquei minha foto e pronto, minha receita estava online. É perfeito para quem não quer perder tempo com burocracia.
+            </h5>
           </div>
         </div>
         <div className="avaliacaoCard">
           <img className="profile-image-lp" src={picture} alt="Avatar" />
           <h5 className="subtitulo-sobre">
-          O site é bonito e organizado. Todas as receitas ficam super bem apresentadas, e a interface é bem pensada. Ficaria perfeito com uma pequena atualização para o modo noturno.
+            O site é bonito e organizado. Todas as receitas ficam super bem apresentadas, e a interface é bem pensada. Ficaria perfeito com uma pequena atualização para o modo noturno.
           </h5>
         </div>
         <div className="avaliacaoCard">
           <img className="profile-image-lp" src={picture} alt="Avatar" />
           <h5 className="subtitulo-sobre">
-          Adorei que o site me permite personalizar minha receita do jeitinho que eu quero. Não tem limitações chatas, e eu consigo colocar meu toque especial em cada prato que cadastro. Dá até vontade de criar um livro de receitas só meu!
+            Adorei que o site me permite personalizar minha receita do jeitinho que eu quero. Não tem limitações chatas, e eu consigo colocar meu toque especial em cada prato que cadastro. Dá até vontade de criar um livro de receitas só meu!
           </h5>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 };

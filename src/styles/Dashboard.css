@@ -1,0 +1,37 @@
+.container-dash{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;
+    padding: 20px;
+}
+
+body{
+    background-color: #fefefe;
+}
+
+.input-dash{
+    height: 40px;
+    width: 50%;
+    background-color: #ffffff;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    font-size: 13px;
+    font-family: 'Poppins';
+    font-weight: 600;
+}
+
+.container-cliente{
+    width: 154px;
+    height: 362px;
+    background-color: #E5E5E5;
+}
+
+.header-cliente{
+    width: 154px;
+    height: 24px;
+    background-color: #CACACA;
+}

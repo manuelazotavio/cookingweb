@@ -3,6 +3,7 @@ import authFetch from "../helpers/authFetch.js";
 import { useNavigate } from "react-router-dom"; // Para navegação
 import "../styles/CriarReceita.css";
 import AdicionarBtn from "../components/AdicionarBtn.js";
+import loading from '../img/loading.gif'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faStar,
@@ -20,16 +21,17 @@ import { useEffect } from "react";
 
 const CriarReceita = () => {
   const navigate = useNavigate();
- useEffect(() => {
-  const isLogged = isAuth();
-  if (isLogged === false) {
-    navigate("/login");
-  }
- }, [])
+  useEffect(() => {
+    const isLogged = isAuth();
+    if (isLogged === false) {
+      navigate("/login");
+    }
+  }, [])
 
   const [imagem, setImagem] = useState("");
 
   const [txtName, setTxtName] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const [txtDescricao, setTxtDescricao] = useState("");
   const [txtPorcao, setTxtPorcao] = useState("");
   const [txtTempo, setTxtTempo] = useState("");
@@ -68,9 +70,9 @@ const CriarReceita = () => {
 
   const postReceita = async () => {
     try {
+      setIsLoading(true);
       const form = document.querySelector("#form-cadastrar");
       const formData = new FormData(form);
-
       formData.append("userId", userId);
       formData.append("name", txtName);
       formData.append("descricao", txtDescricao);
@@ -88,7 +90,7 @@ const CriarReceita = () => {
         passos.filter((passo) => passo !== "").join(";")
       );
 
-  
+
 
       const result = await authFetch(
         "https://backcooking.onrender.com/receita",
@@ -113,6 +115,8 @@ const CriarReceita = () => {
     } catch (error) {
       console.error("Error postReceita: " + error.message);
       alert(error.message);
+    } finally {
+      setIsLoading(false)
     }
   };
 
@@ -200,6 +204,7 @@ const CriarReceita = () => {
           onChange={(e) => setTxtAvaliacao(e.target.value)}
           value={txtAvaliacao}
         />
+        
         <div className="input-file-wrapper">
           <input
             id="file-upload"
@@ -209,24 +214,31 @@ const CriarReceita = () => {
             className="input-file"
             onChange={handleImagemChange}
           ></input>
+          
           {imagem ? (
             <img
               className="img-preview"
               src={URL.createObjectURL(imagem)}
               alt="Imagem da receita"
             />
-          
-        
-            
+
+
+
           ) : (
             <label htmlFor="file" className="input-file-label">
               Escolha uma foto para sua receita!
             </label>
           )}
+          
         </div>
+        {isLoading ? (
+       <p>Carregando...</p>
+      ) : (
+        <Button title={"Publicar"} onClick={postReceita} />
+      )}
       </form>
-
-      <Button title={"Publicar"} onClick={postReceita} />
+    
+        
     </div>
   );
 };
