@@ -2,6 +2,28 @@
 
 A solução proposta, Guarda-Receita, é uma aplicação para usuários que desejam armazenar e gerenciar suas receitas culinárias. A aplicação conta com três interfaces principais: um site público (landing page), um site para os usuários e uma versão mobile. O site público tem como objetivo apresentar a plataforma, permitindo que novos usuários se cadastrem e façam login. Já o site e a versão mobile são utilizados para registrar novas receitas, consultar receitas já cadastradas, além de editar e excluir registros existentes.
 
+# Como usar o Guarda-Receita?
+
+## ⚙ Configuração do Ambiente:
+
+### Terminal 1 - CookingWeb:
+```bash
+ npm i 
+```
+```bash
+ npm start
+```
+
+### Para a opção abaixo, você precisa instalar o expo no seu celular e escanear o QR code para melhor visualização.
+
+### Terminal 2 - Cooking:
+```bash
+ npm i
+```
+```bash
+ npx expo start
+```
+
 # Por que usar o Guarda-Receita?
 
 ### 1. Praticidade e Acessibilidade
@@ -26,7 +48,7 @@ Marque suas receitas favoritas para um acesso ainda mais rápido. Você também 
 
 # Diagrama do Banco de Dados
 
-
+![prisma-erd](https://github.com/user-attachments/assets/61227c98-3c47-46f6-9201-008688d5c457)
 
 # Conclusão  
 Os objetivos propostos para a criação das três interfaces do Guarda-Receita foram atingidos de maneira satisfatória. A empresa de armazenamento de receitas conseguiu uma solução integrada que proporciona aos seus clientes acesso facilitado para todas as funcionalidades propostas.  
