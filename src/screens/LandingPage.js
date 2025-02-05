@@ -28,7 +28,7 @@ const LandingPage = () => {
           da organização e praticidade.
         </h5>
         <h1 className="titulo-sobre">Na palma da sua mão</h1>
-        <h5 style={{margin: 0, fontWeight: 400}}>Versão mobile em breve!</h5>
+        <h5 style={{margin: 6}} className="subtitulo-sobre">Versão mobile em breve!</h5>
         <img className="celular" src={telaAplicativo}></img>
 
         <div className="botoes">

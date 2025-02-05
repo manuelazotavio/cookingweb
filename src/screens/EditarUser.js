@@ -32,10 +32,12 @@ const EditarUser = () => {
   const [txtName, setTxtName] = useState(userLogado.name);
   const [txtEmail, setTxtEmail] = useState(userLogado.email);
   const [avatar, setAvatar] = useState(userLogado.avatar);
+  const [avatarPreview, setAvatarPreview] = useState(userLogado.avatar);
 
   const handleAvatarChange = (event) => {
     const file = event.target.files[0];
     setAvatar(file);
+    setAvatarPreview(URL.createObjectURL(file));
   };
 
   const editUser = async () => {
@@ -138,7 +140,7 @@ const EditarUser = () => {
           type="file"
           onChange={handleAvatarChange}
         ></input>
-        <img className="img-preview" src={avatar} alt="Avatar" />
+        <img className="img-preview" src={avatarPreview} alt="Avatar" />
             <FontAwesomeIcon className="pencil" icon={faPencil} size={22} />
         </div>
      
