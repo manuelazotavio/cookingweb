@@ -8,6 +8,7 @@ import LandingPage from './screens/LandingPage';
 import ValidToken from './screens/ValidToken';
 import Splash from "./screens/Splash";
 import Conta from "./screens/Conta";
+import Footer from './components/Footer'
 import EditarUser from "./screens/EditarUser";
 import Home from "./screens/Home";
 import EsqueciSenha from './screens/EsqueciSenha.js'
@@ -68,6 +69,7 @@ export default function App() {
         <Route path="/conta" element={<Conta />} />
         <Route path="/main" element={<MainNavigator />} />
       </Routes>
+      <Footer />
     </Router>
   );
 }
