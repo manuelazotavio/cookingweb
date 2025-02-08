@@ -19,10 +19,10 @@ import { useNavigate } from "react-router-dom"; // Importando useNavigate
 const EditarUser = () => {
   const navigate = useNavigate();
    
-    const isLogged = isAuth();
-  if(isLogged === false) {
-   navigate('/login')
-  }
+  //   const isLogged = isAuth();
+  // if(isLogged === false) {
+  //  navigate('/login')
+  // }
   // Usando useNavigate
   const location = useLocation();
   const { userLogado } = location.state || {};

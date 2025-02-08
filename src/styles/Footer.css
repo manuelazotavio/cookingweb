@@ -4,11 +4,12 @@
   align-items: center;
   flex-direction: column;
   padding: 25px;
+  height: 300px;
   background-color: #ffffff;
   width: 100%;
-  margin-top: auto;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
   gap: 25px;
+  background-color: rgb(255, 255, 255);
 
   
 }
@@ -32,6 +33,7 @@
   .footer {
       flex-direction: column;
       text-align: center;
+      height: 400px;
   }
 
   .navbar-footer {

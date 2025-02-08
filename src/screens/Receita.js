@@ -21,10 +21,10 @@ const Receita = () => {
   const [modalVisible, setModalVisible] = useState(false);
   const [isFavorited, setIsFavorited] = useState(false);
   const navigate = useNavigate();
-  const isLogged = isAuth();
-  if(isLogged === false) {
-   navigate('/login')
-  }
+  // const isLogged = isAuth();
+  // if(isLogged === false) {
+  //  navigate('/login')
+  // }
   const location = useLocation();
   const { receita } = location.state || {};
   const { userId } = location.state || {};

@@ -21,12 +21,12 @@ import { useEffect } from "react";
 
 const CriarReceita = () => {
   const navigate = useNavigate();
-  useEffect(() => {
-    const isLogged = isAuth();
-    if (isLogged === false) {
-      navigate("/login");
-    }
-  }, [])
+  // useEffect(() => {
+  //   const isLogged = isAuth();
+  //   if (isLogged === false) {
+  //     navigate("/login");
+  //   }
+  // }, [])
 
   const [imagem, setImagem] = useState("");
 
@@ -106,12 +106,13 @@ const CriarReceita = () => {
       console.log("Status: ", result.status);
       console.log("Resposta do servidor: ", text);
 
+      if(result.status === 401){
+        navigate("/login")
+      }
       if (result.ok) {
         console.log("Receita publicada!");
         navigate("/home");
-      } else {
-        alert(`Erro: ${text}`);
-      }
+      } 
     } catch (error) {
       console.error("Error postReceita: " + error.message);
       alert(error.message);

@@ -34,7 +34,7 @@ const LandingPage = () => {
         <div className="botoes">
 
           <Button
-            onClick={() => navigate("/cadastrar")}
+            onClick={() => navigate("/home")}
             title="Versão web"
           ></Button>
         </div>
@@ -46,14 +46,14 @@ const LandingPage = () => {
           <div>
 
             <h5 className="subtitulo-sobre">
-              O site é super intuitivo para cadastrar receitas! Tudo é direto ao ponto: só preenchi os campos, coloquei minha foto e pronto, minha receita estava online. É perfeito para quem não quer perder tempo com burocracia.
+              O site é super intuitivo para cadastrar receitas! Tudo é direto ao ponto: só preenchi os campos, coloquei minha foto e pronto, minha receita estava online. 
             </h5>
           </div>
         </div>
         <div className="avaliacaoCard">
           <img className="profile-image-lp" src={picture} alt="Avatar" />
           <h5 className="subtitulo-sobre">
-            O site é bonito e organizado. Todas as receitas ficam super bem apresentadas, e a interface é bem pensada. Ficaria perfeito com uma pequena atualização para o modo noturno.
+            O site é bonito e organizado. Todas as receitas ficam super bem apresentadas, e a interface é bem pensada.
           </h5>
         </div>
         <div className="avaliacaoCard">

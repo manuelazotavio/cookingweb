@@ -23,10 +23,10 @@ const EditarReceita = () => {
   const { receita } = location.state || {};
   const [imagem, setImagem] = useState(receita.imagem);
   const [imagemPreview, setImagemPreview] = useState(receita.imagem);
-  const isLogged = isAuth();
-  if (isLogged === false) {
-    navigate("/login");
-  }
+  // const isLogged = isAuth();
+  // if (isLogged === false) {
+  //   navigate("/login");
+  // }
 
   const [txtName, setTxtName] = useState(receita.name);
   const [txtDescricao, setTxtDescricao] = useState(receita.descricao);

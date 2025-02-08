@@ -18,10 +18,10 @@ const Home = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const isLogged = isAuth();
-    if (isLogged === false) {
-      navigate("/login");
-    }
+    // const isLogged = isAuth();
+    // if (isLogged === false) {
+    //   navigate("/login");
+    // }
 
     const fetchReceitas = async () => {
       try {
