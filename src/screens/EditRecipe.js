@@ -17,8 +17,8 @@ import isAuth from "../helpers/authOkay.js";
 import { useNavigate } from "react-router-dom"; // Importando useNavigate
 import AddBtn from "../components/AddBtn.js";
 
-const EditarReceita = () => {
-  const navigate = useNavigate(); // Usando useNavigate
+const EditRecipe = () => {
+  const navigate = useNavigate(); 
   const location = useLocation();
   const { receita } = location.state || {};
   const [imagem, setImagem] = useState(receita.imagem);
@@ -218,4 +218,4 @@ const EditarReceita = () => {
   );
 };
 
-export default EditarReceita;
+export default EditRecipe;

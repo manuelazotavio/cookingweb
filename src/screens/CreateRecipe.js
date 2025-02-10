@@ -1,25 +1,14 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import authFetch from "../helpers/authFetch.js";
-import { useNavigate } from "react-router-dom"; // Para navegação
+import { useNavigate } from "react-router-dom"; 
 import "../styles/CriarReceita.css";
 import AddBtn from "../components/AddBtn.js";
-import loading from '../img/loading.gif'
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faStar,
-  faHeart,
-  faPencil,
-  faTrashCan,
-  faUser,
-  faClock,
-
-} from "@fortawesome/free-solid-svg-icons";
 import useUserLoggedStore from "../stores/useUserLoggedStore.js";
 import Button from "../components/Button.js";
 import isAuth from "../helpers/authOkay.js";
 import { useEffect } from "react";
 
-const CriarReceita = () => {
+const CreateRecipe = () => {
   const navigate = useNavigate();
   useEffect(() => {
     const isLogged = isAuth();
@@ -29,7 +18,6 @@ const CriarReceita = () => {
   }, [])
 
   const [imagem, setImagem] = useState("");
-
   const [txtName, setTxtName] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [txtDescricao, setTxtDescricao] = useState("");
@@ -48,7 +36,6 @@ const CriarReceita = () => {
   };
 
   const handleIngredienteChange = (text, index) => {
-  
     const newIngredientes = [...ingredientes];
     newIngredientes[index] = text;
     setIngredientes(newIngredientes);
@@ -97,7 +84,7 @@ const CriarReceita = () => {
 
         {
           method: "POST",
-          body: formData, // Envia o FormData diretamente
+          body: formData,
         },
         navigate
       );
@@ -244,4 +231,4 @@ const CriarReceita = () => {
   );
 };
 
-export default CriarReceita;
+export default CreateRecipe;

@@ -10,6 +10,7 @@ import SignIn from "./screens/SignIn.js";
 import Login from "./screens/Login.js";
 import Home from "./screens/Home.js";
 import Account from "./screens/Account.js";
+import CreateRecipe from "./screens/CreateRecipe.js";
 
 
 
@@ -50,7 +51,7 @@ export default function App() {
         <Route path="/home" element={<Home />} /> 
         <Route path="/edit-user" element={<EditarUser />} />
         <Route path="/edit-recipe" element={<EditarReceita />} />
-        <Route path="/create-recipe" element={<CriarReceita />} />
+        <Route path="/create-recipe" element={<CreateRecipe />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/forgot-password" element={<EsqueciSenha />} />
         <Route path="/landing-page" element={<LandingPage />} />
