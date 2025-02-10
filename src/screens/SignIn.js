@@ -15,7 +15,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
-const Cadastrar = () => {
+const SignIn = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [avatar, setAvatar] = useState("");
   const [txtName, setTxtName] = useState("");
@@ -36,7 +36,7 @@ const Cadastrar = () => {
   const postUser = async () => {
     try {
       setIsLoading(true);
-      const form = document.querySelector("#form-cadastrar-user");
+      const form = document.querySelector("#form-sign-in-user");
       const formData = new FormData(form);
       formData.append("name", txtName);
       formData.append("email", txtEmail);
@@ -81,7 +81,7 @@ const Cadastrar = () => {
       <h1 className="titulo">Cadastrar</h1>
       <form
         method="post"
-        id="form-cadastrar-user"
+        id="form-sign-in-user"
         className="form-cadastrar"
         encType="multipart/form-data"
       >
@@ -159,4 +159,4 @@ const Cadastrar = () => {
   );
 };
 
-export default Cadastrar;
+export default SignIn;

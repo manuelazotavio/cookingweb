@@ -42,7 +42,7 @@ const EditarUser = () => {
 
   const editUser = async () => {
     try {
-      const form = document.querySelector("#form-cadastrar-user");
+      const form = document.querySelector("#form-sign-in-user");
       const formData = new FormData(form);
       formData.append("name", txtName);
       formData.append("email", txtEmail);
@@ -99,8 +99,8 @@ const EditarUser = () => {
 
       const data = await result.json();
       if (data?.success) {
-        localStorage.removeItem("userLogged"); // Remove o usuário do localStorage
-        navigate("/conta"); // Usando navigate para redirecionar
+        localStorage.removeItem("userLogged");
+        navigate("/account"); 
       } else {
         alert(data.error);
       }
@@ -115,7 +115,7 @@ const EditarUser = () => {
       <h1 className="titulo">Editar usuário</h1>
       <form
         method="post"
-        id="form-cadastrar-user"
+        id="form-sign-in-user"
         className="form-criar-user"
         encType="multipart/form-data"
       >
@@ -156,7 +156,7 @@ const EditarUser = () => {
       <Button
         className="button"
         title="Voltar"
-        onClick={() => navigate("/conta")}
+        onClick={() => navigate("/account")}
       ></Button>
     </div>
   );

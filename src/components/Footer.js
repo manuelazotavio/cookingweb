@@ -1,16 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import "../styles/Header.css";
-import marca from "../img/marca.png";
+import logo from "../img/gr.png";
 import '../styles/Footer.css'
 
 const Footer = () => {
 
-
   return (
     <div className="footer">
       <Link to="/landing-page">
-        <img to="/home" className="marca" src={marca} alt="Logo" />
+        <img to="/home" className="marca" src={logo} alt="Logo" />
       </Link>
       <nav id="contato" className="navbar-footer">
         <ul className="nav-list-footer">
@@ -28,7 +27,7 @@ const Footer = () => {
           </li>
 
           <li className="nav-item-2">
-            <Link to="/cadastrar">Cadastre-se</Link>
+            <Link to="/sign-in">Cadastre-se</Link>
           </li>
         </ul>
 

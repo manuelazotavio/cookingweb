@@ -100,7 +100,7 @@ const Login = () => {
         <>
           <Button onClick={handleLogin} title="Entrar" />
           <SignBtn
-            onClick={() => navigate("/Cadastrar")}
+            onClick={() => navigate("/sign-in")}
             title="Cadastrar"
           />
           <a onClick={() => navigate("/esqueci-senha")} className="paragrafo">

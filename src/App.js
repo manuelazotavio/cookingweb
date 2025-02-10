@@ -1,24 +1,15 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import CriarReceita from "./screens/CriarReceita";
-import Receita from "./screens/Receita";
-import Cadastrar from "./screens/Cadastrar";
-import EditarReceita from "./screens/EditarReceita";
-import LandingPage from './screens/LandingPage';
-import ValidToken from './screens/ValidToken';
-import Splash from "./screens/Splash";
-import Conta from "./screens/Conta";
-import Footer from './components/Footer'
-import EditarUser from "./screens/EditarUser";
-import Home from "./screens/Home";
-import EsqueciSenha from './screens/EsqueciSenha.js'
 import '@fontsource/poppins'; 
 import '@fontsource/poppins/600.css';
 import '@fontsource/poppins/800.css';
-import Login from "./screens/Login";
 import { FiHome, FiPlusSquare, FiUser } from "react-icons/fi";
 import Header from "./components/Header";
 import Dashboard from "./screens/Dashboard.js";
+import SignIn from "./screens/SignIn.js";
+import Login from "./screens/Login.js";
+import Home from "./screens/Home.js";
+import Account from "./screens/Account.js";
 
 
 
@@ -38,7 +29,7 @@ const MainNavigator = () => {
             </Link>
           </li>
           <li>
-            <Link to="/conta">
+            <Link to="/account">
               <FiUser size={24} color="black" />
             </Link>
           </li>
@@ -55,18 +46,18 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Splash />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/cadastrar" element={<Cadastrar />} />   
-        <Route path="/home" element={<Home />} /> {/* Rota padrão para Home */}
-        <Route path="/editar-user" element={<EditarUser />} />
-        <Route path="/editar-receita" element={<EditarReceita />} />
-        <Route path="/criar-receita" element={<CriarReceita />} />
+        <Route path="/sign-in" element={<SignIn />} />   
+        <Route path="/home" element={<Home />} /> 
+        <Route path="/edit-user" element={<EditarUser />} />
+        <Route path="/edit-recipe" element={<EditarReceita />} />
+        <Route path="/create-recipe" element={<CriarReceita />} />
         <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/esqueci-senha" element={<EsqueciSenha />} />
+        <Route path="/forgot-password" element={<EsqueciSenha />} />
         <Route path="/landing-page" element={<LandingPage />} />
         <Route path="/valid-token" element={<ValidToken />} />
         
-        <Route path="/receita" element={<Receita />} />
-        <Route path="/conta" element={<Conta />} />
+        <Route path="/recipe" element={<Receita />} />
+        <Route path="/account" element={<Account />} />
         <Route path="/main" element={<MainNavigator />} />
       </Routes>
       <Footer />

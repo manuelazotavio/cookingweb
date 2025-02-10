@@ -71,7 +71,7 @@ const CriarReceita = () => {
   const postReceita = async () => {
     try {
       setIsLoading(true);
-      const form = document.querySelector("#form-cadastrar");
+      const form = document.querySelector("#form-sign-in");
       const formData = new FormData(form);
       formData.append("userId", userId);
       formData.append("name", txtName);
@@ -128,7 +128,7 @@ const CriarReceita = () => {
 
       <form
         method="post"
-        id="form-cadastrar"
+        id="form-sign-in"
         className="form-criar-receita"
         encType="multipart/form-data"
       >

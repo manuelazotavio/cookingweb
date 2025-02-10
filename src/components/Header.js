@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "../styles/Header.css";
-import marca from "../img/marca.png";
+import logo from "../img/gr.png";
 import isAuth from "../helpers/authOkay";
 
 
@@ -20,7 +20,7 @@ const Header = () => {
   return (
     <div className="header">
       <Link to="/landing-page">
-        <img to="/home" className="marca" src={marca} alt="Logo" />
+        <img to="/home" className="marca" src={logo} alt="Logo" />
       </Link>
       <nav className="navbar">
         <div className="burger-menu" onClick={updateMenu}>
@@ -39,10 +39,10 @@ const Header = () => {
             <Link to="/home">Home</Link>
           </li>
           <li className="nav-item">
-            <Link to="/criar-receita">Criar Receita</Link>
+            <Link to="/create-recipe">Criar Receita</Link>
           </li>
           <li className="nav-item">
-            <Link to="/conta">Conta</Link>
+            <Link to="/account">Conta</Link>
           </li>
 
         
@@ -68,7 +68,7 @@ const Header = () => {
           </li>
 
           <li className="nav-item-2">
-            <Link to="/cadastrar">Cadastre-se</Link>
+            <Link to="/sign-in">Cadastre-se</Link>
           </li>
         </ul>
       </nav>

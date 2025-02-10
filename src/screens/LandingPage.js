@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar, faUser, faClock } from "@fortawesome/free-solid-svg-icons";
 import Button from "../components/Button";
 import Footer from "../components/Footer";
-import telaAplicativo from "../img/tela inicial png.png"
+import mobile from "../img/mobile.png"
 
 const LandingPage = () => {
   const navigate = useNavigate();
@@ -29,7 +29,7 @@ const LandingPage = () => {
         </h5>
         <h1 className="titulo-sobre">Na palma da sua mão</h1>
         <h5 style={{margin: 6}} className="subtitulo-sobre">Versão mobile em breve!</h5>
-        <img className="celular" src={telaAplicativo}></img>
+        <img className="celular" src={mobile}></img>
 
         <div className="botoes">
 
