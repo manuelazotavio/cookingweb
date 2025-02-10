@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 import authFetch from "../helpers/authFetch.js";
 import { useNavigate } from "react-router-dom"; // Para navegação
 import "../styles/CriarReceita.css";
-import AdicionarBtn from "../components/AdicionarBtn.js";
+import AddBtn from "../components/AddBtn.js";
 import loading from '../img/loading.gif'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -21,12 +21,12 @@ import { useEffect } from "react";
 
 const CriarReceita = () => {
   const navigate = useNavigate();
-  // useEffect(() => {
-  //   const isLogged = isAuth();
-  //   if (isLogged === false) {
-  //     navigate("/login");
-  //   }
-  // }, [])
+  useEffect(() => {
+    const isLogged = isAuth();
+    if (isLogged === false) {
+      navigate("/login");
+    }
+  }, [])
 
   const [imagem, setImagem] = useState("");
 
@@ -158,7 +158,7 @@ const CriarReceita = () => {
           />
         ))}
 
-        <AdicionarBtn
+        <AddBtn
      
           title={"Adicionar Ingrediente"}
           onClick={addIngrediente}
@@ -177,7 +177,7 @@ const CriarReceita = () => {
           </div>
         ))}
 
-        <AdicionarBtn title={"Adicionar Passo"} onClick={addPasso} />
+        <AddBtn title={"Adicionar Passo"} onClick={addPasso} />
 
         <label className="label-criar-receita">Porções</label>
         <input

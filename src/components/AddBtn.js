@@ -2,7 +2,7 @@ import React from 'react';
 import { FaPlus } from 'react-icons/fa'; 
 import '../styles/AdicionarBtn.css';
 
-const AdicionarBtn = ({ title, onClick }) => {
+const AddBtn = ({ title, onClick }) => {
   return (
     <button type='button' className="custom-button" onClick={onClick}>
       <FaPlus className="icon" />
@@ -11,4 +11,4 @@ const AdicionarBtn = ({ title, onClick }) => {
   );
 };
 
-export default AdicionarBtn;
+export default AddBtn;

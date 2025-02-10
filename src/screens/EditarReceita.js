@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import authFetch from "../helpers/authFetch.js";
 import Button from "../components/Button.js";
-import AdicionarBtn from "../components/AdicionarBtn.js";
 import "../styles/EditarReceita.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -16,6 +15,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import isAuth from "../helpers/authOkay.js";
 import { useNavigate } from "react-router-dom"; // Importando useNavigate
+import AddBtn from "../components/AddBtn.js";
 
 const EditarReceita = () => {
   const navigate = useNavigate(); // Usando useNavigate
@@ -23,10 +23,10 @@ const EditarReceita = () => {
   const { receita } = location.state || {};
   const [imagem, setImagem] = useState(receita.imagem);
   const [imagemPreview, setImagemPreview] = useState(receita.imagem);
-  // const isLogged = isAuth();
-  // if (isLogged === false) {
-  //   navigate("/login");
-  // }
+  const isLogged = isAuth();
+  if (isLogged === false) {
+    navigate("/login");
+  }
 
   const [txtName, setTxtName] = useState(receita.name);
   const [txtDescricao, setTxtDescricao] = useState(receita.descricao);
@@ -147,7 +147,7 @@ const EditarReceita = () => {
           />
         ))}
 
-        <AdicionarBtn
+        <AddBtn
           title={"Adicionar Ingrediente"}
           onClick={addIngrediente}
         />
@@ -165,7 +165,7 @@ const EditarReceita = () => {
           </div>
         ))}
 
-        <AdicionarBtn title={"Adicionar Passo"} onClick={addPasso} />
+        <AddBtn title={"Adicionar Passo"} onClick={addPasso} />
 
         <label>Porções</label>
         <input

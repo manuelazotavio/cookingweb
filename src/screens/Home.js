@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import ListaReceitas from "../components/ListaReceitas.js";
-import AdicionarBtn from "../components/AdicionarBtn.js";
 import authFetch from "../helpers/authFetch.js";
 import "../styles/Home.css";
 import loading from "../img/logo.png";
 import isAuth from "../helpers/authOkay.js";
+import AddBtn from "../components/AddBtn.js";
 
 const Home = () => {
   const [receitasFiltradas, setReceitasFiltradas] = useState([]); // Para receitas filtradas
@@ -18,10 +18,10 @@ const Home = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // const isLogged = isAuth();
-    // if (isLogged === false) {
-    //   navigate("/login");
-    // }
+    const isLogged = isAuth();
+    if (isLogged === false) {
+      navigate("/login");
+    }
 
     const fetchReceitas = async () => {
       try {
@@ -114,7 +114,7 @@ const Home = () => {
       <div className="containerSplash">
         <h1 className="titulo-home">Suas receitas</h1>
         <p className="splash">Você ainda não criou nenhuma receita.</p>
-        <AdicionarBtn
+        <AddBtn
           title={"Criar"}
           onClick={() => navigate("/criar-receita")}
         />

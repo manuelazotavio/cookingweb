@@ -15,10 +15,10 @@ const Conta = () => {
       setUserLogado(user);
       
     };
-// const isLogged = isAuth();
-//   if(isLogged === false) {
-//    navigate('/login')
-//   }
+const isLogged = isAuth();
+  if(isLogged === false) {
+   navigate('/login')
+  }
 
 
 

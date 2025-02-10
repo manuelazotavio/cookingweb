@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import ListaReceitas from "../components/ListaReceitas.js";
-import AdicionarBtn from "../components/AdicionarBtn.js";
+import AddBtn from "../components/AddBtn.js";
 import authFetch from "../helpers/authFetch.js";
 import "../styles/Dashboard.css";
 import loading from "../img/logo.png";
