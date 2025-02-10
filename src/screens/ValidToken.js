@@ -5,7 +5,7 @@ import Button from "../components/Button.js";
 import "../styles/ValidToken.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons"; 
-import CadastrarBtn from "../components/CadastrarBtn";
+import SignBtn from "../components/SignBtn.js";
 
 const ValidToken = () => {
   const navigate = useNavigate();
@@ -68,7 +68,7 @@ const ValidToken = () => {
         <img alt="Carregando..." src={loading}></img>
       ) : (
         <>
-          <CadastrarBtn onClick={handleValidToken} title="Redefinir senha" />
+          <SignBtn onClick={handleValidToken} title="Redefinir senha" />
           <Button onClick={() => navigate("/Login")} title="Voltar" />
         </>
       )}

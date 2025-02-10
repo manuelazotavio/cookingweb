@@ -1,13 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import ListaReceitas from "../components/ListaReceitas.js";
-import AddBtn from "../components/AddBtn.js";
-import authFetch from "../helpers/authFetch.js";
 import "../styles/Dashboard.css";
-import loading from "../img/logo.png";
-import isAuth from "../helpers/authOkay.js";
 import Button from "../components/Button.js";
-import CadastrarBtn from "../components/CadastrarBtn.js";
+import SignBtn from "../components/SignBtn.js";
 
 const Dashboard = () => {
   const [receitasFiltradas, setReceitasFiltradas] = useState([]); // Para receitas filtradas
@@ -58,7 +54,7 @@ const Dashboard = () => {
     <div className="container-dash">
       <h1 className="titulo-home">Pedidos</h1>
       <div className="botoesContainer">
-      <CadastrarBtn title="Lançar pedido"></CadastrarBtn>
+      <SignBtn title="Lançar pedido"></SignBtn>
       <Button title="Marketing"></Button>
       <Button title="Cardápio"></Button>
 

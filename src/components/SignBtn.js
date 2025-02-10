@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/CadastrarBtn.css';
 
-const CadastrarBtn = ({ title, onClick }) => {
+const SignBtn = ({ title, onClick }) => {
   return (
     <button className="custom-button" onClick={onClick}>
       {title}
@@ -9,4 +9,4 @@ const CadastrarBtn = ({ title, onClick }) => {
   );
 };
 
-export default CadastrarBtn;
+export default SignBtn;

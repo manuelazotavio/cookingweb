@@ -5,9 +5,9 @@ import Swal from "sweetalert2";
 import Button from "../components/Button.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons"; 
-import CadastrarBtn from "../components/CadastrarBtn.js";
 import loading from "../img/loading.gif";
 import "../styles/Login.css";
+import SignBtn from "../components/SignBtn.js";
 
 const Login = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -99,7 +99,7 @@ const Login = () => {
       ) : (
         <>
           <Button onClick={handleLogin} title="Entrar" />
-          <CadastrarBtn
+          <SignBtn
             onClick={() => navigate("/Cadastrar")}
             title="Cadastrar"
           />
