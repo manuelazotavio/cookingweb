@@ -5,7 +5,7 @@ import { faStar, faUser, faClock } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 import useUserLoggedStore from "../stores/useUserLoggedStore.js";
 
-const CardReceita = ({ receita }) => {
+const CardRecipe = ({ receita }) => {
   const navigate = useNavigate();
   const userId = useUserLoggedStore((state) => state.id);
 
@@ -38,4 +38,4 @@ const CardReceita = ({ receita }) => {
   );
 };
 
-export default CardReceita;
+export default CardRecipe;

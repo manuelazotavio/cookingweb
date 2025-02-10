@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import ListaReceitas from "../components/ListaReceitas.js";
 import "../styles/Dashboard.css";
 import Button from "../components/Button.js";
 import SignBtn from "../components/SignBtn.js";
+import ListRecipes from "../components/ListRecipes.js";
 
 const Dashboard = () => {
   const [receitasFiltradas, setReceitasFiltradas] = useState([]); // Para receitas filtradas
@@ -69,9 +69,9 @@ const Dashboard = () => {
         className="input-dash"
       />
       {receitasFiltradas.length > 0 ? (
-        <ListaReceitas receitas={receitasFiltradas} />
+        <ListRecipes receitas={receitasFiltradas} />
       ) : (
-        <ListaReceitas receitas={receitas} />
+        <ListRecipes receitas={receitas} />
       )}
     <div className="container-cliente">
         <div className="header-cliente"><p className="titulo-container-cliente">Cliente</p></div>

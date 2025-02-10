@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import ListaReceitas from "../components/ListaReceitas.js";
 import authFetch from "../helpers/authFetch.js";
 import "../styles/Home.css";
 import loading from "../img/logo.png";
 import isAuth from "../helpers/authOkay.js";
 import AddBtn from "../components/AddBtn.js";
+import ListRecipes from "../components/ListRecipes.js";
 
 const Home = () => {
   const [receitasFiltradas, setReceitasFiltradas] = useState([]); // Para receitas filtradas
@@ -133,14 +133,14 @@ const Home = () => {
         className="input"
       />
       {receitasFiltradas.length > 0 ? (
-        <ListaReceitas receitas={receitasFiltradas} />
+        <ListRecipes receitas={receitasFiltradas} />
       ) : (
-        <ListaReceitas receitas={receitas} />
+        <ListRecipes receitas={receitas} />
       )}
       <h1 id="receitasFav" className="tituloFav">
         Receitas favoritas
       </h1>
-      <ListaReceitas receitas={receitasFavoritas} />
+      <ListRecipes receitas={receitasFavoritas} />
     </div>
   );
 };
