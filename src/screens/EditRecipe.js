@@ -11,88 +11,82 @@ import {
   faTrashCan,
   faUser,
   faClock,
-
 } from "@fortawesome/free-solid-svg-icons";
 import isAuth from "../helpers/authOkay.js";
 import { useNavigate } from "react-router-dom"; // Importando useNavigate
 import AddBtn from "../components/AddBtn.js";
 
 const EditRecipe = () => {
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
   const location = useLocation();
-  const { receita } = location.state || {};
-  const [imagem, setImagem] = useState(receita.imagem);
-  const [imagemPreview, setImagemPreview] = useState(receita.imagem);
+  const { recipe } = location.state || {};
+  const [image, setImage] = useState(recipe.image);
+  const [imagePreview, setImagePreview] = useState(recipe.image);
   const isLogged = isAuth();
   if (isLogged === false) {
     navigate("/login");
   }
 
   const [txtName, setTxtName] = useState(receita.name);
-  const [txtDescricao, setTxtDescricao] = useState(receita.descricao);
-  const [txtPorcao, setTxtPorcao] = useState(receita.porcoes);
-  const [txtTempo, setTxtTempo] = useState(receita.tempo);
-  const [txtAvaliacao, setTxtAvaliacao] = useState(receita.avaliacao);
-  const [ingredientes, setIngredientes] = useState(
-    receita.ingredientes.split(";")
+  const [txtDescription, setTxtDescription] = useState(recipe.description);
+  const [txtPortion, setTxtPortion] = useState(recipe.portions);
+  const [txtTime, setTxtTime] = useState(recipe.time);
+  const [txtRating, setTxtRating] = useState(recipe.rating);
+  const [ingredients, setIngredients] = useState(recipe.ingredients.split(";"));
+  const [instructions, setInstruction] = useState(
+    recipe.instruction.split(";")
   );
-  const [passos, setPassos] = useState(receita.instrucao.split(";"));
 
-  const addIngrediente = () => {
-    setIngredientes([...ingredientes, ""]);
+  const addIngredient = () => {
+    setIngredients([...ingredients, ""]);
   };
 
-  const handleImagemChange = (event) => {
+  const handleImageChange = (event) => {
     const file = event.target.files[0];
-    setImagem(file);
-    setImagemPreview(URL.createObjectURL(file));
-
+    setImage(file);
+    setImagePreview(URL.createObjectURL(file));
   };
 
-  const addPasso = () => {
-    setPassos([...passos, ""]);
+  const addInstruction = () => {
+    setInstruction([...instructions, ""]);
   };
 
-  const handleIngredienteChange = (text, index) => {
-    const newIngredientes = [...ingredientes];
-    newIngredientes[index] = text;
-    setIngredientes(newIngredientes);
+  const handleIngredientChange = (text, index) => {
+    const newIngredients = [...ingredients];
+    newIngredients[index] = text;
+    setIngredients(newIngredients);
   };
 
-  const handlePassoChange = (text, index) => {
-    const newPassos = [...passos];
-    newPassos[index] = text;
-    setPassos(newPassos);
+  const handleInstructionChange = (text, index) => {
+    const newInstructions = [...instructions];
+    newInstructions[index] = text;
+    setPassos(newInstructions);
   };
 
-  const editReceita = async () => {
+  const editRecipe = async () => {
     try {
+      const form = document.querySelector("#form-edit");
+      const formData = new FormData(form);
 
-        const form = document.querySelector("#form-editar");
-        const formData = new FormData(form);
-  
-      
-        formData.append("name", txtName);
-        formData.append("descricao", txtDescricao);
-        formData.append("porcoes", txtPorcao);
-        formData.append("tempo", txtTempo);
-        formData.append("avaliacao", txtAvaliacao);
-        formData.append("imagem", imagem);
-        formData.append(
-          "ingredientes",
-          ingredientes.filter((ingrediente) => ingrediente !== "").join(";")
-        );
-  
-        formData.append(
-          "instrucao",
-          passos.filter((passo) => passo !== "").join(";")
-        );
-  
-    
-  
+      formData.append("name", txtName);
+      formData.append("description", txtDescription);
+      formData.append("portions", txtPortion);
+      formData.append("time", txtTime);
+      formData.append("rating", txtRating);
+      formData.append("image", image);
+      formData.append(
+        "ingredients",
+        ingredients.filter((ingredient) => ingredient !== "").join(";")
+      );
+
+      formData.append(
+        "instruction",
+        instructions.filter((instruction) => instruction !== "").join(";")
+      );
+
       //const result = await authFetch('https://backend-api-express-1sem2024-rbd1.onrender.com/user/'+user.id, {
       const result = await authFetch(
-        "https://backcooking.onrender.com/receita/" + receita.id,
+        "https://backcooking.onrender.com/recipe/" + recipe.id,
         {
           method: "PUT",
           body: formData,
@@ -117,7 +111,7 @@ const EditRecipe = () => {
       <h1 className="titulo-criar">Crie sua receita!</h1>
       <form
         method="post"
-        id="form-editar"
+        id="form-edit"
         className="form-criar-receita"
         encType="multipart/form-data"
       >
@@ -131,49 +125,46 @@ const EditRecipe = () => {
         <textarea
           className="inputDesc"
           placeholder="Compartilhe um pouco mais sobre o seu prato. O que você gosta nele?"
-          onChange={(e) => setTxtDescricao(e.target.value)}
-          value={txtDescricao}
+          onChange={(e) => setTxtDescription(e.target.value)}
+          value={txtDescription}
         />
 
         <h2 className="subtitulo-criar">Ingredientes</h2>
-        {ingredientes.map((ingrediente, index) => (
+        {ingredients.map((ingredient, index) => (
           <input
             key={index}
             className="input-criar"
             type="text"
             placeholder="250g de açúcar"
-            onChange={(e) => handleIngredienteChange(e.target.value, index)}
-            value={ingrediente}
+            onChange={(e) => handleIngredientChange(e.target.value, index)}
+            value={ingredient}
           />
         ))}
 
-        <AddBtn
-          title={"Adicionar Ingrediente"}
-          onClick={addIngrediente}
-        />
+        <AddBtn title={"Adicionar Ingrediente"} onClick={addIngredient} />
 
         <h2 className="subtitulo-criar">Passo a passo</h2>
-        {passos.map((passo, index) => (
+        {instructions.map((instruction, index) => (
           <div key={index} className="passoContainer">
             <span className="passoNumero">{index + 1}.</span>
             <textarea
               className="inputPasso"
               placeholder="Misture a massa até se tornar homogênea."
-              onChange={(e) => handlePassoChange(e.target.value, index)}
-              value={passo}
+              onChange={(e) => handleInstructionChange(e.target.value, index)}
+              value={instruction}
             />
           </div>
         ))}
 
-        <AddBtn title={"Adicionar Passo"} onClick={addPasso} />
+        <AddBtn title={"Adicionar Passo"} onClick={addInstruction} />
 
         <label>Porções</label>
         <input
           className="input-criar"
           type="text"
           placeholder="2 pessoas"
-          onChange={(e) => setTxtPorcao(e.target.value)}
-          value={txtPorcao}
+          onChange={(e) => setTxtPortion(e.target.value)}
+          value={txtPortion}
         />
 
         <label>Tempo de preparo</label>
@@ -181,8 +172,8 @@ const EditRecipe = () => {
           className="input-criar"
           type="text"
           placeholder="1h e 30min"
-          onChange={(e) => setTxtTempo(e.target.value)}
-          value={txtTempo}
+          onChange={(e) => setTxtTime(e.target.value)}
+          value={txtTime}
         />
 
         <label>Avaliação</label>
@@ -190,30 +181,28 @@ const EditRecipe = () => {
           className="input-criar"
           type="text"
           placeholder="4.5"
-          onChange={(e) => setTxtAvaliacao(e.target.value)}
-          value={txtAvaliacao}
+          onChange={(e) => setTxtRating(e.target.value)}
+          value={txtRating}
         />
         <div className="input-file-wrapper">
           <input
             id="file-upload"
             accept="image/*"
-          
             type="file"
             className="input-file-editar-receita"
-            onChange={handleImagemChange}
+            onChange={handleImageChange}
           ></input>
 
-        <img className="img-preview" src={imagemPreview} alt="Avatar" />
-        <FontAwesomeIcon className="pencil" icon={faPencil} size={22} />
-        
+          <img className="img-preview" src={imagePreview} alt="Avatar" />
+          <FontAwesomeIcon className="pencil" icon={faPencil} size={22} />
         </div>
       </form>
       <Button
         title="Cancelar"
-        onClick={() => navigate("/receita", { state: { receita } })}
-      />{" "}
-      {/* Usando navigate para voltar */}
-      <Button title="Salvar" onClick={editReceita} />
+        onClick={() => navigate("/recipe", { state: { recipe } })}
+      />
+
+      <Button title="Salvar" onClick={editRecipe} />
     </div>
   );
 };

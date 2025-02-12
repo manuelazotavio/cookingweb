@@ -7,7 +7,6 @@ import {
   faTrashCan,
   faUser,
   faClock,
-
 } from "@fortawesome/free-solid-svg-icons";
 import authFetch from "../helpers/authFetch";
 import isAuth from "../helpers/authOkay";
@@ -16,25 +15,25 @@ import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
-
-const Receita = () => {
+const Recipe = () => {
   const [modalVisible, setModalVisible] = useState(false);
   const [isFavorited, setIsFavorited] = useState(false);
   const navigate = useNavigate();
   const isLogged = isAuth();
-  if(isLogged === false) {
-   navigate('/login')
+  if (isLogged === false) {
+    navigate("/login");
   }
   const location = useLocation();
-  const { receita } = location.state || {};
+  const { recipe } = location.state || {};
   const { userId } = location.state || {};
 
- 
-  const getFavoritoById = async () => {
+  const getFavoriteById = async () => {
     try {
       const response = await authFetch(
-        `https://backcooking.onrender.com/favorito/${userId}/${receita.id}`
-      , {}, navigate);
+        `https://backcooking.onrender.com/favorite/${userId}/${recipe.id}`,
+        {},
+        navigate
+      );
       const data = await response.json();
       if (data.error) {
         console.log(data.error);
@@ -47,13 +46,13 @@ const Receita = () => {
   };
 
   useEffect(() => {
-    getFavoritoById(userId, receita.id);
+    getFavoriteById(userId, recipe.id);
   }, []);
 
-  const removeReceita = async () => {
+  const removeRecipe = async () => {
     try {
       const result = await authFetch(
-        `https://backcooking.onrender.com/receita/${receita.id}`,
+        `https://backcooking.onrender.com/recipe/${recipe.id}`,
         {
           method: "DELETE",
           headers: {
@@ -67,7 +66,7 @@ const Receita = () => {
       }
       const data = await result.json();
       if (data?.success) {
-        // Redirecionar ou atualizar a interface
+        navigate("/home")
       } else {
         alert(data.error);
       }
@@ -77,10 +76,10 @@ const Receita = () => {
     }
   };
 
-  const favReceita = async () => {
+  const favRecipe = async () => {
     try {
       const result = await authFetch(
-        "https://backcooking.onrender.com/favorito/",
+        "https://backcooking.onrender.com/favorite/",
         {
           method: "POST",
           headers: {
@@ -88,9 +87,10 @@ const Receita = () => {
           },
           body: JSON.stringify({
             userId: Number(userId),
-            receitaId: receita.id,
+            recipeId: recipe.id,
           }),
-        }, navigate
+        },
+        navigate
       );
       if (!result.ok) {
         throw new Error(`HTTP error! status: ${result.status}`);
@@ -107,10 +107,10 @@ const Receita = () => {
     }
   };
 
-  const favReceitaRemove = async () => {
+  const favRecipeRemove = async () => {
     try {
       const result = await authFetch(
-        "https://backcooking.onrender.com/favorito/",
+        "https://backcooking.onrender.com/favorite/",
         {
           method: "DELETE",
           headers: {
@@ -118,9 +118,9 @@ const Receita = () => {
           },
           body: JSON.stringify({
             userId: Number(userId),
-            receitaId: receita.id,
+            recipeId: recipe.id,
           }),
-        }, 
+        },
         navigate
       );
       if (!result.ok) {
@@ -138,7 +138,6 @@ const Receita = () => {
     }
   };
 
-  //Modal deletar receita
   const showModal = () => {
     Swal.fire({
       text: "Tem certeza que deseja excluir sua receita?",
@@ -149,7 +148,7 @@ const Receita = () => {
       confirmButtonColor: "#ff421d",
     }).then((result) => {
       if (result.isConfirmed) {
-        removeReceita();
+        removeRecipe();
         console.log("Receita removida com sucesso.");
         navigate("/home");
       }
@@ -160,28 +159,28 @@ const Receita = () => {
     <div className="tela-receita-container">
       <div className="content-wrapper">
         <img
-          src={receita.imagem}
-          alt={receita.name}
+          src={recipe.image}
+          alt={recipe.name}
           className="imagem-receita"
         />
         <div>
           <div className="card-tela-receita">
-            <h2 className="titulo-receita-tela">{receita.name}</h2>
+            <h2 className="titulo-receita-tela">{recipe.name}</h2>
             <div className="info-container-receita">
               <p className="p-receita">
                 <FontAwesomeIcon icon={faClock} size="19" color="#FF421D" />
-                <span className="tempo">{receita.tempo}</span>
+                <span className="tempo">{recipe.time}</span>
               </p>
               <p className="p-receita">
                 <FontAwesomeIcon icon={faStar} color="#F7D342" size="23" />
-                <span className="avaliacao">{receita.avaliacao}</span>
+                <span className="avaliacao">{recipe.rating}</span>
               </p>
               <p className="p-receita">
                 <FontAwesomeIcon icon={faUser} color="#9EA69E" size="19" />
-                <span className="porcoes">{receita.porcoes}</span>
+                <span className="porcoes">{recipe.portions}</span>
               </p>
             </div>
-            <p className="descricao">{receita.descricao}</p>
+            <p className="descricao">{recipe.description}</p>
           </div>
 
           <div className="icon-container">
@@ -189,18 +188,18 @@ const Receita = () => {
               <FontAwesomeIcon icon={faTrashCan} size={19} />
             </a>
             {isFavorited ? (
-              <a className="icone" onClick={favReceitaRemove}>
+              <a className="icone" onClick={favRecipeRemove}>
                 <FontAwesomeIcon icon={faHeart} size={19} color="#d31717" />
               </a>
             ) : (
-              <a className="icone" onClick={favReceita}>
+              <a className="icone" onClick={favRecipe}>
                 <FontAwesomeIcon icon={faHeart} size={19} color="#8a8a8a" />{" "}
               </a>
             )}
             <a
               className="icone"
               onClick={() =>
-                navigate("/editar-receita", { state: { receita, userId } })
+                navigate("/edit-recipe", { state: { recipe, userId } })
               }
             >
               <FontAwesomeIcon icon={faPencil} size={19} />
@@ -211,13 +210,15 @@ const Receita = () => {
       <div className="card-info">
         <h3 className="subtitulo-receita">Ingredientes</h3>
         <div className="ingredientes">
-          {receita.ingredientes.split(";").map((ingrediente, index) => (
-            <p className="p-receita" key={index}>{ingrediente}</p>
+          {recipe.ingredients.split(";").map((ingredient, index) => (
+            <p className="p-receita" key={index}>
+              {ingredient}
+            </p>
           ))}
         </div>
         <h3 className="subtitulo-receita">Passo a Passo</h3>
         <div className="instrucoes">
-          {receita.instrucao.split(";").map((step, index) => (
+          {recipe.instruction.split(";").map((step, index) => (
             <p className="p-receita" key={index}>
               <strong>{`${index + 1}. `}</strong>
               {step}
@@ -228,7 +229,7 @@ const Receita = () => {
       {modalVisible && (
         <div className="modal">
           <p className="p-receita">Tem certeza?</p>
-          <button onClick={removeReceita}>Sim, remover receita</button>
+          <button onClick={removeRecipe}>Sim, remover receita</button>
           <button onClick={() => setModalVisible(false)}>Cancelar</button>
         </div>
       )}
@@ -236,4 +237,4 @@ const Receita = () => {
   );
 };
 
-export default Receita;
+export default Recipe;

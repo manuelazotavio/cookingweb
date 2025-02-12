@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import useUserLoggedStore from '../stores/useUserLoggedStore.js';
-import "../styles/Splash.css";  // Certifique-se de ter um arquivo CSS para os estilos
+import "../styles/Splash.css";  
 import loading from '../img/logo.png'
 
 const Splash = () => {
-  const navigate = useNavigate(); // Usando useNavigate
+  const navigate = useNavigate(); 
   const login = useUserLoggedStore(state => state.login);
 
   useEffect(() => {
@@ -21,11 +21,10 @@ const Splash = () => {
           delete data.token;
           login(data, token);
           setTimeout(() => {
-            navigate('/home'); // Usando navigate para redirecionar
+            navigate('/home'); 
           }, 2000);
         } else {
           setTimeout(() => {
-            // Usando navigate para redirecionar
             navigate("/login")
           }, 2000);
         }

@@ -17,22 +17,22 @@ const CreateRecipe = () => {
     }
   }, [])
 
-  const [imagem, setImagem] = useState("");
+  const [image, setImage] = useState("");
   const [txtName, setTxtName] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [txtDescricao, setTxtDescricao] = useState("");
-  const [txtPorcao, setTxtPorcao] = useState("");
-  const [txtTempo, setTxtTempo] = useState("");
-  const [txtAvaliacao, setTxtAvaliacao] = useState("");
-  const [ingredientes, setIngredientes] = useState([""]);
-  const [passos, setPassos] = useState([""]);
+  const [txtDescription, setTxtDescription] = useState("");
+  const [txtPortion, setTxtPortion] = useState("");
+  const [txtTime, setTxtTime] = useState("");
+  const [txtRating, setTxtRating] = useState("");
+  const [ingredients, setIngredients] = useState([""]);
+  const [instruction, setInstruction] = useState([""]);
 
-  const addIngrediente = () => {
-    setIngredientes([...ingredientes, ""]);
+  const addIngredient = () => {
+    setIngredients([...ingredients, ""]);
   };
 
-  const addPasso = () => {
-    setPassos([...passos, ""]);
+  const addInstruction = () => {
+    setInstruction([...instruction, ""]);
   };
 
   const handleIngredienteChange = (text, index) => {

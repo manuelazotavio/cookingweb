@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "../components/Button.js";
-import "../styles/Conta.css";
+import "../styles/Account.css";
 import isAuth from "../helpers/authOkay.js";
 
 const Account = () => {
@@ -35,19 +35,19 @@ const Account = () => {
   };
 
   return (
-    <div className="container-conta">
+    <div className="container-account">
       <div className="centered-container">
-        <h1 className="titulo-conta">Sua conta</h1>
+        <h1 className="titulo-account">Sua conta</h1>
         <img
-          className="profile-image-conta"
+          className="profile-image-account"
           src={userLogged?.avatar}
           alt="Avatar"
         />
         <p className="name">
-          <b className="labelConta">Nome de usuário:</b> {userLogged?.name}
+          <b className="labelAccount">Nome de usuário:</b> {userLogged?.name}
         </p>
         <p className="name">
-          <b className="labelConta">E-mail:</b> {userLogged?.email}
+          <b className="labelAccount">E-mail:</b> {userLogged?.email}
         </p>
       </div>
 

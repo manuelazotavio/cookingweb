@@ -8,12 +8,12 @@ const useUserStore = create((set) => ({
   },
   addUser: (newUser) => set((state) => {
     const updatedUsers = [...state.users, newUser];
-    localStorage.setItem('users', JSON.stringify(updatedUsers)); // Atualiza o localStorage
+    localStorage.setItem('users', JSON.stringify(updatedUsers)); 
     return { users: updatedUsers };
   }),
   removeUser: (id) => set((state) => {
     const filteredUsers = state.users.filter((user) => user.id !== id);
-    localStorage.setItem('users', JSON.stringify(filteredUsers)); // Atualiza o localStorage
+    localStorage.setItem('users', JSON.stringify(filteredUsers)); 
     return { users: filteredUsers };
   }),
   updateUser: (newUser) => set((state) => {

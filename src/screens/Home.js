@@ -8,12 +8,12 @@ import AddBtn from "../components/AddBtn.js";
 import ListRecipes from "../components/ListRecipes.js";
 
 const Home = () => {
-  const [receitasFiltradas, setReceitasFiltradas] = useState([]); // Para receitas filtradas
+  const [filteredRecipes, setFilteredRecipes] = useState([]);
   const [searchText, setSearchText] = useState("");
   const [isLoading, setIsLoading] = useState(true);
-  const [receitas, setReceitas] = useState([]);
-  const [receitasFavoritas, setReceitasFavoritas] = useState([]);
-  const [favoritas, setFavoritas] = useState([]);
+  const [recipes, setRecipes] = useState([]);
+  const [favoriteRecipes, setFavoriteRecipes] = useState([]);
+  const [favoritas, setFavorites] = useState([]);
 
   const navigate = useNavigate();
 
@@ -23,10 +23,10 @@ const Home = () => {
       navigate("/login");
     }
 
-    const fetchReceitas = async () => {
+    const fetchRecipes = async () => {
       try {
         const result = await authFetch(
-          "https://backcooking.onrender.com/receita",
+          "https://backcooking.onrender.com/recipes",
           {
             headers: {
               "Content-Type": "application/json",
@@ -35,19 +35,19 @@ const Home = () => {
           navigate
         );
         const data = await result.json();
-        if (data.receita) {
-          setReceitas(data.receita);
-          setReceitasFiltradas(data.receita);
+        if (data.recipe) {
+          setRecipes(data.recipe);
+          setFilteredRecipes(data.recipe);
         }
       } catch (error) {
         console.error(error);
       }
     };
 
-    const fetchFavoritas = async () => {
+    const fetchFavorites = async () => {
       try {
         const result = await authFetch(
-          "https://backcooking.onrender.com/favorito",
+          "https://backcooking.onrender.com/favorite",
           {
             headers: {
               "Content-Type": "application/json",
@@ -56,25 +56,25 @@ const Home = () => {
           navigate
         );
         const data = await result.json();
-        if (data.favorito) {
-          setFavoritas(data.favorito);
-          const promises = data.favorito.map(async (favorita) => {
+        if (data.favorite) {
+          setFavorites(data.favorite);
+          const promises = data.favorite.map(async (favorite) => {
             try {
               const result = await authFetch(
-                `https://backcooking.onrender.com/receita/${favorita.receitaId}`,
+                `https://backcooking.onrender.com/recipe/${favorite.recipeId}`,
                 {},
                 navigate
               );
-              const receitaData = await result.json();
-              return receitaData.receita;
+              const recipeData = await result.json();
+              return recipeData.recipe;
             } catch (error) {
               console.error(error);
               return null;
             }
           });
-          const receitasFetched = await Promise.all(promises);
-          setReceitasFavoritas(
-            receitasFetched.filter((receita) => receita !== null)
+          const fetchedRecipes = await Promise.all(promises);
+          setFavoriteRecipes(
+            fetchedRecipes.filter((recipe) => recipe !== null)
           );
         }
       } catch (error) {
@@ -84,19 +84,19 @@ const Home = () => {
       }
     };
 
-    fetchReceitas();
-    fetchFavoritas();
+    fetchRecipes();
+    fetchFavorites();
   }, []);
 
   const handleSearch = (text) => {
     setSearchText(text);
     if (text === "") {
-      setReceitasFiltradas(receitas); // Exibe todas as receitas se o campo estiver vazio
+      setFilteredRecipes(recipes);
     } else {
-      const filtradas = receitas.filter((receita) =>
-        receita.name.toLowerCase().includes(text.toLowerCase())
+      const filtereds = recipes.filter((recipe) =>
+        recipe.name.toLowerCase().includes(text.toLowerCase())
       );
-      setReceitasFiltradas(filtradas);
+      setFilteredRecipes(filtereds);
     }
   };
 
@@ -109,14 +109,14 @@ const Home = () => {
     );
   }
 
-  if (receitas.length === 0) {
+  if (recipes.length === 0) {
     return (
       <div className="containerSplash">
         <h1 className="titulo-home">Suas receitas</h1>
         <p className="splash">Você ainda não criou nenhuma receita.</p>
         <AddBtn
           title={"Criar"}
-          onClick={() => navigate("/criar-receita")}
+          onClick={() => navigate("/create-recipe")}
         />
       </div>
     );
@@ -132,15 +132,15 @@ const Home = () => {
         onChange={(e) => handleSearch(e.target.value)}
         className="input"
       />
-      {receitasFiltradas.length > 0 ? (
-        <ListRecipes receitas={receitasFiltradas} />
+      {filteredRecipes.length > 0 ? (
+        <ListRecipes recipes={filteredRecipes} />
       ) : (
-        <ListRecipes receitas={receitas} />
+        <ListRecipes recipes={recipes} />
       )}
       <h1 id="receitasFav" className="tituloFav">
         Receitas favoritas
       </h1>
-      <ListRecipes receitas={receitasFavoritas} />
+      <ListRecipes recipes={favoriteRecipes} />
     </div>
   );
 };

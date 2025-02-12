@@ -4,7 +4,7 @@ import loading from "../img/loading.gif";
 import Button from "../components/Button.js";
 import "../styles/ValidToken.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons"; 
+import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import SignBtn from "../components/SignBtn.js";
 
 const ValidToken = () => {
@@ -15,7 +15,7 @@ const ValidToken = () => {
 
   const [newPassword, setNewPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-    const [showPassword, setShowPassword] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);

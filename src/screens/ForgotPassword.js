@@ -6,45 +6,42 @@ import loading from "../img/loading.gif";
 import "../styles/EsqueciSenha.css";
 import Button from "../components/Button";
 
-const EsqueciSenha = () => {
+const ForgotPassword = () => {
   const [txtEmail, setTxtEmail] = useState("");
   const [modalMessage, setModalMessage] = useState("");
   const [modalVisible, setModalVisible] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
-  const handleEnviarEmail = async () => {
+  const handleSendEmail = async () => {
     try {
       setIsLoading(true);
-      const email = txtEmail; // Obtém o e-mail digitado pelo usuário
+      const email = txtEmail;
       const response = await fetch(
-        "https://backcooking.onrender.com/auth/redefinir-senha",
+        "https://backcooking.onrender.com/auth/forgot-password",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ email }), // Envia como JSON
+          body: JSON.stringify({ email }),
         }
       );
       if (response.ok) {
-        
-        
-                Swal.fire({
-                  text: "E-mail enviado com sucesso.",
-                  icon: "success",
-                  confirmButtonText: "Ok",
-                  confirmButtonColor: "#ff421d",
-                });
+        Swal.fire({
+          text: "E-mail enviado com sucesso.",
+          icon: "success",
+          confirmButtonText: "Ok",
+          confirmButtonColor: "#ff421d",
+        });
       } else {
-  
-         const errorData = await response.json();
-                console.log(errorData);
-        
-                Swal.fire({
-                  text: errorData.error,
-                  icon: "error",
-                  confirmButtonText: "Voltar",
-                  confirmButtonColor: "#ff421d",
-                });
+        const errorData = await response.json();
+        console.log(errorData);
+
+        Swal.fire({
+          text: errorData.error,
+          icon: "error",
+          confirmButtonText: "Voltar",
+          confirmButtonColor: "#ff421d",
+        });
       }
     } catch (error) {
       setModalMessage("Erro ao fazer login. Tente novamente.");
@@ -71,7 +68,7 @@ const EsqueciSenha = () => {
         <img src={loading} />
       ) : (
         <>
-          <Button title="Enviar" onClick={handleEnviarEmail} />
+          <Button title="Enviar" onClick={handleSendEmail} />
           <Button title="Voltar" onClick={() => navigate("/login")} />
         </>
       )}
@@ -86,4 +83,4 @@ const EsqueciSenha = () => {
   );
 };
 
-export default EsqueciSenha;
+export default ForgotPassword;

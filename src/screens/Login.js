@@ -103,7 +103,7 @@ const Login = () => {
             onClick={() => navigate("/sign-in")}
             title="Cadastrar"
           />
-          <a onClick={() => navigate("/esqueci-senha")} className="paragrafo">
+          <a onClick={() => navigate("/forgot-password")} className="paragrafo">
             Esqueceu a senha?
           </a>
         </>

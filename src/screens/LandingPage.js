@@ -2,10 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/LandingPage.css";
 import picture from "../img/chef2.png";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar, faUser, faClock } from "@fortawesome/free-solid-svg-icons";
 import Button from "../components/Button";
-import Footer from "../components/Footer";
 import mobile from "../img/mobile.png"
 
 const LandingPage = () => {

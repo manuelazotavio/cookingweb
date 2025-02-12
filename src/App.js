@@ -11,6 +11,10 @@ import Login from "./screens/Login.js";
 import Home from "./screens/Home.js";
 import Account from "./screens/Account.js";
 import CreateRecipe from "./screens/CreateRecipe.js";
+import EditRecipe from "./screens/EditRecipe.js";
+import EditUser from "./screens/EditUser.js";
+import ForgotPassword from "./screens/ForgotPassword.js";
+import Recipe from "./screens/Recipe.js";
 
 
 
@@ -20,12 +24,12 @@ const MainNavigator = () => {
       <nav>
         <ul>
           <li>
-            <Link to="/receita">
+            <Link to="/recipe">
               <FiHome size={25} color="#000" />
             </Link>
           </li>
           <li>
-            <Link to="/criar-receita">
+            <Link to="/create-recipe">
               <FiPlusSquare size={24} color="black" />
             </Link>
           </li>
@@ -49,15 +53,15 @@ export default function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/sign-in" element={<SignIn />} />   
         <Route path="/home" element={<Home />} /> 
-        <Route path="/edit-user" element={<EditarUser />} />
-        <Route path="/edit-recipe" element={<EditarReceita />} />
+        <Route path="/edit-user" element={<EditUser />} />
+        <Route path="/edit-recipe" element={<EditRecipe />} />
         <Route path="/create-recipe" element={<CreateRecipe />} />
         <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/forgot-password" element={<EsqueciSenha />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/landing-page" element={<LandingPage />} />
         <Route path="/valid-token" element={<ValidToken />} />
         
-        <Route path="/recipe" element={<Receita />} />
+        <Route path="/recipe" element={<Recipe />} />
         <Route path="/account" element={<Account />} />
         <Route path="/main" element={<MainNavigator />} />
       </Routes>

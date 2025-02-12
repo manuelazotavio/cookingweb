@@ -28,7 +28,7 @@ const useUserLoggedStore = create((set) => {
         isLogged: false,
       }));
       localStorage.removeItem('userLogged');
-       // Remove do localStorage
+      
     },
   };
 });
