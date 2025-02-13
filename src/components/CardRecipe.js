@@ -5,33 +5,33 @@ import { faStar, faUser, faClock } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 import useUserLoggedStore from "../stores/useUserLoggedStore.js";
 
-const CardRecipe = ({ receita }) => {
+const CardRecipe = ({ recipe }) => {
   const navigate = useNavigate();
   const userId = useUserLoggedStore((state) => state.id);
 
   return (
     <div
       className="card"
-      onClick={() => navigate("/receita", { state: { receita, userId } })}
+      onClick={() => navigate("/recipe", { state: { recipe, userId } })}
     >
       <img
-        src={receita.imagem}
-        alt={receita.name}
+        src={recipe.image}
+        alt={recipe.name}
         className="foto-img"
       />
-      <h3 className="titulo-receita">{receita.name}</h3>
+      <h3 className="title-recipe">{recipe.name}</h3>
       <div className="info-container">
         <div className="info-item">
           <FontAwesomeIcon icon={faClock} size="19" color="#FF421D" />
-          <span className="tempo-card">{receita.tempo}</span>
+          <span className="time-card">{recipe.time}</span>
         </div>
         <div className="info-item">
           <FontAwesomeIcon icon={faStar} color="#F7D342" size="23" />
-          <span className="avaliacao-card">{receita.avaliacao}</span>
+          <span className="rating-card">{recipe.rating}</span>
         </div>
         <div className="info-item">
           <FontAwesomeIcon icon={faUser} color="#9EA69E" size="19" />
-          <span className="porcoes-card">{receita.porcoes}</span>
+          <span className="portions-card">{recipe.portions}</span>
         </div>
       </div>
     </div>

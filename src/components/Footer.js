@@ -9,9 +9,9 @@ const Footer = () => {
   return (
     <div className="footer">
       <Link to="/landing-page">
-        <img to="/home" className="marca" src={logo} alt="Logo" />
+        <img to="/home" className="logo" src={logo} alt="Logo" />
       </Link>
-      <nav id="contato" className="navbar-footer">
+      <nav id="contact" className="navbar-footer">
         <ul className="nav-list-footer">
           <li className="nav-item">
             <Link to="/home"><strong>Baixe o App</strong></Link>

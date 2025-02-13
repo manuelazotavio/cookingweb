@@ -20,7 +20,7 @@ const Header = () => {
   return (
     <div className="header">
       <Link to="/landing-page">
-        <img to="/home" className="marca" src={logo} alt="Logo" />
+        <img to="/home" className="logo" src={logo} alt="Logo" />
       </Link>
       <nav className="navbar">
         <div className="burger-menu" onClick={updateMenu}>
@@ -34,7 +34,7 @@ const Header = () => {
             className={`burger-bar ${isMenuClicked ? "clicked" : "unclicked"}`}
           ></div>
         </div>
-        <ul className={`nav-list ${isMenuClicked ? "visible" : "hidden"} ${isLogged ? "logado" : "deslogado"}`}>
+        <ul className={`nav-list ${isMenuClicked ? "visible" : "hidden"} ${isLogged ? "logged" : "logged-out"}`}>
           <li className="nav-item">
             <Link to="/home">Home</Link>
           </li>
@@ -48,21 +48,21 @@ const Header = () => {
         
         </ul>
 
-        <ul className={`nav-list-3 ${isMenuClicked ? "visible" : "hidden"} ${isLogged ? "logado" : "deslogado"}`}>
+        <ul className={`nav-list-3 ${isMenuClicked ? "visible" : "hidden"} ${isLogged ? "logged" : "logged-out"}`}>
           <li className="nav-item">
-            <Link onClick={() => scrollToSection("sobre")}>Sobre</Link>
+            <Link onClick={() => scrollToSection("about")}>Sobre</Link>
           </li>
           <li className="nav-item">
-            <Link onClick={() => scrollToSection("avaliacoes")}>Avaliações</Link>
+            <Link onClick={() => scrollToSection("ratings")}>Avaliações</Link>
           </li>
           <li className="nav-item">
-            <Link onClick={() => scrollToSection("contato")}>Contato</Link>
+            <Link onClick={() => scrollToSection("contact")}>Contato</Link>
           </li>
 
         
         </ul>
         
-        <ul className={`nav-list-2 ${isMenuClicked ? "visible" : "hidden"} ${isLogged ? "logado" : "deslogado"}`}>
+        <ul className={`nav-list-2 ${isMenuClicked ? "visible" : "hidden"} ${isLogged ? "logged" : "logged-out"}`}>
             <li className="nav-item-2">
             <Link to="/login">Login</Link>
           </li>

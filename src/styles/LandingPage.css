@@ -24,16 +24,16 @@ html, body {
 
 }
 
-.celular {
+.phone {
   width: 500px;
 }
 
-.celular:hover {
+.phone:hover {
   transform: scale(1.05);
   transition: 0.5s;
 }
 
-.sobreContainer {
+.aboutContainer {
   display: flex;
   flex-direction: column;
   border-radius: 10px;
@@ -55,12 +55,12 @@ html, body {
   height: 70vh;
 }
 
-.subtitulo-sobre {
+.subtitle-about {
   margin: 10px;
   font-weight: 600;
 }
 
-.titulosContainer {
+.titlesContainer {
   display: flex;
   flex-direction: column;
   border-radius: 10px;
@@ -73,11 +73,11 @@ html, body {
 
 }
 
-.titulo-sobre{
+.title-sobre{
   align-self: center;
 }
 
-.imagemContainer {
+.imageContainer {
   width: 50%;
   height: 100%;
   background-image: url('../img/chef1.png');
@@ -86,7 +86,7 @@ html, body {
   background-repeat: no-repeat;
 }
 
-.titulo-lp {
+.title-lp {
   font-family: 'Poppins', sans-serif;
   font-size: 30px;
   font-weight: 800;
@@ -97,7 +97,7 @@ html, body {
 
 }
 
-.subtitulo-lp {
+.subtitle-lp {
   text-align: center;
   margin: 7px;
   padding: 0;
@@ -114,13 +114,13 @@ html, body {
   background-size: cover;
 }
 
-.avaliacaoCard {
+.ratingCard {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.avaliacoesContainer{
+.ratingsContainer{
   display: flex;
     flex-direction: column;
     justify-content: center;
@@ -133,7 +133,7 @@ html, body {
 
 
 @media (max-width: 450px) {
-  .botoes {
+  .buttons {
     align-items: center;
     justify-content: center;
     display: flex;
@@ -142,32 +142,32 @@ html, body {
 }
 
 @media (max-width: 660px) {
-  .avaliacaoCard{
+  .ratingCard{
     flex-direction: column;
     width: 300px;
     text-align: center;
   }
-  .avaliacoesContainer{
+  .ratingsContainer{
     gap: 20px
   }
-  .sobreContainer{
+  .aboutContainer{
     width: 280px;
   }
 }
 
 @media (min-width: 900px) {
-  .titulosContainer {
+  .titlesContainer {
     margin-right: 80px;
   }
 
-  .botoes {
+  .buttons {
     gap: 80px;
     display: flex;
   }
 }
 
 @media (max-width: 700px) {
-  .imagemContainer {
+  .imageContainer {
     display: none;
   }
 }

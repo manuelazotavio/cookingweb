@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import authFetch from "../helpers/authFetch.js";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
 import "../styles/CriarReceita.css";
 import AddBtn from "../components/AddBtn.js";
 import useUserLoggedStore from "../stores/useUserLoggedStore.js";
@@ -15,7 +15,7 @@ const CreateRecipe = () => {
     if (isLogged === false) {
       navigate("/login");
     }
-  }, [])
+  }, []);
 
   const [image, setImage] = useState("");
   const [txtName, setTxtName] = useState("");
@@ -25,62 +25,59 @@ const CreateRecipe = () => {
   const [txtTime, setTxtTime] = useState("");
   const [txtRating, setTxtRating] = useState("");
   const [ingredients, setIngredients] = useState([""]);
-  const [instruction, setInstruction] = useState([""]);
+  const [instructions, setInstructions] = useState([""]);
 
   const addIngredient = () => {
     setIngredients([...ingredients, ""]);
   };
 
   const addInstruction = () => {
-    setInstruction([...instruction, ""]);
+    setInstructions([...instructions, ""]);
   };
 
-  const handleIngredienteChange = (text, index) => {
-    const newIngredientes = [...ingredientes];
-    newIngredientes[index] = text;
-    setIngredientes(newIngredientes);
+  const handleIngredientChange = (text, index) => {
+    const newIngredients = [...ingredients];
+    newIngredients[index] = text;
+    setIngredients(newIngredients);
   };
 
-  const handlePassoChange = (text, index) => {
-    const newPassos = [...passos];
-    newPassos[index] = text;
-    setPassos(newPassos);
+  const handleInstructionChange = (text, index) => {
+    const newInstructions = [...instructions];
+    newInstructions[index] = text;
+    setInstructions(newInstructions);
   };
 
-
-  const handleImagemChange = (event) => {
+  const handleImageChange = (event) => {
     const file = event.target.files[0];
-    setImagem(file);
+    setImage(file);
   };
 
   const userId = useUserLoggedStore((state) => state.id);
 
-  const postReceita = async () => {
+  const postRecipe = async () => {
     try {
       setIsLoading(true);
       const form = document.querySelector("#form-sign-in");
       const formData = new FormData(form);
       formData.append("userId", userId);
       formData.append("name", txtName);
-      formData.append("descricao", txtDescricao);
-      formData.append("porcoes", txtPorcao);
-      formData.append("tempo", txtTempo);
-      formData.append("avaliacao", txtAvaliacao);
-      formData.append("imagem", imagem);
+      formData.append("description", txtDescription);
+      formData.append("portions", txtPortion);
+      formData.append("time", txtTime);
+      formData.append("rating", txtRating);
+      formData.append("image", image);
       formData.append(
-        "ingredientes",
-        ingredientes.filter((ingrediente) => ingrediente !== "").join(";")
+        "ingredients",
+        ingredients.filter((ingredient) => ingredient !== "").join(";")
       );
 
       formData.append(
-        "instrucao",
-        passos.filter((passo) => passo !== "").join(";")
+        "instruction",
+        instructions.filter((instruction) => instruction !== "").join(";")
       );
-
-
 
       const result = await authFetch(
-        "https://backcooking.onrender.com/receita",
+        "https://backcooking.onrender.com/recipe",
 
         {
           method: "POST",
@@ -93,106 +90,101 @@ const CreateRecipe = () => {
       console.log("Status: ", result.status);
       console.log("Resposta do servidor: ", text);
 
-      if(result.status === 401){
-        navigate("/login")
+      if (result.status === 401) {
+        navigate("/login");
       }
       if (result.ok) {
         console.log("Receita publicada!");
         navigate("/home");
-      } 
+      }
     } catch (error) {
       console.error("Error postReceita: " + error.message);
       alert(error.message);
     } finally {
-      setIsLoading(false)
+      setIsLoading(false);
     }
   };
 
-
   return (
-    <div className="container-editar-receita">
-      <h1 className="titulo-criar">Crie sua receita!</h1>
+    <div className="container-edit-recipe">
+      <h1 className="title-create">Crie sua receita!</h1>
 
       <form
         method="post"
         id="form-sign-in"
-        className="form-criar-receita"
+        className="form-create-recipe"
         encType="multipart/form-data"
       >
         <input
-          className="input-criar"
+          className="input-create"
           type="text"
           placeholder="Título da Receita"
           onChange={(e) => setTxtName(e.target.value)}
           value={txtName}
         />
         <textarea
-          className="inputDesc"
+          className="input-desc"
           placeholder="Compartilhe um pouco mais sobre o seu prato. O que você gosta nele?"
-          onChange={(e) => setTxtDescricao(e.target.value)}
-          value={txtDescricao}
+          onChange={(e) => setTxtDescription(e.target.value)}
+          value={txtDescription}
         />
 
-        <h2 className="subtitulo-criar">Ingredientes</h2>
-        {ingredientes.map((ingrediente, index) => (
+        <h2 className="subtitle-create">Ingredientes</h2>
+        {ingredients.map((ingredient, index) => (
           <input
             key={index}
-            className="input-criar"
+            className="input-create"
             type="text"
             placeholder="250g de açúcar"
-            onChange={(e) => handleIngredienteChange(e.target.value, index)}
-            value={ingrediente}
+            onChange={(e) => handleIngredientChange(e.target.value, index)}
+            value={ingredient}
           />
         ))}
 
-        <AddBtn
-     
-          title={"Adicionar Ingrediente"}
-          onClick={addIngrediente}
-        />
+        <AddBtn title={"Adicionar Ingrediente"} onClick={addIngredient} />
 
-        <h2 className="subtitulo-criar">Passo a passo</h2>
-        {passos.map((passo, index) => (
-          <div key={index} className="passoContainer">
-            <span className="passoNumero">{index + 1}.</span>
+        <h2 className="subtitle-create">Passo a passo</h2>
+        {instructions.map((instruction, index) => (
+          <div key={index} className="instructionContainer">
+            <span className="instructionNumber">{index + 1}.</span>
             <textarea
-              className="inputPasso"
+              className="inputInstruction"
               placeholder="Misture a massa até se tornar homogênea."
-              onChange={(e) => handlePassoChange(e.target.value, index)}
-              value={passo}
+              onChange={(e) => handleInstructionChange(e.target.value, index)}
+              value={instruction}
             />
           </div>
         ))}
 
-        <AddBtn title={"Adicionar Passo"} onClick={addPasso} />
+        <AddBtn title={"Adicionar Passo"} onClick={addInstruction} />
 
-        <label className="label-criar-receita">Porções</label>
+        <label className="label-create-recipe">Porções</label>
         <input
-          className="input-criar"
+          className="input-create"
           type="text"
           placeholder="2 pessoas"
-          onChange={(e) => setTxtPorcao(e.target.value)}
-          value={txtPorcao}
+          onChange={(e) => setTxtPortion(e.target.value)}
+          value={txtPortion}
         />
 
-        <label  className="label-criar-receita">Tempo de preparo</label>
+        <label className="label-create-recipe">Tempo de preparo</label>
         <input
-          className="input-criar"
+          className="input-create"
           type="text"
           placeholder="1h e 30min"
-          onChange={(e) => setTxtTempo(e.target.value)}
-          value={txtTempo}
+          onChange={(e) => setTxtTime(e.target.value)}
+          value={txtTime}
         />
 
-        <label  className="label-criar-receita">Avaliação</label>
+        <label className="label-create-recipe">Avaliação</label>
         <input
-          className="input-criar"
+          className="input-create"
           type="text"
           placeholder="4.5"
-          onChange={(e) => setTxtAvaliacao(e.target.value)}
-          value={txtAvaliacao}
+          onChange={(e) => setTxtRating(e.target.value)}
+          value={txtRating}
         />
-        
+
         <div className="input-file-wrapper">
           <input
             id="file-upload"
@@ -200,33 +192,27 @@ const CreateRecipe = () => {
             required
             type="file"
             className="input-file"
-            onChange={handleImagemChange}
+            onChange={handleImageChange}
           ></input>
-          
-          {imagem ? (
+
+          {image ? (
             <img
               className="img-preview"
-              src={URL.createObjectURL(imagem)}
+              src={URL.createObjectURL(image)}
               alt="Imagem da receita"
             />
-
-
-
           ) : (
             <label htmlFor="file" className="input-file-label">
               Escolha uma foto para sua receita!
             </label>
           )}
-          
         </div>
         {isLoading ? (
-       <p>Carregando...</p>
-      ) : (
-        <Button title={"Publicar"} onClick={postReceita} />
-      )}
+          <p>Carregando...</p>
+        ) : (
+          <Button title={"Publicar"} onClick={postRecipe} />
+        )}
       </form>
-    
-        
     </div>
   );
 };

@@ -52,8 +52,8 @@ const ForgotPassword = () => {
   };
 
   return (
-    <div className="esqueciContainer">
-      <h1 className="titulo">Esqueceu a senha?</h1>
+    <div className="forgotContainer">
+      <h1 className="title">Esqueceu a senha?</h1>
       <input
         type="email"
         placeholder="E-mail"
@@ -61,7 +61,7 @@ const ForgotPassword = () => {
         value={txtEmail}
         onChange={(e) => setTxtEmail(e.target.value)}
       />
-      <p className="esqueci-senha-p">
+      <p className="forgot-password-p">
         Um e-mail será enviado para sua caixa de entrada. Verifique os spams.
       </p>
       {isLoading ? (

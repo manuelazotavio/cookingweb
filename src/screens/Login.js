@@ -73,7 +73,7 @@ const Login = () => {
 
   return (
     <div className="loginContainer">
-      <h1 className="titulo">Login</h1>
+      <h1 className="title">Login</h1>
       <input
         type="email"
         placeholder="Email"
@@ -103,7 +103,7 @@ const Login = () => {
             onClick={() => navigate("/sign-in")}
             title="Cadastrar"
           />
-          <a onClick={() => navigate("/forgot-password")} className="paragrafo">
+          <a onClick={() => navigate("/forgot-password")} className="paragraph">
             Esqueceu a senha?
           </a>
         </>

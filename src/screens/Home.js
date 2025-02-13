@@ -13,7 +13,7 @@ const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [recipes, setRecipes] = useState([]);
   const [favoriteRecipes, setFavoriteRecipes] = useState([]);
-  const [favoritas, setFavorites] = useState([]);
+  const [favorites, setFavorites] = useState([]);
 
   const navigate = useNavigate();
 
@@ -112,7 +112,7 @@ const Home = () => {
   if (recipes.length === 0) {
     return (
       <div className="containerSplash">
-        <h1 className="titulo-home">Suas receitas</h1>
+        <h1 className="title-home">Suas receitas</h1>
         <p className="splash">Você ainda não criou nenhuma receita.</p>
         <AddBtn
           title={"Criar"}
@@ -124,7 +124,7 @@ const Home = () => {
 
   return (
     <div className="container-home">
-      <h1 className="titulo-home">Suas receitas</h1>
+      <h1 className="title-home">Suas receitas</h1>
       <input
         type="text"
         placeholder="Pesquisar receitas..."
@@ -137,7 +137,7 @@ const Home = () => {
       ) : (
         <ListRecipes recipes={recipes} />
       )}
-      <h1 id="receitasFav" className="tituloFav">
+      <h1 id="recipesFav" className="titleFav">
         Receitas favoritas
       </h1>
       <ListRecipes recipes={favoriteRecipes} />

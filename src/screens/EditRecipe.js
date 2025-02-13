@@ -13,7 +13,7 @@ import {
   faClock,
 } from "@fortawesome/free-solid-svg-icons";
 import isAuth from "../helpers/authOkay.js";
-import { useNavigate } from "react-router-dom"; // Importando useNavigate
+import { useNavigate } from "react-router-dom"; 
 import AddBtn from "../components/AddBtn.js";
 
 const EditRecipe = () => {
@@ -33,9 +33,9 @@ const EditRecipe = () => {
   const [txtTime, setTxtTime] = useState(recipe.time);
   const [txtRating, setTxtRating] = useState(recipe.rating);
   const [ingredients, setIngredients] = useState(recipe.ingredients.split(";"));
-  const [instructions, setInstruction] = useState(
+  const [instructions, setInstructions] = useState(
     recipe.instruction.split(";")
-  );
+  );s
 
   const addIngredient = () => {
     setIngredients([...ingredients, ""]);
@@ -48,7 +48,7 @@ const EditRecipe = () => {
   };
 
   const addInstruction = () => {
-    setInstruction([...instructions, ""]);
+    setInstructions([...instructions, ""]);
   };
 
   const handleIngredientChange = (text, index) => {
@@ -60,7 +60,7 @@ const EditRecipe = () => {
   const handleInstructionChange = (text, index) => {
     const newInstructions = [...instructions];
     newInstructions[index] = text;
-    setPassos(newInstructions);
+    setInstructions(newInstructions);
   };
 
   const editRecipe = async () => {
@@ -107,33 +107,33 @@ const EditRecipe = () => {
   };
 
   return (
-    <div className="container-editar-receita">
-      <h1 className="titulo-criar">Crie sua receita!</h1>
+    <div className="container-edit-recipe">
+      <h1 className="title-create">Crie sua receita!</h1>
       <form
         method="post"
         id="form-edit"
-        className="form-criar-receita"
+        className="form-create-recipe"
         encType="multipart/form-data"
       >
         <input
-          className="input-criar"
+          className="input-create"
           type="text"
           placeholder="Título da Receita"
           onChange={(e) => setTxtName(e.target.value)}
           value={txtName}
         />
         <textarea
-          className="inputDesc"
+          className="input-desc"
           placeholder="Compartilhe um pouco mais sobre o seu prato. O que você gosta nele?"
           onChange={(e) => setTxtDescription(e.target.value)}
           value={txtDescription}
         />
 
-        <h2 className="subtitulo-criar">Ingredientes</h2>
+        <h2 className="subtitle-create">Ingredientes</h2>
         {ingredients.map((ingredient, index) => (
           <input
             key={index}
-            className="input-criar"
+            className="input-create"
             type="text"
             placeholder="250g de açúcar"
             onChange={(e) => handleIngredientChange(e.target.value, index)}
@@ -143,12 +143,12 @@ const EditRecipe = () => {
 
         <AddBtn title={"Adicionar Ingrediente"} onClick={addIngredient} />
 
-        <h2 className="subtitulo-criar">Passo a passo</h2>
+        <h2 className="subtitle-create">Passo a passo</h2>
         {instructions.map((instruction, index) => (
-          <div key={index} className="passoContainer">
-            <span className="passoNumero">{index + 1}.</span>
+          <div key={index} className="instructionContainer">
+            <span className="instructionNumber">{index + 1}.</span>
             <textarea
-              className="inputPasso"
+              className="inputInstruction"
               placeholder="Misture a massa até se tornar homogênea."
               onChange={(e) => handleInstructionChange(e.target.value, index)}
               value={instruction}
@@ -160,7 +160,7 @@ const EditRecipe = () => {
 
         <label>Porções</label>
         <input
-          className="input-criar"
+          className="input-create"
           type="text"
           placeholder="2 pessoas"
           onChange={(e) => setTxtPortion(e.target.value)}
@@ -169,7 +169,7 @@ const EditRecipe = () => {
 
         <label>Tempo de preparo</label>
         <input
-          className="input-criar"
+          className="input-create"
           type="text"
           placeholder="1h e 30min"
           onChange={(e) => setTxtTime(e.target.value)}
@@ -178,7 +178,7 @@ const EditRecipe = () => {
 
         <label>Avaliação</label>
         <input
-          className="input-criar"
+          className="input-create"
           type="text"
           placeholder="4.5"
           onChange={(e) => setTxtRating(e.target.value)}
@@ -189,7 +189,7 @@ const EditRecipe = () => {
             id="file-upload"
             accept="image/*"
             type="file"
-            className="input-file-editar-receita"
+            className="input-file-edit-recipe"
             onChange={handleImageChange}
           ></input>
 

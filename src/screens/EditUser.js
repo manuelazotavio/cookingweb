@@ -108,21 +108,21 @@ const EditUser = () => {
 
   return (
     <div className="edit-container">
-      <h1 className="titulo">Editar usuário</h1>
+      <h1 className="title">Editar usuário</h1>
       <form
         method="post"
         id="form-sign-in-user"
-        className="form-criar-user"
+        className="form-create-user"
         encType="multipart/form-data"
       >
         <input
-          className="input-editar-user"
+          className="input-edit-user"
           placeholder="Nome..."
           onChange={(e) => setTxtName(e.target.value)}
           value={txtName}
         />
         <input
-          className="input-editar-user"
+          className="input-edit-user"
           placeholder="Email..."
           onChange={(e) => setTxtEmail(e.target.value)}
           value={txtEmail}

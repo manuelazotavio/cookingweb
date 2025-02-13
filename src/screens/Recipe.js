@@ -156,48 +156,48 @@ const Recipe = () => {
   };
 
   return (
-    <div className="tela-receita-container">
+    <div className="tela-recipe-container">
       <div className="content-wrapper">
         <img
           src={recipe.image}
           alt={recipe.name}
-          className="imagem-receita"
+          className="image-recipe"
         />
         <div>
-          <div className="card-tela-receita">
-            <h2 className="titulo-receita-tela">{recipe.name}</h2>
-            <div className="info-container-receita">
-              <p className="p-receita">
+          <div className="card-screen-recipe">
+            <h2 className="title-recipe-screen">{recipe.name}</h2>
+            <div className="info-container-recipe">
+              <p className="p-recipe">
                 <FontAwesomeIcon icon={faClock} size="19" color="#FF421D" />
-                <span className="tempo">{recipe.time}</span>
+                <span className="time">{recipe.time}</span>
               </p>
-              <p className="p-receita">
+              <p className="p-recipe">
                 <FontAwesomeIcon icon={faStar} color="#F7D342" size="23" />
-                <span className="avaliacao">{recipe.rating}</span>
+                <span className="rating">{recipe.rating}</span>
               </p>
-              <p className="p-receita">
+              <p className="p-recipe">
                 <FontAwesomeIcon icon={faUser} color="#9EA69E" size="19" />
-                <span className="porcoes">{recipe.portions}</span>
+                <span className="portions">{recipe.portions}</span>
               </p>
             </div>
-            <p className="descricao">{recipe.description}</p>
+            <p className="description">{recipe.description}</p>
           </div>
 
           <div className="icon-container">
-            <a className="icone" onClick={showModal}>
+            <a className="icon" onClick={showModal}>
               <FontAwesomeIcon icon={faTrashCan} size={19} />
             </a>
             {isFavorited ? (
-              <a className="icone" onClick={favRecipeRemove}>
+              <a className="icon" onClick={favRecipeRemove}>
                 <FontAwesomeIcon icon={faHeart} size={19} color="#d31717" />
               </a>
             ) : (
-              <a className="icone" onClick={favRecipe}>
+              <a className="icon" onClick={favRecipe}>
                 <FontAwesomeIcon icon={faHeart} size={19} color="#8a8a8a" />{" "}
               </a>
             )}
             <a
-              className="icone"
+              className="icon"
               onClick={() =>
                 navigate("/edit-recipe", { state: { recipe, userId } })
               }
@@ -208,18 +208,18 @@ const Recipe = () => {
         </div>
       </div>
       <div className="card-info">
-        <h3 className="subtitulo-receita">Ingredientes</h3>
-        <div className="ingredientes">
+        <h3 className="subtitle-recipe">Ingredientes</h3>
+        <div className="ingredients">
           {recipe.ingredients.split(";").map((ingredient, index) => (
-            <p className="p-receita" key={index}>
+            <p className="p-recipe" key={index}>
               {ingredient}
             </p>
           ))}
         </div>
-        <h3 className="subtitulo-receita">Passo a Passo</h3>
-        <div className="instrucoes">
+        <h3 className="subtitle-recipe">Passo a Passo</h3>
+        <div className="instructions">
           {recipe.instruction.split(";").map((step, index) => (
-            <p className="p-receita" key={index}>
+            <p className="p-recipe" key={index}>
               <strong>{`${index + 1}. `}</strong>
               {step}
             </p>
@@ -228,7 +228,7 @@ const Recipe = () => {
       </div>
       {modalVisible && (
         <div className="modal">
-          <p className="p-receita">Tem certeza?</p>
+          <p className="p-recipe">Tem certeza?</p>
           <button onClick={removeRecipe}>Sim, remover receita</button>
           <button onClick={() => setModalVisible(false)}>Cancelar</button>
         </div>

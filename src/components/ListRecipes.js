@@ -2,12 +2,12 @@ import React from 'react';
 import CardRecipe from './CardRecipe';
 import '../styles/ListaReceitas.css'; 
 
-const ListRecipes = ({ receitas }) => {
+const ListRecipes = ({ recipes }) => {
   return (
-    <div className="list-receita">
+    <div className="list-recipe">
       
-        {receitas.map((item) => (
-          <CardRecipe key={item.id} receita={item} />
+        {recipes.map((item) => (
+          <CardRecipe key={item.id} recipe={item} />
         ))}
      
     </div>
