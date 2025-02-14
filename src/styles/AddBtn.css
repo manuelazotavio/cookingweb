@@ -1,22 +1,22 @@
-.custom-button {
+.add-button {
   display: flex;
-  align-items: center; /* Alinhando os itens verticalmente */
-  justify-content: center; /* Centralizando os itens horizontalmente */
-  background-color: #f2c40e; /* Cor de fundo */
-  border: none; /* Sem bordas */
-  border-radius: 20px; /* Bordas arredondadas */
-  padding: 8px 28px; /* Padding vertical e horizontal */
-  cursor: pointer; /* Mudar o cursor ao passar o mouse */
-  margin: 8px auto; /* Margem vertical e centralizando */
-  width: 200px; /* Largura do botão */
+  align-items: center; 
+  justify-content: center; 
+  background-color: #f2c40e; 
+  border: none; 
+  border-radius: 20px; 
+  padding: 8px 28px; 
+  cursor: pointer; 
+  margin: 8px auto; 
+  width: 200px; 
 }
 
 .text-button {
-  color: #FFF; /* Cor do texto */
-  font-family: 'Poppins', sans-serif; /* Fonte utilizada */
-  margin-left: 8px; /* Margem à esquerda para separar ícone do texto */
+  color: #FFF; 
+  font-family: 'Poppins', sans-serif; 
+  margin-left: 8px; 
 }
 
 .icon {
-  margin-right: 8px; /* Margem à direita para separar ícone do texto */
+  margin-right: 8px; 
 }

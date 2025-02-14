@@ -4,7 +4,7 @@ import '../styles/AddBtn.css';
 
 const AddBtn = ({ title, onClick }) => {
   return (
-    <button type='button' className="custom-button" onClick={onClick}>
+    <button type='button' className="add-button" onClick={onClick}>
       <FaPlus className="icon" />
       <span className="text-button">{title}</span>
     </button>
