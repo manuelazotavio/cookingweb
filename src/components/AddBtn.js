@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaPlus } from 'react-icons/fa'; 
-import '../styles/AdicionarBtn.css';
+import '../styles/AddBtn.css';
 
 const AddBtn = ({ title, onClick }) => {
   return (

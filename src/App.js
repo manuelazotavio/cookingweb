@@ -15,6 +15,10 @@ import EditRecipe from "./screens/EditRecipe.js";
 import EditUser from "./screens/EditUser.js";
 import ForgotPassword from "./screens/ForgotPassword.js";
 import Recipe from "./screens/Recipe.js";
+import ValidToken from "./screens/ValidToken.js";
+import Splash from "./screens/Splash.js";
+import LandingPage from "./screens/LandingPage.js";
+import Footer from "./components/Footer.js";
 
 
 

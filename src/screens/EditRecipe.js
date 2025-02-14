@@ -2,15 +2,12 @@ import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import authFetch from "../helpers/authFetch.js";
 import Button from "../components/Button.js";
-import "../styles/EditarReceita.css";
+import "../styles/EditRecipe.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faStar,
-  faHeart,
+ 
   faPencil,
-  faTrashCan,
-  faUser,
-  faClock,
+ 
 } from "@fortawesome/free-solid-svg-icons";
 import isAuth from "../helpers/authOkay.js";
 import { useNavigate } from "react-router-dom"; 
@@ -27,7 +24,7 @@ const EditRecipe = () => {
     navigate("/login");
   }
 
-  const [txtName, setTxtName] = useState(receita.name);
+  const [txtName, setTxtName] = useState(recipe.name);
   const [txtDescription, setTxtDescription] = useState(recipe.description);
   const [txtPortion, setTxtPortion] = useState(recipe.portions);
   const [txtTime, setTxtTime] = useState(recipe.time);
@@ -35,7 +32,7 @@ const EditRecipe = () => {
   const [ingredients, setIngredients] = useState(recipe.ingredients.split(";"));
   const [instructions, setInstructions] = useState(
     recipe.instruction.split(";")
-  );s
+  );
 
   const addIngredient = () => {
     setIngredients([...ingredients, ""]);

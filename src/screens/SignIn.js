@@ -1,17 +1,12 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "../styles/Cadastrar.css";
+import "../styles/SignIn.css";
 import loading from "../img/loading.gif";
 import Swal from "sweetalert2";
 import Button from "../components/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faStar,
-  faHeart,
   faPencil,
-  faTrashCan,
-  faUser,
-  faClock,
 } from "@fortawesome/free-solid-svg-icons";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 

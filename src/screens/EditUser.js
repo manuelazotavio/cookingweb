@@ -7,7 +7,7 @@ import {
   faPencil,
 } from "@fortawesome/free-solid-svg-icons";
 import isAuth from "../helpers/authOkay.js";
-import "../styles/EditarUser.css";
+import "../styles/EditUser.css";
 import { useNavigate } from "react-router-dom"; 
 
 const EditUser = () => {

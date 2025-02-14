@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import loading from "../img/loading.gif";
 import Button from "../components/Button.js";
-import "../styles/ValidToken.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import SignBtn from "../components/SignBtn.js";

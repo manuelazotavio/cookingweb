@@ -1,9 +1,9 @@
-import React, { useEffect, useState, useCallback } from "react";
+import React, {  useState } from "react";
 import Modal from "react-modal";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import loading from "../img/loading.gif";
-import "../styles/EsqueciSenha.css";
+import "../styles/ForgotPassword.css";
 import Button from "../components/Button";
 
 const ForgotPassword = () => {
