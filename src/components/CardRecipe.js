@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/CardReceita.css";
+import "../styles/CardRecipe.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar, faUser, faClock } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
@@ -17,7 +17,7 @@ const CardRecipe = ({ recipe }) => {
       <img
         src={recipe.image}
         alt={recipe.name}
-        className="foto-img"
+        className="img"
       />
       <h3 className="title-recipe">{recipe.name}</h3>
       <div className="info-container">

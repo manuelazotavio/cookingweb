@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import authFetch from "../helpers/authFetch.js";
 import { useNavigate } from "react-router-dom";
-import "../styles/CriarReceita.css";
+import "../styles/CreateRecipe.css";
 import AddBtn from "../components/AddBtn.js";
 import useUserLoggedStore from "../stores/useUserLoggedStore.js";
 import Button from "../components/Button.js";

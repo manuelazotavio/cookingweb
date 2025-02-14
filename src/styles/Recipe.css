@@ -3,7 +3,7 @@ body{
 
 }
 
-.tela-receita-container {
+.screen-recipe-container {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -13,7 +13,7 @@ body{
  
   }
   
-  .foto-img {
+  .img {
     width: 600px;
     height: 400px;
     border-radius: 20px;
@@ -34,7 +34,7 @@ body{
     margin-top: 30px;
   }
 
-  .card-tela-receita{
+  .card-screen-recipe{
     background-color: rgb(255, 255, 255);
     padding: 25px;
     border-radius: 15px;
@@ -50,7 +50,7 @@ body{
     width: 550px;
   }
 
-  .imagem-receita {
+  .image-recipe {
     width: 100%;
     max-width: 600px;
     max-height: 400px;
@@ -59,7 +59,7 @@ body{
     object-fit: cover;
   }
   
-  .titulo-receita-tela {
+  .title-recipe-screen {
     font-size: 26px;
     font-family: 'Poppins', sans-serif;
     font-size: 18px;
@@ -72,7 +72,7 @@ body{
     overflow-wrap: break-word; 
   }
   
-  .info-container-receita {
+  .info-container-recipe {
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -83,26 +83,26 @@ body{
     margin: 0;
   }
   
-  .descricao {
+  .description {
     margin: 0;
   }
 
-  .icone{
+  .icon{
     cursor: pointer;
   }
   
-  .subtitulo-receita {
+  .subtitle-recipe {
     font-size: 18px;
     margin: 0;
     font-family: 'Poppins';
     font-weight: 800;
   }
   
-  .ingredientes,
-  .instrucoes {
+  .ingredients,
+  .instructions {
     padding: 5px 0px;
   }
-  .icone:hover{
+  .icon:hover{
 
       transform: scale(1.05);
       transition: 0.5s;
@@ -136,7 +136,7 @@ body{
     
   }
 
-  .porcoes, .avaliacao, .tempo{
+  .portions, .rating, .time{
     font-family: 'Poppins';
     font-weight: 600;
     font-size: 13px;

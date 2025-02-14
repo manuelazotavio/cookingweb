@@ -21,7 +21,7 @@
 }
 
 
-.tituloHeader {
+.titleHeader {
   font-family: 'Poppins';
   font-weight: 800;
   font-size: 20px;
@@ -30,14 +30,9 @@
 }
 
 .logo {
-  width: 80px;
-  height: 80px;
-  margin-bottom: 10px;
-}
-
-.marca{
   width: 100px;
   height: 100px;
+ 
 }
 
 .nav-list {
@@ -47,7 +42,7 @@
   margin: 0;
   gap: 15px;
 }
-.nav-list.hidden.deslogado{
+.nav-list.hidden.logged-out{
   display: none;
   flex-direction: column;
   position: absolute;
@@ -61,7 +56,7 @@
   z-index: 999;
 }
 
-.nav-list-3.deslogado{
+.nav-list-3.logged-out{
   display: flex;
   list-style: none;
   padding: 0;
@@ -69,7 +64,7 @@
   gap: 15px;
 }
 
-.nav-list-3.logado{
+.nav-list-3.logged{
   display: none;
   flex-direction: column;
   position: absolute;
@@ -91,7 +86,7 @@
   gap: 15px;
 }
 
-.nav-list-2.hidden.logado{
+.nav-list-2.hidden.logged{
   display: none;
   flex-direction: column;
   position: absolute;
@@ -137,7 +132,6 @@
   display: none;
 }
 
-/* Responsividade */
 @media (max-width: 768px) {
   .burger-menu {
     display: flex;
@@ -145,7 +139,7 @@
     cursor: pointer;
   }
 
-  .nav-list-3.deslogado{
+  .nav-list-3.logged-out{
     display: none;
     flex-direction: column;
     position: absolute;
@@ -186,19 +180,14 @@
     z-index: 999;
   }
 
-  /* .nav-list-2.visible.deslogado {
-    display: flex;
-    border: #dddddd 1px solid;
-    border-radius: 10px;
-  } */
 
-  .nav-list-3.visible.deslogado {
+  .nav-list-3.visible.logged-out {
     display: flex;
     border: #dddddd 1px solid;
     border-radius: 10px;
   }
 
-  .nav-list.visible.logado {
+  .nav-list.visible.logged {
     display: flex;
     border: #dddddd 1px solid;
     border-radius: 10px;

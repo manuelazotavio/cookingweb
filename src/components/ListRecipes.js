@@ -1,6 +1,6 @@
 import React from 'react';
 import CardRecipe from './CardRecipe';
-import '../styles/ListaReceitas.css'; 
+import '../styles/ListRecipes.css'; 
 
 const ListRecipes = ({ recipes }) => {
   return (

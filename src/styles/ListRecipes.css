@@ -1,34 +1,31 @@
-/* Estilo para o contêiner da lista de receitas */
-.list-receita {
+
+.list-recipe {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Responsivo */
-  gap: 20px; /* Espaçamento entre os itens */
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+  gap: 20px; 
   padding: 20px;
-  justify-content: center; /* Centraliza os itens horizontalmente */
+  justify-content: center; 
 }
 
-
-
-/* Media queries para ajustar o número de colunas em diferentes tamanhos de tela */
 @media (min-width: 768px) {
-  .list-receita {
-    grid-template-columns: repeat(2, 1fr); /* 2 colunas em telas médias */
+  .list-recipe{
+    grid-template-columns: repeat(2, 1fr); 
   }
 }
 
 @media (min-width: 1024px) {
-  .list-receita {
-    grid-template-columns: repeat(3, 1fr); /* 3 colunas em telas grandes */
+  .list-recipe {
+    grid-template-columns: repeat(3, 1fr); 
   }
 }
 
 @media (max-width: 422px) {
-  .list-receita {
+  .list-recipe {
     display: flex;
     flex-direction: column;
     margin: 20px;
-    align-items: center; /* Centraliza os itens verticalmente */
-    padding: 10px; /* Ajusta o padding para telas menores */
+    align-items: center; 
+    padding: 10px; 
   }
 
   

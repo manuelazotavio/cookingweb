@@ -10,7 +10,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import authFetch from "../helpers/authFetch";
 import isAuth from "../helpers/authOkay";
-import "../styles/Receita.css";
+import "../styles/Recipe.css";
 import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
@@ -156,7 +156,7 @@ const Recipe = () => {
   };
 
   return (
-    <div className="tela-recipe-container">
+    <div className="screen-recipe-container">
       <div className="content-wrapper">
         <img
           src={recipe.image}

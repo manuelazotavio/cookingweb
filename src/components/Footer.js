@@ -17,7 +17,7 @@ const Footer = () => {
             <Link to="/home"><strong>Baixe o App</strong></Link>
           </li>
           <li className="nav-item">
-            <Link to="/criar-receita"><strong>Precisa de ajuda?</strong></Link>
+            <Link to="/create-recipe"><strong>Precisa de ajuda?</strong></Link>
           </li>
         </ul>
         

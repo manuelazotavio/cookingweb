@@ -1,5 +1,5 @@
 
-.cadastrar-container {
+.sign-in-container {
   width: 100%;
     display: flex;
     flex-direction: column;
@@ -22,7 +22,7 @@
   cursor: pointer;
 }
 
-.password-container-cadastrar {
+.password-container-sign-in {
   width: 100%;
     margin-left: 40px;
     display: flex;
@@ -41,7 +41,7 @@
 
 }
 
-.label-criar-receita{
+.label-create-recipe{
   align-self: flex-start;
   justify-content: flex-start;
 }
@@ -58,7 +58,7 @@
   font-size: 16px;
 }
 
-.form-cadastrar{
+.form-sign-in{
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -70,7 +70,7 @@
   background-color: #e0e0e0;
 }
 
-.titulo {
+.title {
   font-family: 'Poppins', sans-serif;
   font-size: 30px;
   font-weight: 800;
@@ -78,7 +78,7 @@
   margin-bottom: 20px;
 }
 
-.form-criar-user {
+.form-create-user {
   display: flex;
   flex-direction: column;
   width: 50%;
@@ -106,24 +106,8 @@ input {
 }
 
 
-.button-cadastrar {
-  width: 100%;
-  padding: 10px;
-  border-radius: 5px;
-  border: none;
-  background-color: #007bff;
-  color: white;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-.button-cadastrar:hover {
-  background-color: #0056b3;
-}
-
-
 @media (max-width: 700px) {
-  .cadastrar-container {
+  .sign-in-container {
     display: flex;
     flex-direction: column;
     justify-content: center;

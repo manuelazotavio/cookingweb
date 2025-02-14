@@ -48,7 +48,7 @@ const ValidToken = () => {
 
   return (
     <div className="loginContainer">
-      <h1 className="titulo">Escolha sua nova senha</h1>
+      <h1 className="title">Escolha sua nova senha</h1>
       <div className="password-container">
         <input
           className="input"

@@ -77,29 +77,29 @@ const SignIn = () => {
   };
 
   return (
-    <div className="cadastrar-container">
-      <h1 className="titulo">Cadastrar</h1>
+    <div className="sign-in-container">
+      <h1 className="title">Cadastrar</h1>
       <form
         method="post"
         id="form-sign-in-user"
-        className="form-cadastrar"
+        className="form-sign-in"
         encType="multipart/form-data"
       >
         <input
-          className="input-cadastrar"
+          className="input-sign-in"
           placeholder="Nome..."
           onChange={(e) => setTxtName(e.target.value)}
           value={txtName}
         />
         <input
-          className="input-cadastrar"
+          className="input-sign-in"
           placeholder="Email..."
           onChange={(e) => setTxtEmail(e.target.value)}
           value={txtEmail}
         />
         <div className="password-container-cadastrar">
           <input
-            className="input-cadastrar"
+            className="input-sign-in"
             type={showPassword ? "text" : "password"}
             placeholder="Senha"
             value={txtPass}

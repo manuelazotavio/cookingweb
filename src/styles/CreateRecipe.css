@@ -1,4 +1,4 @@
-.container-criar {
+.container-create {
   
   width: 100%;
   display: flex;
@@ -9,7 +9,7 @@
 
   
 }
-  .titulo-criar {
+  .title-create {
     font-size: 2rem;
     font-weight: bold;
     margin-bottom: 20px;
@@ -17,14 +17,14 @@
     font-weight: 800;
   }
   
-  .subtitulo-criar{
+  .subtitle-create{
     font-family:'Poppins';
     font-weight: 600;
     align-self: flex-start;
   }
  
 
-  .form-criar-receita {
+  .form-create-recipe {
     display: flex;
   flex-direction: column;
   font-weight: 600;
@@ -34,7 +34,7 @@
   align-items: center;
   }
   
-  .input-criar, .inputDesc, .inputPasso {
+  .input-create, .input-desc, .inputInstruction {
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
@@ -44,24 +44,24 @@
     background-color: #555;
   }
   
-  .inputDesc {
+  .input-desc {
     height: 100px;
     font-family: 'Poppins', sans-serif;
   }
   
-  .inputPasso {
+  .inputInstruction {
     height: 60px;
     font-family: 'Poppins', sans-serif;
   }
   
   
-  .passoContainer {
+  .instructionContainer {
     display: flex;
     align-items: flex-start;
     width: 100%;
   }
   
-  .passoNumero {
+  .instructionNumber{
     font-family: 'Poppins', sans-serif;
     margin-right: 10px;
     font-weight: 600;
@@ -99,21 +99,6 @@
   margin-top: 10px;
 }
 
-.custom-file-label {
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: #4CAF50;
-  color: white;
-  cursor: pointer;
-  border-radius: 5px;
-  transition: background-color 0.3s;
-  margin-bottom: 10px;
-}
-
-.custom-file-label:hover {
-  background-color: #45a049;
-}
-
 .image-preview {
   display: flex;
   flex-direction: column;
@@ -145,7 +130,7 @@
   }
 
   @media (max-width: 720px){
-    .form-criar-receita{
+    .form-create-recipe{
       width: 70%
     }
   }

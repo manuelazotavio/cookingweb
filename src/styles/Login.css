@@ -38,7 +38,7 @@
 
 }
 
-  .paragrafo{
+  .paragraph{
     font-size: 14px;
     color: rgb(85, 85, 85);
     font-family: 'Poppins';
@@ -47,7 +47,7 @@
     margin-top: 3vh;
   }
   
-  .titulo {
+  .title {
     font-family: 'Poppins', sans-serif;
     font-size: 30px;
     align-self: center;
@@ -56,11 +56,10 @@
     margin-bottom: 10px; 
   }
   
-  .descricao {
+  .description {
     padding: 10px 0;
   }
 
-/* Mobile */
 
 @media (max-width: 1120px) {
   input{

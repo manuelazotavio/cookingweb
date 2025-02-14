@@ -2,17 +2,17 @@
     background-color: #ff421d; 
     border: none; 
     border-radius: 20px; 
-    padding: 8px 28px; /* Padding vertical e horizontal */
-    width: 160px; /* Largura do botão */
-    margin: 8px auto; /* Margem vertical e centralizando */
-    color: #fff; /* Cor do texto */
-    text-align: center; /* Alinhamento do texto */
-    font-family: 'Poppins', sans-serif; /* Fonte utilizada */
-    cursor: pointer; /* Mudar o cursor ao passar o mouse */
+    padding: 8px 28px; 
+    width: 160px; 
+    margin: 8px auto; 
+    color: #fff; 
+    text-align: center; 
+    font-family: 'Poppins', sans-serif; 
+    cursor: pointer; 
     font-weight: 600;
   }
   
   .custom-button:hover {
-    opacity: 0.8; /* Efeito ao passar o mouse */
+    opacity: 0.8; 
   }
   
