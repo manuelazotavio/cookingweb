@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/CadastrarBtn.css';
+import '../styles/SignInBtn.css';
 
 const SignBtn = ({ title, onClick }) => {
   return (
