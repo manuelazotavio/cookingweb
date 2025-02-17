@@ -11,6 +11,7 @@ const LandingPage = () => {
 
  const isLogged = isAuth();
   if (isLogged) {
+    console.log("logged")
     navigate("/home");
   }
 
