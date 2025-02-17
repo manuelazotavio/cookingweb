@@ -10,7 +10,7 @@ const LandingPage = () => {
   const navigate = useNavigate();
 
  const isLogged = isAuth();
-  if (isLogged === false) {
+  if (isLogged) {
     navigate("/home");
   }
 
