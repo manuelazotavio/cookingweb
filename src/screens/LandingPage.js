@@ -4,9 +4,16 @@ import "../styles/LandingPage.css";
 import picture from "../img/chef2.png";
 import Button from "../components/Button";
 import mobile from "../img/mobile.png";
+import isAuth from '../helpers/authOkay.js'
 
 const LandingPage = () => {
   const navigate = useNavigate();
+
+ const isLogged = isAuth();
+  if (isLogged === false) {
+    navigate("/home");
+  }
+
   return (
     <div className="LpContainer">
       <div className="inicial">

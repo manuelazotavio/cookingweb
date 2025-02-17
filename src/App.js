@@ -52,7 +52,8 @@ export default function App() {
   return (
     <Router>
      <Header />
-      <Routes>
+      <Routes>  
+        <Route path="/landing-page" element={<LandingPage />} />
         <Route path="/" element={<Splash />} />
         <Route path="/login" element={<Login />} />
         <Route path="/sign-in" element={<SignIn />} />   
@@ -62,7 +63,7 @@ export default function App() {
         <Route path="/create-recipe" element={<CreateRecipe />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
-        <Route path="/landing-page" element={<LandingPage />} />
+      
         <Route path="/valid-token" element={<ValidToken />} />
         
         <Route path="/recipe" element={<Recipe />} />
