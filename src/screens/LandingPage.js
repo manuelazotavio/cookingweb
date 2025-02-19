@@ -11,11 +11,9 @@ const LandingPage = () => {
 
  const isLogged = isAuth();
   if (isLogged) {
-    console.log("logged")
+    
     navigate("/home");
-  } else {
-    console.log("n ta logado")
-  }
+  } 
 
   return (
     <div className="LpContainer">
