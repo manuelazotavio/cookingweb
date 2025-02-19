@@ -26,7 +26,7 @@ const Home = () => {
     const fetchRecipes = async () => {
       try {
         const result = await authFetch(
-          "https://backcooking.onrender.com/recipes",
+          "https://backcooking.onrender.com/recipe",
           {
             headers: {
               "Content-Type": "application/json",
