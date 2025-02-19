@@ -3,7 +3,7 @@
   "name": "Guarda-Receita",
   "icons": [
     {
-      "src": "logo.png",
+      "src": "../src/img/gr.png",
       "type": "image/png",
       "sizes": "512x512"
     }
