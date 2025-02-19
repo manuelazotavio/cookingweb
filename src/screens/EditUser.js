@@ -19,12 +19,12 @@ const EditUser = () => {
   }
 
   const location = useLocation();
-  const { userLogado } = location.state || {};
+  const { userLogged } = location.state || {};
 
-  const [txtName, setTxtName] = useState(userLogado.name);
-  const [txtEmail, setTxtEmail] = useState(userLogado.email);
-  const [avatar, setAvatar] = useState(userLogado.avatar);
-  const [avatarPreview, setAvatarPreview] = useState(userLogado.avatar);
+  const [txtName, setTxtName] = useState(userLogged.name);
+  const [txtEmail, setTxtEmail] = useState(userLogged.email);
+  const [avatar, setAvatar] = useState(userLogged.avatar);
+  const [avatarPreview, setAvatarPreview] = useState(userLogged.avatar);
 
   const handleAvatarChange = (event) => {
     const file = event.target.files[0];
@@ -41,7 +41,7 @@ const EditUser = () => {
       formData.append("avatar", avatar);
 
       const result = await authFetch(
-        `https://backcooking.onrender.com/user/${userLogado.id}`,
+        `https://backcooking.onrender.com/user/${userLogged.id}`,
         {
           method: "PUT",
           body: formData,
@@ -74,7 +74,7 @@ const EditUser = () => {
   const removeUser = async () => {
     try {
       const result = await authFetch(
-        `https://backcooking.onrender.com/user/${userLogado.id}`,
+        `https://backcooking.onrender.com/user/${userLogged.id}`,
         {
           method: "DELETE",
           headers: {

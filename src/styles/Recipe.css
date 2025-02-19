@@ -12,6 +12,13 @@ body{
   justify-content: center;
  
   }
+
+  .wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
   
   .img {
     width: 600px;
@@ -47,13 +54,12 @@ body{
     padding: 25px;
     border-radius: 15px;
     margin: 20px;
-    width: 550px;
+    width: 100%;
   }
 
   .image-recipe {
     width: 100%;
-    max-width: 600px;
-    max-height: 400px;
+    height: 250px;
     border-radius: 10px;
     margin-top: 20px;
     object-fit: cover;
@@ -143,4 +149,4 @@ body{
     margin-left: 5px;
   }
 
-  
+

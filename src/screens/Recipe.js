@@ -157,6 +157,9 @@ const Recipe = () => {
 
   return (
     <div className="screen-recipe-container">
+      <div className="wrapper">
+
+     
       <div className="content-wrapper">
         <img
           src={recipe.image}
@@ -232,7 +235,8 @@ const Recipe = () => {
           <button onClick={removeRecipe}>Sim, remover receita</button>
           <button onClick={() => setModalVisible(false)}>Cancelar</button>
         </div>
-      )}
+      )} 
+      </div>
     </div>
   );
 };
