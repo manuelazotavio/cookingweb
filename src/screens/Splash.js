@@ -25,7 +25,7 @@ const Splash = () => {
           }, 2000);
         } else {
           setTimeout(() => {
-            navigate("/login")
+            navigate("/landing-page")
           }, 2000);
         }
       } catch (error) {

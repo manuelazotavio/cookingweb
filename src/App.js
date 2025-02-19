@@ -54,6 +54,9 @@ export default function App() {
      <Header />
       <Routes>  
         <Route path="/landing-page" element={<LandingPage />} />
+
+
+        
         <Route path="/" element={<Splash />} />
         <Route path="/login" element={<Login />} />
         <Route path="/sign-in" element={<SignIn />} />   

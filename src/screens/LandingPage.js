@@ -13,6 +13,8 @@ const LandingPage = () => {
   if (isLogged) {
     console.log("logged")
     navigate("/home");
+  } else {
+    console.log("n ta logado")
   }
 
   return (
