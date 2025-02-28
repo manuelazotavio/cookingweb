@@ -106,7 +106,7 @@ const CreateRecipe = () => {
 
   return (
     <div className="container-edit-recipe">
-      <h1 className="title-create">Crie sua receita!</h1>
+      <h1 className="title-create">Crie sua receita!!!</h1>
 
       <form
         method="post"
