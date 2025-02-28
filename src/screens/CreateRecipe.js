@@ -65,7 +65,6 @@ const CreateRecipe = () => {
       formData.append("portions", txtPortion);
       formData.append("time", txtTime);
       formData.append("rating", txtRating);
-      formData.append("image", image);
       formData.append(
         "ingredients",
         ingredients.filter((ingredient) => ingredient !== "").join(";")
@@ -76,8 +75,8 @@ const CreateRecipe = () => {
         instructions.filter((instruction) => instruction !== "").join(";")
       );
 
-      const result = await authFetch(
-        "https://backcooking.onrender.com/recipe",
+      const result = await fetch(
+        "https://guardareceita2.onrender.com/recipes/new",
 
         {
           method: "POST",
