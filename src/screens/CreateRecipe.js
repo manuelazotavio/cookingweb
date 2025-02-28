@@ -79,7 +79,7 @@ const CreateRecipe = () => {
         "https://guardareceita2.onrender.com/recipes/new",
 
         {
-          method: "POST",
+          method: "GET",
           body: formData,
         },
         navigate
