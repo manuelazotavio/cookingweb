@@ -76,10 +76,10 @@ const CreateRecipe = () => {
       );
 
       const result = await fetch(
-        "https://guardareceita2.onrender.com/recipes/new",
+        "https://guardareceita2.onrender.com/recipes/",
 
         {
-          method: "GET",
+          method: "POST",
           body: formData,
         },
         navigate
