@@ -76,8 +76,7 @@ const CreateRecipe = () => {
       );
 
       const result = await fetch(
-        "https://guardareceita2.onrender.com/recipes/",
-
+        "https://backcooking.onrender.com/recipe/",
         {
           method: "POST",
           body: formData,
